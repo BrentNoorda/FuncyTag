@@ -24,7 +24,13 @@
     </div>
 
     <hr/>
-    <a href="example1_intro.js">See Source Code</a>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-js').show('fast');">See Source Code</a>
+      <div id="show-js" style="display:none;">
+        <p><b>Javascript Source Code:</b></p>
+        <iframe src="example1_intro.js" style="width:98%;height:500px;"></iframe>
+      </div>
+    </div>
 
     <hr/>
     next: <a href="example2_children.html">example2_children</a></br>
