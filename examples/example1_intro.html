@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FuncyTag Example 1: Intro</title>
+  </head>
+  <body>
+    <hr/>
+
+    <div id="container">
+      <!-- example1_intro.js will put stuff here -->
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-html pre').text(build_example_html());$('#show-html').show('fast');">show FuncyTag html string output</a>
+      <div id="show-html" style="display:none;">
+        <p><b>Raw HTML output:</b></p>
+        <pre>
+          <!-- HTML from running function will be displayer here -->
+        </pre>
+      </div>
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-source pre').text(String(build_example_html));$('#show-source').show('fast');">show FuncyTag source code</a>
+      <div id="show-source" style="display:none;">
+        <p><b>Source code to generate the HTML output:</b></p>
+        <pre>
+          <!-- example1_intro.js will put stuff here -->
+        </pre>
+      </div>
+    </div>
+
+    <hr/>
+    <a href="../examples.html">more examples</a>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/funcytag.0.0.1.js"></script>
+    <script type="text/javascript" src="example1_intro.js"></script>
+  </body>
+</html>
