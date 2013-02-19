@@ -5,19 +5,19 @@ var div=funcyTag('div');
 
 function build_example_html()
 {
-    var tag;
-    tag = div( { id:'outer', style:'font-size:20px;color:red;' },
-            'begin outer div',
-            div( { id:'middle', style:'font-size:16px;color:green;margin-left:12px;' },
-              'begin middle div',
-              div( { id:'middle', style:'font-size:12px;color:blue;margin-left:12px;' },
-                'center div'
-              ),
-              'end middle div'
+    var t;
+    t = div( { id:'outer', style:'font-size:20px;color:red;' },
+          'begin outer div',
+          div( { id:'middle', style:'font-size:16px;color:green;margin-left:12px;' },
+            'begin middle div',
+            div( { id:'middle', style:'font-size:12px;color:blue;margin-left:12px;' },
+              'center div'
             ),
-            'end outer div'
-          );
-    return String(tag);
+            'end middle div'
+          ),
+          'end outer div'
+        );
+    return String(t);
 }
 
 $(document).ready(function() {
