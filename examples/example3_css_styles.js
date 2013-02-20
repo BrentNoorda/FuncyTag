@@ -10,7 +10,7 @@ function build_example_html()
           'begin outer div',
           div( { id:'middle', cssFontSize:'16px', cssColor:'green', cssMarginLeft:'12px' },
             'begin middle div',
-            div( { id:'middle', cssFontSize:'12px', cssColor:'blue', cssMarginLeft:'12px' },
+            div( { id:'inner', cssFontSize:'12px', cssColor:'blue', cssMarginLeft:'12px' },
               'center div'
             ),
             'end middle div'

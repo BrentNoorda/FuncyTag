@@ -1,7 +1,7 @@
 FuncyTag
 =========
 
-FuncyTag makes HTML look like function calls, so it looks familiar to a functional programmer (nesting, parameters, etc...). Optimized only for easy reading/writing by humans. Available in javascript and python.
+FuncyTag makes HTML look like function calls, so it looks familiar to a functional programmer (nesting, parameters, etc...). Optimized only for easy reading/writing by humans. Not quite an html template language, but kinda. Available in javascript and python.
 
 quick example
 --------------
