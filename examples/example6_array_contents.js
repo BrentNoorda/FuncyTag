@@ -5,7 +5,7 @@ var div=funcyTag('div'), p=funcyTag('P');
 
 function count_to_ten()
 {
-    var ret = [];
+    var i, ret = [];
     for ( i = 1; i <= 10; i++ )
     {
         ret.push(i);
