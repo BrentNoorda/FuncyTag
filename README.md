@@ -35,6 +35,11 @@ or in FuncyTag python with:
 
 Looks like Javascript (or python), parses like Javscript (or python), renders like HTML.
 
+more examples
+---------------
+The examples in this can be run directly from the clone of examples.html, or a [live version of examples.html](http://dl.dropbox.com/u/41075/funcytagexamples/examples.html).
+
+
 status
 --------------
 Nothing to see here yet. I'm just trying to figure out how to use github and markdown and stuff, to tell you the truth.
