@@ -8,6 +8,7 @@ var good_li = funcyTag( 'li', {cssColor:'green'} ),
     bad_li = funcyTag( 'li', {cssColor:'red'} );
 
 var green = funcyTag('span',{cssColor:'green',_nobrout:true,_nobrin:true});
+var red = funcyTag('span',{cssColor:'red',_nobrout:true,_nobrin:true});
 var big = funcyTag('span',{cssFontSize_pct:200,_nobrout:true,_nobrin:true});
 
 function xxxbuild_example_html()
@@ -21,7 +22,8 @@ function build_example_html()
 {
     var t;
     t = div({},
-          'foods:', green({},big({},'L'),'ike'), ',', span({cssColor:'red'},'hate,'), 'or indifferent',
+          'foods: ' + green({},big({},'L'),'ike') + ', ',
+          red({},'hate'), ',', 'or indifferent',
           ul({},
             li({},'rice'),
             bad_li({},'okra'),
