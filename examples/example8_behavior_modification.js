@@ -8,12 +8,20 @@ var good_li = funcyTag( 'li', {cssColor:'green'} ),
     bad_li = funcyTag( 'li', {cssColor:'red'} );
 
 var green = funcyTag('span',{cssColor:'green',_nobr_outer:true,_nobr_inner_:true});
+var big = funcyTag('span',{cssFontSize_pct:200,_nobr_outer:true,_nobr_inner_:true});
+
+function xxxbuild_example_html()
+{
+    var t, d1 = funcyTag('div'), d2 = funcyTag('div'), d3 = funcyTag('div');
+    t = d1({id:1},d2({id:2},d3({id:3},'blah')));
+    return String(t);
+}
 
 function build_example_html()
 {
     var t;
     t = div({},
-          'foods: ', green({},'like'), ',', span({cssColor:'red'},'hate,'), 'or indifferent',
+          'foods: ', green({},big({},'like')), ',', span({cssColor:'red'},'hate,'), 'or indifferent',
           ul({},
             li({},'rice'),
             bad_li({},'okra'),
