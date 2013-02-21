@@ -7,10 +7,9 @@ function build_example_html()
 {
     function inner_tag(height) // embed inner tags until height reaches 0
     {
-        if ( height === 0 ) { return ''; }
         return div( { cssFontSize_px:height, cssMarginLeft_px:2.5*height },
                  'begin height ' + height,
-                 inner_tag(height-1),
+                 (height > 1) ? inner_tag(height-1) : undefined,
                  'end height ' + height
                );
     }

@@ -61,7 +61,7 @@ If you're not satisifed with FuncyTag, there are many similar tools, with differ
 
 or you might just be satisfied with jquery(html,attributes). For a discussion of the topic see [Building HTML in jQuery and JavaScript](http://marcgrabanski.com/articles/building-html-in-jquery-and-javascript).
 
-them song
+theme song
 -----------------------
 
 Towlie remembers the FuncyTag theme [here](http://www.youtube.com/watch?v=4OrVrrsjqwQ).
