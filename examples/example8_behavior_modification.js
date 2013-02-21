@@ -21,7 +21,7 @@ function build_example_html()
 {
     var t;
     t = div({},
-          'foods: ', green({},big({},'like')), ',', span({cssColor:'red'},'hate,'), 'or indifferent',
+          'foods: ', green({},big({},'L'),'ike'), ',', span({cssColor:'red'},'hate,'), 'or indifferent',
           ul({},
             li({},'rice'),
             bad_li({},'okra'),
