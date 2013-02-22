@@ -155,7 +155,7 @@ creates this HTML:
 
 A second, optional, parameter is available to funcyTag() to specify a default attribute object. All uses of that generated funcyTag will have these options by default (or can override them, or can see the default values as tag.default_attributes).
 
-Modiying the previous code to make a new funcytag called "bigredP" demonstrates this:
+Modifying the previous code to make a new funcytag called "bigredP" demonstrates this:
 
     div=funcyTag('div'), bigredP=funcyTag( 'p', {cssFontSize_pct:120,cssColor:'red'} );
 
@@ -339,7 +339,7 @@ producing this html:
 
 ### LESSON 12: escaping strings
 
-If you're displaying html based on string that have come from external sources, then you need to be careful that those strings don't contain strings that might be misinterpreted by html or, worse, might contain code injection that could expose data or cause harm to your site or your users.
+If you're displaying html based on strings that have come from external sources, then you need to be careful that those strings don't contain character sequences that might be misinterpreted by html or, worse, might contain code injection that could expose data or cause harm to your site or your users.
 
 Some templating engine escape all strings automatically. With FuncyTag the assumption is that most of the strings you are creating are safe, and only a few might come from external sources.  You should see to it that all such strings are escaped for HTML before passing them to funcyTags.
 
