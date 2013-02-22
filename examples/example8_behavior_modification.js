@@ -1,24 +1,13 @@
 /*jslint white:false plusplus:false browser:true nomen:false */
 /*globals $, funcyTag */
 
-var div=funcyTag('div'), ul=funcyTag('ul'), li=funcyTag('li',{_nobrin:true}), span=funcyTag('span');
-
-// create a good_li tag that is a green <li>, and bad_li tag that is red
-var good_li = funcyTag( 'li', {_nobrin:true,cssColor:'green'} ),
-    bad_li = funcyTag( 'li', {_nobrin:true,cssColor:'red'} );
-
-var green = funcyTag('span',{cssColor:'green',_nobrout:true,_nobrin:true});
-var red = funcyTag('span',{cssColor:'red',_nobrout:true,_nobrin:true});
-var big = funcyTag('span',{cssFontSize_pct:200,_nobrout:true,_nobrin:true});
-
-function xxxbuild_example_html()
-{
-    var t, d1 = funcyTag('div'), d2 = funcyTag('div'), d3 = funcyTag('div');
-    //t = d1({id:1},d2({id:2},d3({id:3},'blah')));
-    //t = d1({},d2({},'dog','cat'));
-    t = d1(d2({}),String('kity'),'dog','cat')
-    return String(t);
-}
+var div=funcyTag('div'), ul=funcyTag('ul'), li=funcyTag('li',{_nobrin:true}),
+    span=funcyTag('span',{_nobrout:true,_nobrin:true});
+    good_li = funcyTag( li, {cssColor:'green'} ),
+    bad_li = funcyTag( li, {cssColor:'red'} );
+    green = funcyTag( span, {cssColor:'green'} );
+    red = funcyTag( span, {cssColor:'red'} );
+    big = funcyTag( span, {cssFontSize_pct:150} );
 
 function build_example_html()
 {
