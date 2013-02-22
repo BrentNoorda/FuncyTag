@@ -9,7 +9,7 @@ function build_example_html()
     var t;
     t = div(
           p( "the following math equation has less-than and greater-than signs:",
-            esc(' a<b>c')
+             esc(' a<b>c')
           ),
           br(),
           'weird characters in value',input({type:'input',value:esc('"dog" & "pony"')})
