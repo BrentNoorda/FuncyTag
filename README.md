@@ -1,7 +1,7 @@
 FuncyTag
 =========
 
-FuncyTag is an HTML generator in pure javascript or python, primarily useful for programmaticly creating snippets of HTML to be included embedded in a page at server-side or client-side. FuncyTag make creating HTML look like function calls, so it looks familiar to a functional programmer (nesting, parameters, etc...). Optimized only for easy reading/writing by humans. Not quite an html template language, but kinda. Available in javascript and python.
+FuncyTag is an HTML generator in pure javascript or python, primarily useful for programmaticly creating snippets of HTML to be embedded in a page at server-side or client-side. FuncyTag make creating HTML look like function calls, so it looks familiar to a functional programmer (nesting, parameters, etc...). Optimized only for easy reading/writing by humans. Not quite an html template language, but kinda. Available in javascript and python.
 
 ### quick example
 
@@ -62,9 +62,9 @@ resulting in this html:
       </P>
     </div>
 
-Notice that funcyTags comes with no tags built-in; you must define them with in your code. In the above example only the P and the DIV tags were used, and so that was all we defined
+Notice that FuncyTag comes with no tags built-in; you must define them with in your code. In the above example only the P and the DIV tags were used, and so that was all we defined
 
-Note that in all following example we'll skip the many of the common parts of the above example (e.g. use of "var", calling "make_html_snippet", and calling String(t) at the end, and just present the relevale code. E.G. the above example for this tutorial could be shortened as:
+Note that in all following examples we'll skip the many of the common parts of the above example (e.g. use of "var", calling "make_html_snippet", and calling String(t) at the end, and just present the relevant code. E.G. the above example for this tutorial could be shortened as:
 
     div=funcyTag('div'), p=funcyTag('P');
 
@@ -93,7 +93,7 @@ creates this html
 
 ### LESSON 3: cssCamelStyles
 
-It becomes rather tedious to create those "style=" strings in javascript. "style=" can usually be simplified in funcyScript by setting tag properties that start with "css" and use "CamelCase" to represent the "blah-blah" types usually used in CSS. When funcyTag sees a property "cssFooBar" is becomes a Styles property "foo-bar". So the previous example can be rewritten as
+It becomes tedious to create those "style=" strings in javascript. "style=" can usually be simplified in funcyScript by setting tag properties that start with "css" and use "CamelCase" to represent the "blah-blah" types usually used in CSS. When funcyTag sees a property "cssFooBar" is becomes a Styles property "foo-bar". So the previous example can be rewritten as
 
     div=funcyTag('div'), p=funcyTag('P');
 
@@ -111,7 +111,7 @@ creates the exact same html as the previous example:
 
 ### LESSON 4: unit suffixes
 
-Another tedious javascript process, of appending units to attribute and css values, is achieved in funcyScript by adding a "_unitSuffix" to the attribute property name.  For example, instead of 'cssMarginLeft:"2em"' you could use 'cssMarginLeft_em:2'.  This is a directly translation for most units (e.g. 'em', 'px', 'pc'...) but for '%' you must use the suffix '_pct'.
+Another tedious javascript process, of appending units to attribute and css values, is achieved in funcyScript by adding a "_unitSuffix" to the attribute property name.  For example, instead of 'cssMarginLeft:"2em"' you could use 'cssMarginLeft_em:2'.  This is a direct translation for most units (e.g. 'em', 'px', 'pc'...) but for '%' you must use the suffix '_pct'.
 
 So, again, the previous example can now be written as:
 
@@ -210,7 +210,7 @@ would still generate this HTML:
 
 ### LESSON 9: multiple inner arguments for multiple inner tags
 
-So far all of the examples have been a simple tag within a tag. It's far more common for HTML tags to contain multiple inner elements. The same thing is achieved in a similar way in FuncyTags by including multiple arguements to a funcyTag.
+So far all of the examples have been a simple tag within a tag. It's far more common for HTML tags to contain multiple inner elements. The same thing is achieved in a similar way in FuncyTag by including multiple arguments to a funcyTag.
 
 Take this list code, for example:
 
@@ -257,9 +257,9 @@ which generates this HTML:
 
 ### LESSON 10: behavior-modifying options "\_nobrin" and "\_nobrout"
 
-Sometimes, for cosmetic or true output reasons, you may not want all of those spaces and newlines added to the output. In your attributes tags you can add the options "\_nobrin:true" if you don't want newline and whitespace breaks on the inside of a tag. "\_nobrout:true" can be used to remove such newlines and breaks from the outside of a tag.
+Sometimes, for cosmetic or true output reasons, you may not want all of those spaces and newlines added to the output. In your attributes option object you can add the options "\_nobrin:true" if you don't want newline and whitespace breaks on the inside of a tag. "\_nobrout:true" can be used to remove such newlines and breaks from the outside of a tag.
 
-If we change the previous javascript to this (which just the use of \_nobrin and \_nobrout)
+If we change the previous javascript to this (with the use of \_nobrin and \_nobrout)
 
     div = funcyTag('div'), ul = funcyTag('ul')
     li = funcyTag('li',{_nobrin:true}), i = funcyTag('i',{_nobrin:true,_nobrout:true})
@@ -341,9 +341,9 @@ producing this html:
 
 If you're displaying html based on string that have come from external sources, then you need to be careful that those strings don't contain strings that might be misinterpreted by html or, worse, might contain code injection that could expose data or cause harm to your site or your users.
 
-Some templating engine escape all strings automatically. With funcyTags the assumption is that most of the strings you are creating are safe, and only a few might come from external sources.  You should see to it that all such strings are escaped for HTML before passing them to funcyTags.
+Some templating engine escape all strings automatically. With FuncyTag the assumption is that most of the strings you are creating are safe, and only a few might come from external sources.  You should see to it that all such strings are escaped for HTML before passing them to funcyTags.
 
-For convenience, funcyTags provides the funcyTags.esc() method to escape such strings, as demonstrated in the javascript code:
+For convenience, FuncyTag provides the funcyTag.esc() method to escape such strings, as demonstrated in the javascript code:
 
     div=funcyTag('div'), p=funcyTag('p'), input=funcyTag('input'), br=funcyTag('br');
     esc = funcyTag.esc;
