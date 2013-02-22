@@ -22,7 +22,8 @@ function build_example_html()
             good_li('ice cream'),
             bad_li({cssFontStyle:'italic'},'dog poop'),
             li('chicken')
-          )
+          ),
+          div({id:'noop-div',_noslfcls:true,_nobrin:true})
         );
     return String(t);
 }
