@@ -255,11 +255,11 @@ which generates this HTML:
       </ul>
     </div>
 
-### LESSON 10: behavior-modifying options "_nobrin" and "_nobrout"
+### LESSON 10: behavior-modifying options "\_nobrin" and "\_nobrout"
 
-Sometimes, for cosmetic or true output reasons, you may not want all of those spaces and newlines added to the output. In your attributes tags you can add the options "_nobrin:true" if you don't want newline and whitespace breaks on the inside of a tag. "_nobrout:true" can be used to remove such newlines and breaks from the outside of a tag.
+Sometimes, for cosmetic or true output reasons, you may not want all of those spaces and newlines added to the output. In your attributes tags you can add the options "\_nobrin:true" if you don't want newline and whitespace breaks on the inside of a tag. "\_nobrout:true" can be used to remove such newlines and breaks from the outside of a tag.
 
-If we change the previous javascript to this (which just the use of _nobrin and _nobrout
+If we change the previous javascript to this (which just the use of \_nobrin and \_nobrout)
 
     div = funcyTag('div'), ul = funcyTag('ul')
     li = funcyTag('li',{_nobrin:true}), i = funcyTag('i',{_nobrin:true,_nobrout:true})
@@ -337,18 +337,42 @@ producing this html:
       </ul>
     </div>
 
+### LESSON 12: escaping strings
+
+If you're displaying html based on string that have come from external sources, then you need to be careful that those strings don't contain strings that might be misinterpreted by html or, worse, might contain code injection that could expose data or cause harm to your site or your users.
+
+Some templating engine escape all strings automatically. With funcyTags the assumption is that most of the strings you are creating are safe, and only a few might come from external sources.  You should see to it that all such strings are escaped for HTML before passing them to funcyTags.
+
+For convenience, funcyTags provides the funcyTags.esc() method to escape such strings, as demonstrated in the javascript code:
+
+    div=funcyTag('div'), p=funcyTag('p'), input=funcyTag('input'), br=funcyTag('br');
+    esc = funcyTag.esc;
+
+    div(
+      p( "the following math equation has less-than and greater-than signs:",
+         esc(' a<b>c')
+      ),
+      br(),
+      'weird characters in value',input({type:'input',value:esc('"dog" & "pony"')})
+    )
+
+which generates this safe html:
+
+    <div>
+      <p>
+        the following math equation has less-than and greater-than signs:
+         a&lt;b&gt;c
+      </p>
+      <br/>
+      weird characters in value
+      <input type="input" value="&quot;dog&quot; &amp; &quot;pony&quot;"/>
+    </div>
 
 ------------------------------------------------------------------------------
 
 status
 ==============
-version 0.0.1 released Feb 22, 2013. This is a first stab.
-
-------------------------------------------------------------------------------
-
-todo
-==============
-* escaping - haven't added code yet for escape characters within strings
+version 0.0.1 released Feb 22, 2013. This is a first stab in hopes of getting some feedback from someone... anyone...
 
 ------------------------------------------------------------------------------
 
