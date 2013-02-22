@@ -2,7 +2,7 @@
 /*globals $, funcyTag */
 
 var div=funcyTag('div'), p=funcyTag('p'), input=funcyTag('input'), br=funcyTag('br');
-esc = funcyTag.esc;
+var esc = funcyTag.esc;
 
 function build_example_html()
 {
