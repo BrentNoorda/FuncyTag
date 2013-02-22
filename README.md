@@ -34,7 +34,7 @@ or in FuncyTag python with:
 
 Looks like Javascript (or python), parses like Javscript (or python), renders like HTML.
 
----------------------------------------
+------------------------------------------------------------------------------
 
 # Tutorial
 
@@ -130,9 +130,13 @@ creating the exact same html as the previous two examples:
     </div>
 
 
+------------------------------------------------------------------------------
+
 status
 ==============
 Nothing to see here yet. I'm just trying to figure out how to use github and markdown and stuff, to tell you the truth.
+
+------------------------------------------------------------------------------
 
 similar tools
 ==============
@@ -150,6 +154,8 @@ If you're not satisifed with FuncyTag, there are many similar tools, with differ
 * [webmat/sugar_dom](https://github.com/webmat/sugar_dom)
 
 or you might just be satisfied with jquery(html,attributes). For a discussion of the topic see [Building HTML in jQuery and JavaScript](http://marcgrabanski.com/articles/building-html-in-jquery-and-javascript).
+
+------------------------------------------------------------------------------
 
 theme song
 -----------------------
