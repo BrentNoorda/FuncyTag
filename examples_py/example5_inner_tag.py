@@ -1,6 +1,4 @@
-# example1_intro - demonstrate very basic use of Tags as Functions
-#
-# FuncyTag replaces html with a python-like syntax
+# example5_inner_tag - contents of a tag may include another tag, here demonstrated by a recursive tag maker
 
 import os, sys; sys.path.append(os.path.dirname(os.path.abspath(__file__))+os.sep+'..')
 

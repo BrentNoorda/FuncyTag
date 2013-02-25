@@ -1,6 +1,4 @@
-# example1_intro - demonstrate very basic use of Tags as Functions
-#
-# FuncyTag replaces html with a python-like syntax
+# example2_children - child elements are embedded parameters, encouraging html-like indentation
 
 import os, sys; sys.path.append(os.path.dirname(os.path.abspath(__file__))+os.sep+'..')
 

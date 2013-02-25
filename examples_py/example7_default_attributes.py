@@ -1,6 +1,4 @@
-# example1_intro - demonstrate very basic use of Tags as Functions
-#
-# FuncyTag replaces html with a python-like syntax
+# example7_default_attributes - create new tags with default attributes (such as <good_li> and <bad_li>)
 
 import os, sys; sys.path.append(os.path.dirname(os.path.abspath(__file__))+os.sep+'..')
 
