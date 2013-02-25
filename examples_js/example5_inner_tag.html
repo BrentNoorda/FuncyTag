@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>FuncyTag Example 4</title>
+    <title>FuncyTag Example 5</title>
   </head>
   <body>
-    <p>example4_css_units - avoid stringifying units in JS by adding the unit to the end of the cssCamelCase attribute. e.g. <b><code>styles:"margin-left:2em;"</code></b> becomes <b><code>cssMarginLeft_em:2</code></b></p>
+    <p>example5_inner_tag - contents of a tag may include another tag, here demonstrated by a recursive tag maker</p>
     <hr/>
 
     <div id="container">
-      <!-- example4_css_units.js will put stuff here -->
+      <!-- example5_inner_tag.js will put stuff here -->
     </div>
 
     <hr/>
@@ -24,7 +24,7 @@
 
     <hr/>
     <div>
-      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-js iframe').attr('src','example4_css_units.js');$('#show-js').show('fast');">See Source Code</a>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-js iframe').attr('src','example5_inner_tag.js');$('#show-js').show('fast');">See Source Code</a>
       <div id="show-js" style="display:none;">
         <p><b>Javascript Source Code:</b></p>
         <iframe style="width:98%;height:500px;"></iframe>
@@ -32,10 +32,10 @@
     </div>
 
     <hr/>
-    next: <a href="example5_inner_tag.html">example5_inner_tag</a></br>
-    <a href="../examples.html">all examples</a>
+    next: <a href="example6_array_contents.html">example6_array_contents</a></br>
+    <a href="../examples_js.html">all js examples</a>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script type="text/javascript" src="../lib/funcytag.0.0.1.js"></script>
-    <script type="text/javascript" src="example4_css_units.js"></script>
+    <script type="text/javascript" src="../lib/funcytag.0.0.2.js"></script>
+    <script type="text/javascript" src="example5_inner_tag.js"></script>
   </body>
 </html>
