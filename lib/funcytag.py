@@ -52,7 +52,7 @@ class funcyTag(object):
 
                     if isinstance(value,list):
                         # if value is an array, turn it into a space-delimited string
-                        value = (units + u' ').join(value)
+                        value = (units + u' ').join([unicode(v) for v in value])
                     else:
                         value = unicode(value)
                     value += units
