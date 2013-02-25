@@ -332,3 +332,11 @@ which generates this safe html:
       weird characters in value
       <input type="input" value="&quot;dog&quot; &amp; &quot;pony&quot;"/>
     </div>
+
+### MORE READING
+
+That completes this FuncyScript Javascript Tutorial. For more reading see:
+* [FuncyTag README](README.cmd)
+* [FuncyTag Python Tutorial](PYTHON_TUTORIAL.md)
+* [FuncyTag on GitHub](https://github.com/BrentNoorda/FuncyTag)
+* [a bunch of online javascript examples](http://dl.dropbox.com/u/41075/funcytagexamples/examples_js.html)
