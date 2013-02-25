@@ -1,7 +1,7 @@
-[FuncyTag](https://github.com/BrentNoorda/FuncyTag) Javascript Tutorial
+[FuncyTag](https://github.com/BrentNoorda/FuncyTag) Python Tutorial
 =========
 
-This is a step-by-step introduction to the features of FuncyTag in Javascript. This tutorial is also available as a [FuncyTag Python Tutorial](PYTHON_TUTORIAL.md).
+This is a step-by-step introduction to the features of FuncyTag in Python. This tutorial is also available as a [FuncyTag Javascript Tutorial](JAVASCRIPT_TUTORIAL.md).
 
 ### LESSON 1: basic use
 
