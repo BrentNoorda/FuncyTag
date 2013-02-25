@@ -3,6 +3,8 @@ FuncyTag
 
 FuncyTag is an HTML generator in pure javascript or python, primarily useful for programmaticly creating snippets of HTML to be embedded in a page at server-side or client-side. FuncyTag make creating HTML look like function calls, so it looks familiar to a functional programmer (nesting, parameters, etc...). Optimized only for easy reading/writing by humans. Not quite an html template language, but kinda. Available in javascript and python.
 
+* [a bunch of online javascript examples](http://dl.dropbox.com/u/41075/funcytagexamples/examples_js.html)
+
 ### quick example
 
 In HTML you might create code something like this:
@@ -23,22 +25,29 @@ The same html can be generated in FuncyTag javascript with:
         img( { width:40, height:40, src:"http://pets.org/cat/23423423.jpg" } )
     );
 
-or in FuncyTag python with:
+or in FuncyTag python if you like { 'attr':value }:
 
     div( { 'id':"master-block", 'class':"goober" },
         p( { 'cssColor':"red", 'cssFontSize_pct':120 },
             'What shall I name this ', b( {'id':"animal"}, "cat" ), '?'
         ),
         img( { 'width':40, 'height':40, 'src':"http://pets.org/cat/23423423.jpg" } )
-    );
+    )
+
+or this python option if you prefer using dict(attr=value):
+
+    div( dict( id="master-block", class_="goober" ),
+        p( dict( cssColor="red", cssFontSize_pct=120 ),
+            'What shall I name this ', b( dict(id="animal"), "cat" ), '?'
+        ),
+        img( { 'width':40, 'height':40, 'src':"http://pets.org/cat/23423423.jpg" } )
+    )
 
 Looks like Javascript (or python), parses like Javscript (or python), renders like HTML.
 
 ------------------------------------------------------------------------------
 
-# Tutorial
-
-FuncyScript provides a method to create HTML snippets using pure javascript.
+# Javascript Tutorial
 
 ### LESSON 1: basic use
 
@@ -64,7 +73,7 @@ resulting in this html:
 
 Notice that FuncyTag comes with no tags built-in; you must define them with in your code. In the above example only the P and the DIV tags were used, and so that was all we defined
 
-Note that in all following examples we'll skip the many of the common parts of the above example (e.g. use of "var", calling "make_html_snippet", and calling String(t) at the end, and just present the relevant code. E.G. the above example for this tutorial could be shortened as:
+Note that in all following examples we'll skip the many of the common parts of the above example (e.g. use of "var", calling "make\_html\_snippet", and calling String(t) at the end, and just present the relevant code. E.G. the above example for this tutorial could be shortened as:
 
     div=funcyTag('div'), p=funcyTag('P');
 
@@ -128,6 +137,8 @@ creating the exact same html as the previous two examples:
         hello world
       </P>
     </div>
+
+Note: An empty unit suffix can be a convenient way to allow a keyword to be used as a property. e.g. { class_:'foo' }.
 
 ### LESSON 5: attribute array values
 
@@ -372,7 +383,14 @@ which generates this safe html:
 
 status
 ==============
-version 0.0.1 released Feb 22, 2013. This is a first stab in hopes of getting some feedback from someone... anyone...
+* version 0.0.1 released Feb 22, 2013. This is a first stab in hopes of getting some feedback from someone... anyone...
+* version 0.0.2 released Feb 25, 2013. Add python version.
+
+------------------------------------------------------------------------------
+
+more examples
+==============
+* [a bunch of online javascript examples](http://dl.dropbox.com/u/41075/funcytagexamples/examples_js.html)
 
 ------------------------------------------------------------------------------
 
@@ -381,7 +399,8 @@ similar tools
 
 If you're not satisifed with FuncyTag, there are many similar tools, with different reasons for being:
 
-* [Farof/jhtml](https://github.com/Farof/jhtml) - this is most similar
+* [Farof/jhtml](https://github.com/Farof/jhtml) - very similar
+* [edspencer/jaml](https://github.com/edspencer/jaml) - very similar
 * [tekrat/eSugar](https://github.com/tekrat/eSugar)
 * [mrak/js2dom](https://github.com/mrak/js2dom)
 * [nrn/flates](https://github.com/nrn/flates)

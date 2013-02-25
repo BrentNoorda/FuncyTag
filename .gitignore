@@ -1,2 +1,3 @@
 lint.sh
 tools
+*.pyc
