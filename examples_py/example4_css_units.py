@@ -1,6 +1,5 @@
-# example1_intro - demonstrate very basic use of Tags as Functions
-#
-# FuncyTag replaces html with a python-like syntax
+# example4_css_units - avoid stringifying units in JS by adding the unit to the end of the cssCamelCase
+#                      attribute. e.g. "margin-left:2em;" becomes cssMarginLeft_em:2
 
 import os, sys; sys.path.append(os.path.dirname(os.path.abspath(__file__))+os.sep+'..')
 

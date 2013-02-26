@@ -1,6 +1,4 @@
-# example1_intro - demonstrate very basic use of Tags as Functions
-#
-# FuncyTag replaces html with a python-like syntax
+# example8_behavior_modification - special options to modify tag behavior (_nobrout, _nobrin , _noslfcls, no options)
 
 import os, sys; sys.path.append(os.path.dirname(os.path.abspath(__file__))+os.sep+'..')
 
