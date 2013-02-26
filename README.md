@@ -73,6 +73,7 @@ These step-by-step tutorials introduce FuncyTag features by example:
 
 * version 0.0.1 released Feb 22, 2013. This is a first stab in hopes of getting some feedback from someone... anyone...
 * version 0.0.2 released Feb 25, 2013. Add python version.
+* version 0.0.3 released Feb 26, 2013. When attribute values are undefined/None, do not set the attribute.
 
 ------------------------------------------------------------------------------
 

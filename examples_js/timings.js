@@ -25,10 +25,10 @@ var _template = String( tr(
                 ) );
 function build_book_row_via_cache_replace(book)
 {
-    return _template.replace('$<title>$',esc(book.title)).
-                     replace('$<author>$',esc(book.author)).
-                     replace('$<rating-color>$',book.rating > 3 ? 'green' : 'red').
-                     replace('$<rating>$',book.rating);
+    return _template.replace('$<title>$',esc(book.title))
+                    .replace('$<author>$',esc(book.author))
+                    .replace('$<rating-color>$',book.rating > 3 ? 'green' : 'red')
+                    .replace('$<rating>$',book.rating);
 }
 
 function build_book_row_via_old_timey_techniques(book)
