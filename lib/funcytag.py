@@ -1,4 +1,4 @@
-# FuncyTag version 0.0.2 - see more at https://github.com/BrentNoorda/FuncyTag
+# FuncyTag version 0.0.3 - see more at https://github.com/BrentNoorda/FuncyTag
 
 import re
 
@@ -38,29 +38,35 @@ class funcyTag(object):
             style = u''
             html = u'<' + self._ft_name
             for attr,value in self._attributes.items():
-                first_ = attr.find('_') # skip attributes that start with underscore
-                if first_ != 0:
-                    # sometimes there is a unit as part of the attr name
-                    if -1 == first_:
-                        units = u''
-                    else:
-                        units_idx = attr.rfind('_')
-                        units = attr[units_idx+1:]
-                        attr = attr[:units_idx]
-                        if units == 'pct': # because cannot have % be part of a name
-                            units = u'%'
+                if value is not None:
+                    first_ = attr.find('_') # skip attributes that start with underscore
+                    if first_ != 0:
+                        # sometimes there is a unit as part of the attr name
+                        if -1 == first_:
+                            units = u''
+                        else:
+                            units_idx = attr.rfind('_')
+                            units = attr[units_idx+1:]
+                            attr = attr[:units_idx]
+                            if units == 'pct': # because cannot have % be part of a name
+                                units = u'%'
 
-                    if isinstance(value,list):
-                        # if value is an array, turn it into a space-delimited string
-                        value = (units + u' ').join([unicode(v) for v in value])
-                    else:
-                        value = unicode(value)
-                    value += units
+                        if isinstance(value,list):
+                            # do not count any undefined values, so remove those from the array
+                            value = [ v for v in value if (v is not None) ]
+                            if len(value) == 0:
+                                # no values in the array, so don't output this attribute
+                                continue
+                            # if value is an array, turn it into a space-delimited string
+                            value = (units + u' ').join([unicode(v) for v in value])
+                        else:
+                            value = unicode(value)
+                        value += units
 
-                    if attr.startswith('css'):
-                        style += camel_to_dash(attr)[4:] + u':' + value + u';'
-                    else:
-                        html += u' ' + attr + u'="' + value + u'"'
+                        if attr.startswith('css'):
+                            style += camel_to_dash(attr)[4:] + u':' + value + u';'
+                        else:
+                            html += u' ' + attr + u'="' + value + u'"'
 
             if not self._attributes.get('_nobrout',False):
                 html = stringPadding + html
