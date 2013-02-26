@@ -9,6 +9,7 @@ Jump To:
 * [tutorials](#tutorials)
 * [project status](#project-status)
 * [more examples](#more-examples)
+* [recommendations on when to use FuncyTag](#recommendations)
 * [similar tools](#similar-tools)
 * [theme song](#theme-song)
 
@@ -58,32 +59,73 @@ Looks like Javascript (or python), parses like Javscript (or python), renders li
 ------------------------------------------------------------------------------
 
 <a name="tutorials"/>
-# Tutorials
+# tutorials
 
 These step-by-step tutorials introduce FuncyTag features by example:
+
 * [FuncyTag Javascript Tutorial](JAVASCRIPT_TUTORIAL.md)
 * [FuncyTag Python Tutorial](PYTHON_TUTORIAL.md)
 
 ------------------------------------------------------------------------------
 
 <a name="project-status"/>
-project status
-==============
+# project status
+
 * version 0.0.1 released Feb 22, 2013. This is a first stab in hopes of getting some feedback from someone... anyone...
 * version 0.0.2 released Feb 25, 2013. Add python version.
 
 ------------------------------------------------------------------------------
 
 <a name="more-examples"/>
-more examples
-==============
+# more examples
+
 * [a bunch of online javascript examples][javascript examples]
 
 ------------------------------------------------------------------------------
 
+<a name="recommendations"/>
+# recommendations on when to use FuncyTag
+
+In general you could create all of your HTML via FuncyTag, but just because you can doesn't mean you should. In my experience, FuncyTag makes the most sense when you want to create just a relatively small sections of html based on runtime parameters, and you want that to be algorithmically flexible and really really easy to read.
+
+One place where FuncyScript may not be appropriate is when you are concerned with performance above all else, because FuncyScript is not fast (compared to most other methods). Even so, the instances are probably rare when this performance would matter.
+
+For instance, consider this javascript example that would build a row in a table of books, representing the author, title, and a user rating (color-coded based on a rating threshold). The function to build that row might look like this:
+
+    function build_book_row(book)
+    {
+        var t = tr(
+                    td( esc(book.title) ),
+                    td( esc(book.author) ),
+                    td( { cssColor:book.rating > 3 ? 'green' : 'red'}, book.rating )
+                );
+        return String(t);
+    }
+
+Calling that function 100,000 times in my browser (on an old machine) takes about 8 seconds.
+
+Now consider this alternative, which only builds the template once, and then uses a simple <code>replace()</code> call to fill in fields each time (note the use of template strings such as <code>$&lt;title&gt;$</code> which are chosen because they cannot appear in raw html code).
+
+    var _template = String( tr(
+                        td( '$<title>$' ),
+                        td( '$<author>$' ),
+                        td( { cssColor:'$<rating-color>$' }, '$<rating>$' )
+                    ) );
+    function build_book_row(book)
+    {
+        return _template.replace('$<title>$',esc(book.title)).
+                         replace('$<author>$',esc(book.author)).
+                         replace('$<rating-color>$',book.rating > 3 ? 'green' : 'red').
+                         replace('$<rating>$',book.rating);
+    }
+
+This replace version runs 100,000 times in about 0.45 seconds--about 17 times faster. That would be a big difference if you were making this call 100,000 times, but in a scenario that made this call only 10 times (for example, filling out a page of books in a web page in a browser) the performance difference between these methods, and even faster methods, would be difficult to measure (less than a millisecond, and imperceptible to any user).
+
+Final recommendation: Unless you're in a situation where every microsecond will be noticed, pick the tool that makes the best use of your development time.
+
+------------------------------------------------------------------------------
 <a name="similar-tools"/>
-similar tools
-==============
+# similar tools
 
 If you're not satisifed with FuncyTag, there are many similar tools, with different reasons for being:
 
@@ -103,8 +145,7 @@ or you might just be satisfied with jquery(html,attributes). For a discussion of
 ------------------------------------------------------------------------------
 
 <a name="theme-song"/>
-theme song
------------------------
+# theme song
 
 Towlie remembers the FuncyTag theme [here][theme song].
 

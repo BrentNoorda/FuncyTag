@@ -4,7 +4,7 @@
 // this sample is used to get timing of various ways using funcyTag, to test the suspicion
 // that it's not particularly fast.  You can change the following parameters to test
 // various method
-var HOW_MANY_TIMES_TO_CALL = 10000;
+var HOW_MANY_TIMES_TO_CALL = 100000;
 
 var tr=funcyTag('tr'), td=funcyTag('td'), esc=funcyTag.esc;
 
@@ -18,17 +18,26 @@ function build_book_row_via_pure_js(book)
     return String(t);
 }
 
-var _template = String(tr(
+var _template = String( tr(
                     td( '$<title>$' ),
                     td( '$<author>$' ),
                     td( { cssColor:'$<rating-color>$' }, '$<rating>$' )
-                ));
+                ) );
 function build_book_row_via_cache_replace(book)
 {
     return _template.replace('$<title>$',esc(book.title)).
                      replace('$<author>$',esc(book.author)).
                      replace('$<rating-color>$',book.rating > 3 ? 'green' : 'red').
                      replace('$<rating>$',book.rating);
+}
+
+function build_book_row_via_old_timey_techniques(book)
+{
+    return '<tr>' +
+             '<td>' + esc(book.title) + '</td>' +
+             '<td>' + esc(book.author) + '</td>' +
+             '<td style="color:' + (book.rating > 3 ? 'green' : 'red') + '">' + book.rating + '</td>' +
+           '</tr>';
 }
 
 function run_test(which_method)
@@ -54,6 +63,14 @@ function run_test(which_method)
             //$('#book-rows').append(html);
         }
     }
+    else if ( which_method === 'old-timey-techniques' )
+    {
+        for ( i = HOW_MANY_TIMES_TO_CALL; i--; )
+        {
+            html = build_book_row_via_old_timey_techniques(book);
+            //$('#book-rows').append(html);
+        }
+    }
     else
     {
         alert("unknown which_method");
@@ -67,4 +84,5 @@ function run_test(which_method)
 $(document).ready(function() {
     run_test('pure-js');
     run_test('cache-replace');
+    run_test('old-timey-techniques');
 });
