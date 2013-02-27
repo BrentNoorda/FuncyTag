@@ -96,7 +96,7 @@ These step-by-step tutorials introduce FuncyTag features by example:
 <a name="more-examples"/>
 # more examples
 
-* [a bunch of online javascript examples][javascript examples]
+* [a bunch of online javascript examples](http://dl.dropbox.com/u/41075/funcytagexamples/examples_js.html)
 
 ------------------------------------------------------------------------------
 
@@ -164,7 +164,4 @@ or you might just be satisfied with jquery(html,attributes). For a discussion of
 <a name="theme-song"/>
 # theme song
 
-Towlie remembers the FuncyTag theme [here][theme song].
-
-[javascript examples]: [http://dl.dropbox.com/u/41075/funcytagexamples/examples_js.html]
-[theme song]: [http://www.youtube.com/watch?v=4OrVrrsjqwQ]
+Towlie remembers the FuncyTag theme [here](http://www.youtube.com/watch?v=4OrVrrsjqwQ).
