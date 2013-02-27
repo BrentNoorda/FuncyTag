@@ -8,7 +8,7 @@ from lib.funcytag import funcyTag
 div=funcyTag('div')
 
 def build_example_html():
-    t = div( { 'id':'outer', 'cssFontSize':'20px', 'cssColor':'red' },
+    t = div( { 'id':'outer', 'cssFontSize':'20px', 'cssColor':'red', 'cssMarginLeft':None },
           'begin outer div',
           div( { 'id':'middle', 'cssFontSize':'16px', 'cssColor':'green', 'cssMarginLeft':'12px' },
             'begin middle div',
