@@ -1,8 +1,23 @@
 [FuncyTag](https://github.com/BrentNoorda/FuncyTag) Javascript Tutorial
 =========
 
+* [1: basic use](#1)
+* [2: setting attributes: funcyTag option object == html attributes](#2)
+* [3: cssCamelStyles](#3)
+* [4: unit suffixes](#4)
+* [5: attribute array and undefined values](#5)
+* [6: default attributes](#6)
+* [7: inheritance](#7)
+* [8: no attributes options](#8)
+* [9: multiple inner arguments for multiple inner tags](#9)
+* [10: behavior-modifying options "\_nobrin" and "\_nobrout"](#10)
+* [11: other types of inner elements, undefined, arrays, and functions](#11)
+* [12: escaping strings](#12)
+* [more reading](#more)
+
 This is a step-by-step introduction to the features of FuncyTag in Javascript. This tutorial is also available as a [FuncyTag Python Tutorial](PYTHON_TUTORIAL.md).
 
+<a name="1"/>
 ### LESSON 1: basic use
 
 A minimal use of funcyScript create HTML will look something like this simple example:
@@ -36,6 +51,7 @@ Note that in all following examples we'll skip the many of the common parts of t
     )
 
 
+<a name="2"/>
 ### LESSON 2: setting attributes: funcyTag option object == html attributes
 
 The first parameter to any funcyTag is a javascript object. The properties of that object translate to the attributes of that html tag. For example:
@@ -54,6 +70,7 @@ creates this html
       </P>
     </div>
 
+<a name="3"/>
 ### LESSON 3: cssCamelStyles
 
 It becomes tedious to create those "style=" strings in javascript. "style=" can usually be simplified in FuncyScript by setting tag properties that start with "css" and use "CamelCase" to represent the "blah-blah" types usually used in CSS. When funcyTag sees a property "cssFooBar" is becomes a Styles property "foo-bar". So the previous example can be rewritten as
@@ -72,6 +89,7 @@ to create the exact same html as the previous example:
       </p>
     </div>
 
+<a name="4"/>
 ### LESSON 4: unit suffixes
 
 Another tedious javascript process, of appending units to attribute and css values, is achieved in FuncyScript by adding a "_unitSuffix" to the attribute property name.  For example, instead of 'cssMarginLeft:"2em"' you could use 'cssMarginLeft_em:2'.  This is a direct translation for most units (e.g. 'em', 'px', 'pc'...) but for '%' you must use the suffix '_pct'.
@@ -94,18 +112,20 @@ creating the exact same html as the previous two examples:
 
 Note: An empty unit suffix can be a convenient way to allow a keyword to be used as a property. e.g. { class_:'foo' }.
 
-### LESSON 5: attribute array values
+<a name="5"/>
+### LESSON 5: attribute array and undefined values
 
-Some common HTML and CSS values are represented as space-delimited strings. For example, in an HTML tag it is common to specify multiple CSS class (e.g. class="btn giant") and within CSS values such as "margin: 0 10px 0 12px" are common.
+Some common HTML and CSS values are represented as space-delimited strings. For example, in an HTML tag it is common to specify multiple CSS class (e.g. class="btn giant") and within CSS values such as "margin: 0 10px 0 12px" are common. In FuncyScript, if an attribute value is an array then the values are concatenated with spaces (and include the unit suffixes described in lesson 4).
 
-In FuncyScript, if an attribute value is an array then the values are concatenated with spaces (and include the unit suffixes described in lesson 4).
+Sometimes you may also not know until runtime if an attribute is needed at all (for example, only the "danger" class is needed if the danger flag is set). I an attribute value is <code>undefined</code> then that attribute will not be set.
 
-The previous example, modified with such arrays:
+The previous example, modified with such arrays and undefined:
 
+    danger = false
     div=funcyTag('div'), p=funcyTag('P');
 
-    div( { align:'right', cssMargin_px:[12,0,4,0] },
-         p( {class:['big','red']}, 'hello world' )
+    div( { align:'right', cssMargin_px:[12,0,4,0], scoobydoo:undefined },
+         p( {class:['big','red',danger?'danger':undefined]}, 'hello world' )
     )
 
 creates this HTML:
@@ -116,6 +136,7 @@ creates this HTML:
       </P>
     </div>
 
+<a name="6"/>
 ### LESSON 6: default attributes
 
 A second, optional, parameter is available to funcyTag() to specify a default attribute object. All uses of that generated funcyTag will have these options by default (or can override them, or can see the default values as tag.default_attributes).
@@ -136,6 +157,7 @@ creates this HTML:
       </p>
     </div>
 
+<a name="7"/>
 ### LESSON 7: inheritance
 
 New funcyTags can be created based on existing funcyTags (if the first parameter is a funcyTag instead of a string), and will inherit (or can overide) their attributes. The previous example can be redone in this way:
@@ -157,6 +179,7 @@ creates this familiar HTML:
       </p>
     </div>
 
+<a name="8"/>
 ### LESSON 8: no attributes options
 
 If the attributes option is empty, it does not need to be passed in.  So in either of the two previous examples:
@@ -173,6 +196,7 @@ would still generate this HTML:
       </p>
     </div>
 
+<a name="9"/>
 ### LESSON 9: multiple inner arguments for multiple inner tags
 
 So far all of the examples have been a simple tag within a tag. It's far more common for HTML tags to contain multiple inner elements. The same thing is achieved in a similar way in FuncyTag by including multiple arguments to a funcyTag.
@@ -220,6 +244,7 @@ which generates this HTML:
       </ul>
     </div>
 
+<a name="10"/>
 ### LESSON 10: behavior-modifying options "\_nobrin" and "\_nobrout"
 
 Sometimes, for cosmetic or true output reasons, you may not want all of those spaces and newlines added to the output. In your attributes option object you can add the option "\_nobrin:true" if you don't want newline and whitespace breaks on the inside of a tag. "\_nobrout:true" can be used to remove such newlines and breaks from the outside of a tag.
@@ -260,6 +285,7 @@ or
 
     li( 'joe' + ' ' + i('who?') )
 
+<a name="11"/>
 ### LESSON 11: other types of inner elements, undefined, arrays, and functions
 
 There can be many types of elements passed among the multiple arguments to a FuncyTag. We have seen examples of those arguments being a string or another funcy tag. Other argument types of special interst are:
@@ -302,6 +328,7 @@ producing this html:
       </ul>
     </div>
 
+<a name="12"/>
 ### LESSON 12: escaping strings
 
 If you're displaying html based on strings that have come from external sources, then you need to be careful that those strings don't contain character sequences that might be misinterpreted by html or, worse, might contain code injection that could expose data or cause harm to your site or your users.
@@ -333,7 +360,8 @@ which generates this safe html:
       <input type="input" value="&quot;dog&quot; &amp; &quot;pony&quot;"/>
     </div>
 
-### MORE READING
+<a name="more"/>
+### more reading
 
 That completes this FuncyScript Javascript Tutorial. For more reading see:
 * [FuncyTag README](README.md)

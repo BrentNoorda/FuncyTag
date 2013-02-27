@@ -18,43 +18,59 @@ Jump To:
 <a name="quick-example"/>
 # quick example
 
-In HTML you might create code something like this:
+Suppose you need a javascript function to create HTML for each animal that looks something like this (with sizes and colors depending on input parameters):
 
-    <div id="master-block" class="goober">
-        <p style="color:red;font-size:120%;">
-            What shall I name this <b id="animal">cat</b>?
-        </p>
-        <img width="40" height="40" src="http://pets.org/cat/23423423.jpg">
+    <div id="animal-3987" class="mammal">
+      <p style="color:red;font-size:120%;">
+        The <b>skulley lamprey</b> is a mammal and looks like this:
+        <img width="80" height="80" src="/pix/mammal/3987.jpg">
+      </p>
     </div>
 
-The same html can be generated in FuncyTag javascript with:
+A typical javascript function building such an HTML string may look like this:
 
-    div( { id:"master-block", class:"goober" },
-        p( { cssColor:"red", cssFontSize_pct:120 },
-            'What shall I name this ', b( {id:"animal"}, "cat" ), '?'
-        ),
-        img( { width:40, height:40, src:"http://pets.org/cat/23423423.jpg" } )
-    );
+    var imgSize = 80;
 
-or in FuncyTag python if you like { 'attr':value }:
+    function animal_html(genus,species,endangered,id)
+    {
+        return '<div id="animal-' + id + '" class="' + genus + '">\r\n' +
+               '  <p style="color:' + (endangered?'red':'green') + ';' + (endangered?'font-size:120%;':'') + '">\r\n' +
+               '    The <b>' + species + '</b> is a ' + genus + ' and looks like this:\r\n' +
+               '    <img width="' + imgSize + '" height="' + imgSize + '" src="/pix/' + id + '.jpg">\r\n' +
+               '  </p>\r\n' +
+               '</div>';
+    }
 
-    div( { 'id':"master-block", 'class':"goober" },
-        p( { 'cssColor':"red", 'cssFontSize_pct':120 },
-            'What shall I name this ', b( {'id':"animal"}, "cat" ), '?'
-        ),
-        img( { 'width':40, 'height':40, 'src':"http://pets.org/cat/23423423.jpg" } )
-    )
+Here is the same function using FuncyTag, which makes HTML tags look and act like javascript functions:
 
-or this python option if you prefer using dict(attr=value):
+    var imgSize = 80;
 
-    div( dict( id="master-block", class_="goober" ),
-        p( dict( cssColor="red", cssFontSize_pct=120 ),
-            'What shall I name this ', b( dict(id="animal"), "cat" ), '?'
-        ),
-        img( dict( width=40, height=40, src="http://pets.org/cat/23423423.jpg" ) )
-    )
+    function animal_html(genus,species,endangered,id)
+    {
+        var t;
+        t = div( { id:'animal-'+id, class:genus },
+              p( { cssColor: endangered?'red':'green', cssFontSize_pct: endangered?120:undefined },
+                'The', b('species'), 'is a', genus, 'and looks like this:',
+                img( { width:imgSize, height:imgSize, src:'/pix/' + id + '.jpg' } )
+              )
+            );
+        return String(t);
+    }
 
-Looks like Javascript (or python), parses like Javscript (or python), renders like HTML.
+And the same function in python (using FuncyTag's dict() form):
+
+    imgSize = 80;
+
+    def animal_html(genus,species,endangered,id):
+        t = div( dict( id='animal-%d'%id, class_=genus ),
+              p( dict( cssColor='red' if endangered else 'green', cssFontSize_pct=120 if endangered else None ),
+                'The', b('species'), 'is a', genus, 'and looks like this:',
+                img( dict( width=imgSize, height=imgSize, src='/pix/%d.jpg'%id ) )
+              )
+            );
+        return unicode(t);
+
+By making HTML tags act like functions with their attributes set like script objects, allowing css <code>style</code> elements to bet set like any other attribute, and throwing in a few other bells and whistles (array, undefined/None, inheritance...), FuncyTag simplifies the creation of HTML strings in javascript and python.
 
 ------------------------------------------------------------------------------
 
@@ -73,6 +89,7 @@ These step-by-step tutorials introduce FuncyTag features by example:
 
 * version 0.0.1 released Feb 22, 2013. This is a first stab in hopes of getting some feedback from someone... anyone...
 * version 0.0.2 released Feb 25, 2013. Add python version.
+* version 0.0.3 released Feb 26, 2013. When attribute values are undefined/None, do not set the attribute.
 
 ------------------------------------------------------------------------------
 
