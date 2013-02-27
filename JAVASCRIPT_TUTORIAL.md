@@ -1,6 +1,8 @@
 [FuncyTag](https://github.com/BrentNoorda/FuncyTag) Javascript Tutorial
 =========
 
+This is a step-by-step introduction to the features of FuncyTag in Javascript. This tutorial is also available as a [FuncyTag Python Tutorial](PYTHON_TUTORIAL.md).
+
 * [1: basic use](#1)
 * [2: setting attributes: funcyTag option object == html attributes](#2)
 * [3: cssCamelStyles](#3)
@@ -14,8 +16,6 @@
 * [11: other types of inner elements, undefined, arrays, and functions](#11)
 * [12: escaping strings](#12)
 * [more reading](#more)
-
-This is a step-by-step introduction to the features of FuncyTag in Javascript. This tutorial is also available as a [FuncyTag Python Tutorial](PYTHON_TUTORIAL.md).
 
 <a name="1"/>
 ### LESSON 1: basic use
