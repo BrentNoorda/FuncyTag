@@ -1,5 +1,5 @@
 /*jslint white:false plusplus:false browser:true nomen:false */
-/*globals $, funcyTag */
+/*globals window, funcyTag */
 
 var div=funcyTag('div'), ul=funcyTag('ul'), li=funcyTag('li',{_nobrin:true}),
     span=funcyTag('span',{_nobrout:true,_nobrin:true});
@@ -28,6 +28,6 @@ function build_example_html()
     return String(t);
 }
 
-$(document).ready(function() {
-    $('#container').html( build_example_html() );
-});
+window.onload = function() {
+    document.getElementById('container').innerHTML = build_example_html();
+};

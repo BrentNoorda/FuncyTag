@@ -1,5 +1,5 @@
 /*jslint white:false plusplus:false browser:true nomen:false */
-/*globals $, funcyTag */
+/*globals window, funcyTag */
 
 var div=funcyTag('div');
 
@@ -28,10 +28,8 @@ function build_example_html()
 
 function display()
 {
-    $('#container').html( build_example_html() );
+    document.getElementById('container').innerHTML = build_example_html();
     setTimeout(display,100);
 }
 
-$(document).ready(function() {
-    display();
-});
+window.onload = display;
