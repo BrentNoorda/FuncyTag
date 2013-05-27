@@ -1,4 +1,4 @@
-# FuncyTag version 0.0.3 - see more at https://github.com/BrentNoorda/FuncyTag
+# FuncyTag version 0.0.4 - see more at https://github.com/BrentNoorda/FuncyTag
 
 import re
 
