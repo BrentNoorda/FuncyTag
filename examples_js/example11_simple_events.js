@@ -1,7 +1,7 @@
 /*jslint white:false plusplus:false browser:true nomen:false */
 /*globals window, funcyTag, alert */
 
-var div = funcyTag( 'div' );
+var div = funcyTag( 'div' ), br = funcyTag('br');
 var box = funcyTag( 'div',
                     { cssBorderStyle:'solid',
                       cssWidth_px:100,
@@ -16,9 +16,9 @@ var box = funcyTag( 'div',
                         elem.style.color = 'black';
                       },
                       onclick: function(id,data,elem,evt) {
-                        alert("you clicked box " + data.idx);
+                        elem.innerHTML = 'box ' + data.idx + br() + (++data.clicked) + ' clicks';
                       } } );
-var p = funcyTag( 'p' );
+var clear = funcyTag( div, { cssClear:'both' } );
 
 function build_example_html()
 {
@@ -29,14 +29,19 @@ function build_example_html()
         var i, ret = [];
         for ( i = 0; i < count; i++ )
         {
-            ret.push( box({data:{idx:i}},'I am box ' + i) );
+            ret.push( box( {data:{idx:i,clicked:0}},
+                           'box ' + i,
+                           br(),
+                           '0 clicks'
+                      )
+                    );
         }
         return ret;
     }
 
     t = div(
           lotsa_boxes(20),
-          p({cssClear:'both',id:'msg'},'message goes here')
+          clear()
         );
     return String(t);
 }
