@@ -1,5 +1,5 @@
 /*jslint white:false plusplus:false browser:true nomen:false */
-/*globals window, funcyTag */
+/*globals window, funcyTag, alert */
 
 var div = funcyTag( 'div' );
 var box = funcyTag( 'div',
@@ -42,5 +42,5 @@ function build_example_html()
 }
 
 window.onload = function() {
-    document.getElementById('container').innerHTML = build_example_html();
+    document.getElementById('container').innerHTML = window.gRawHTML = build_example_html();
 };
