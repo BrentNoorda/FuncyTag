@@ -1,12 +1,13 @@
 /*jslint white:false plusplus:false browser:true nomen:false */
 /*globals window, funcyTag, alert */
 
-var div = funcyTag( 'div' ), br = funcyTag('br');
+var div = funcyTag( 'div' );
 var box = funcyTag( 'div',
                     { cssBorderStyle:'solid',
-                      cssWidth_px:100,
-                      cssHeight_px:100,
+                      cssWidth_px:80,
+                      cssHeight_px:80,
                       cssFloat:'left',
+                      cssPadding_em: 0.3,
                       onmouseover: function(id,data,elem,evt) {
                         elem.style.backgroundColor = 'black';
                         elem.style.color = 'white';
@@ -16,9 +17,10 @@ var box = funcyTag( 'div',
                         elem.style.color = 'black';
                       },
                       onclick: function(id,data,elem,evt) {
-                        elem.innerHTML = 'box ' + data.idx + br() + (++data.clicked) + ' clicks';
+                        elem.innerHTML = p('box ' + data.idx) + p(++data.clicked + ' clicks');
                       } } );
 var clear = funcyTag( div, { cssClear:'both' } );
+var p = funcyTag( 'p' );
 
 function build_example_html()
 {
@@ -30,9 +32,8 @@ function build_example_html()
         for ( i = 0; i < count; i++ )
         {
             ret.push( box( {data:{idx:i,clicked:0}},
-                           'box ' + i,
-                           br(),
-                           '0 clicks'
+                           p('box ' + i),
+                           p('0 clicks')
                       )
                     );
         }
