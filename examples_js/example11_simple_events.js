@@ -1,7 +1,7 @@
 /*jslint white:false plusplus:false browser:true nomen:false */
 /*globals window, funcyTag, alert */
 
-var div = funcyTag( 'div' );
+var div = funcyTag( 'div', { _noslfcls:true } );
 var p = funcyTag( 'p' );
 var box = funcyTag( 'div',
                     { cssBorderStyle:'solid',

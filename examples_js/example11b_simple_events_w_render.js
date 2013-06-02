@@ -1,16 +1,15 @@
 /*jslint white:false plusplus:false browser:true nomen:false */
 /*globals window, funcyTag, alert */
 
-var div = funcyTag( 'div' );
+var div = funcyTag( 'div', { _noslfcls:true } );
 var p = funcyTag( 'p' );
-var box = funcyTag( 'div',
+var box = funcyTag( div,
                     { cssBorderStyle:'solid',
                       cssWidth_px:80,
                       cssHeight_px:80,
                       cssFloat:'left',
                       cssPadding_em: 0.3,
                       cssCursor: 'pointer',
-                      _noslfcls:true,
                       oninit: function(elem) {
                         this._render(elem);
                       },
