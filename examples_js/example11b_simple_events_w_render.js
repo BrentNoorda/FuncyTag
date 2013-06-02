@@ -10,6 +10,10 @@ var box = funcyTag( 'div',
                       cssFloat:'left',
                       cssPadding_em: 0.3,
                       cssCursor: 'pointer',
+                      _noslfcls:true,
+                      oninit: function(elem) {
+                        this._render(elem);
+                      },
                       onmouseover: function(elem,evt) {
                         elem.style.backgroundColor = 'black';
                         elem.style.color = 'white';
@@ -19,7 +23,11 @@ var box = funcyTag( 'div',
                         elem.style.color = 'black';
                       },
                       onclick: function(elem,evt) {
-                        elem.innerHTML = p('box ' + this._idx) + p(++this._clicked + ' clicks');
+                        this._clicked++;
+                        this._render(elem);
+                      },
+                      _render: function(elem) {
+                        elem.innerHTML = p('box ' + this._idx) + p(this._clicked + ' clicks');
                       } } );
 var clear = funcyTag( div, { cssClear:'both' } );
 
@@ -32,11 +40,7 @@ function build_example_html()
         var i, ret = [];
         for ( i = 0; i < count; i++ )
         {
-            ret.push( box( { _idx:i, _clicked:0 },
-                           p('box ' + i),
-                           p('0 clicks')
-                      )
-                    );
+            ret.push( box({ _idx:i, _clicked:0 }) );
         }
         return ret;
     }
