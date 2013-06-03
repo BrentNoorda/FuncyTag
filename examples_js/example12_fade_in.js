@@ -1,5 +1,5 @@
 /*jslint white:false plusplus:false browser:true nomen:false */
-/*globals window, funcyTag, alert */
+/*globals window, funcyTag, console*/
 
 function no_propagate(evt)
 {
