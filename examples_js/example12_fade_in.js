@@ -88,11 +88,17 @@ function build_example_html()
     return String(t);
 }
 
-function build_example_css(show_source_code) {
-    funcyStyle( '.box', { fontSize_pct:75, color:'blue' } );
+function build_example_css(color,show_source_code) {
+    funcyStyle( '.box', { fontSize_pct:75, color:color } );
 }
 
 window.onload = function() {
-    build_example_css();
+    build_example_css('blue');
     document.getElementById('container').innerHTML = window.gRawHTML = build_example_html();
+
+    setTimeout(function(){
+    build_example_css('red');
+    document.getElementById('container').innerHTML = window.gRawHTML = build_example_html();
+    },5000);
+
 };
