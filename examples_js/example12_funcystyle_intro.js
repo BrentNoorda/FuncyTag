@@ -83,6 +83,7 @@ function build_example_html()
 }
 
 function build_example_css() {
+    window.gSaveFS =  // this line just so our "show FuncyStyle css string output" will work for tutorial
     funcyStyle( '.box',
                 { borderStyle:'solid',
                   width_px:80,
