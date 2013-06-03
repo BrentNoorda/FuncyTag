@@ -13,13 +13,7 @@ var div = funcyTag( 'div', { _noslfcls:true } );
 var p = funcyTag( 'p', { cssMargin_px:[5,0,5,0] } );
 var a = funcyTag( 'a' );
 var box = funcyTag( div,
-                    { cssBorderStyle:'solid',
-                      cssWidth_px:80,
-                      cssHeight_px:80,
-                      cssFloat:'left',
-                      cssPadding_em: 0.3,
-                      cssCursor: 'pointer',
-                      class_: 'box',
+                    { class_: 'box',
                       oninit: function(elem) {
                         this._render(elem);
                       },
@@ -88,17 +82,17 @@ function build_example_html()
     return String(t);
 }
 
-function build_example_css(color,show_source_code) {
-    funcyStyle( '.box', { fontSize_pct:75, color:color } );
+function build_example_css(show_source_code) {
+    funcyStyle( '.box',
+                { borderStyle:'solid',
+                  width_px:80,
+                  height_px:80,
+                  float:'left',
+                  padding_em: 0.3,
+                  cursor: 'pointer' } );
 }
 
 window.onload = function() {
-    build_example_css('blue');
+    build_example_css();
     document.getElementById('container').innerHTML = window.gRawHTML = build_example_html();
-
-    setTimeout(function(){
-    build_example_css('red');
-    document.getElementById('container').innerHTML = window.gRawHTML = build_example_html();
-    },5000);
-
 };
