@@ -1,8 +1,7 @@
 /*jslint white:false plusplus:false browser:true nomen:false */
-/*globals window, funcyTag, funcyStyle, console, alert*/
+/*globals window, funcyTag, funcyStyle, console*/
 
-function no_propagate(evt)
-{
+function no_propagate(evt) {
     if (evt.stopPropagation) {
         evt.stopPropagation();   // W3C model
     } else {
@@ -20,7 +19,7 @@ var box = funcyTag( div,
                       cssFloat:'left',
                       cssPadding_em: 0.3,
                       cssCursor: 'pointer',
-                      class_: 'goober',
+                      class_: 'box',
                       oninit: function(elem) {
                         this._render(elem);
                       },
@@ -49,17 +48,13 @@ var box = funcyTag( div,
                       } } );
 var clear = funcyTag( div, { cssClear:'both' } );
 
-funcyStyle.testTheory();
-
 function build_example_html()
 {
     var t, highest_idx = 0;
 
-    function lotsa_boxes(count)
-    {
+    function lotsa_boxes(count) {
         var i, ret = [];
-        for ( i = 0; i < count; i++ )
-        {
+        for ( i = 0; i < count; i++ ) {
             ret.push( box({ _idx:highest_idx++, _clicked:0 }) );
         }
         return ret;
@@ -90,18 +85,14 @@ function build_example_html()
 
           clear()
         );
-
-    function testy()
-    {
-        var fs = funcyStyle( '.goober', { fontSize_pct:10, color:'green' } );
-
-        alert(funcyStyle.getString(fs));
-    }
-    testy();
-
     return String(t);
 }
 
+function build_example_css(show_source_code) {
+    funcyStyle( '.box', { fontSize_pct:75, color:'blue' } );
+}
+
 window.onload = function() {
+    build_example_css();
     document.getElementById('container').innerHTML = window.gRawHTML = build_example_html();
 };
