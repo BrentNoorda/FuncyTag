@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>FuncyTag Example 12</title>
+    <title>FuncyTag Example 13</title>
   </head>
   <body>
-    <p>example12_funcystyle_intro - introducing "FuncyStyle" for creating css stylesheets in javascript</p>
+    <p>example13_animate_inout - use "funcyStyle" and oninit()" for box grow-in and shrink-out effects
+</p>
     <hr/>
 
     <div id="container">
-      <!-- example12_funcystyle_intro.js will put stuff here -->
+      <!-- example13_animate_inout.js will put stuff here -->
     </div>
 
     <hr/>
@@ -24,7 +25,7 @@
 
     <hr/>
     <div>
-      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-css pre').text(funcyStyle.getText(gSaveFS));$('#show-css').show('fast');">show FuncyStyle css string output</a>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-css pre').text(funcyStyle.getText(gSaveFS1)+'\r\n'+funcyStyle.getText(gSaveFS2));$('#show-css').show('fast');">show FuncyStyle css string output</a>
       <div id="show-css" style="display:none;">
         <p><b>Raw CSS output:</b></p>
         <pre>
@@ -35,7 +36,7 @@
 
     <hr/>
     <div>
-      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-js iframe').attr('src','example12_funcystyle_intro.js');$('#show-js').show('fast');">See Source Code</a>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-js iframe').attr('src','example13_animate_inout.js');$('#show-js').show('fast');">See Source Code</a>
       <div id="show-js" style="display:none;">
         <p><b>Javascript Source Code:</b></p>
         <iframe style="width:98%;height:500px;"></iframe>
@@ -70,11 +71,13 @@
   cursor:pointer;
  }</pre></code>
 
+
+
     <hr/>
-    next: <a href="example13_fade.html">example13_fade</a></br>
+    next: <a href="example_end.html">example_end</a></br>
     <a href="../examples_js.html">all js examples</a>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="../lib/funcytag.0.0.4.js"></script>
-    <script type="text/javascript" src="example12_funcystyle_intro.js"></script>
+    <script type="text/javascript" src="example13_animate_inout.js"></script>
   </body>
 </html>
