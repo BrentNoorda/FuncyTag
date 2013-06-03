@@ -17,7 +17,18 @@
       <div id="show-html" style="display:none;">
         <p><b>Raw HTML output:</b></p>
         <pre>
-          <!-- HTML from running function will be displayer here -->
+          <!-- HTML from running function will be displayed here -->
+        </pre>
+      </div>
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-html pre').text(gRawHTML);$('#show-html').show('fast');">show FuncyTag html string output</a>
+      <div id="show-html" style="display:none;">
+        <p><b>Raw HTML output:</b></p>
+        <pre>
+          <!-- CSS will be displayed here -->
         </pre>
       </div>
     </div>

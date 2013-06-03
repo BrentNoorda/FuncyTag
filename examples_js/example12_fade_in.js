@@ -82,7 +82,7 @@ function build_example_html()
     return String(t);
 }
 
-function build_example_css(show_source_code) {
+function build_example_css() {
     funcyStyle( '.box',
                 { borderStyle:'solid',
                   width_px:80,
