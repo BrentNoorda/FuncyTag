@@ -1,5 +1,5 @@
 /*jslint white:false plusplus:false browser:true nomen:false */
-/*globals window, funcyTag, console*/
+/*globals window, funcyTag, funcyStyle, console*/
 
 function no_propagate(evt)
 {
@@ -20,6 +20,7 @@ var box = funcyTag( div,
                       cssFloat:'left',
                       cssPadding_em: 0.3,
                       cssCursor: 'pointer',
+                      class_: 'goober',
                       oninit: function(elem) {
                         this._render(elem);
                       },
@@ -47,6 +48,8 @@ var box = funcyTag( div,
                                             }, 'remove');
                       } } );
 var clear = funcyTag( div, { cssClear:'both' } );
+
+funcyStyle.testTheory();
 
 function build_example_html()
 {
