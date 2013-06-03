@@ -1,5 +1,5 @@
 /*jslint white:false plusplus:false browser:true nomen:false */
-/*globals window, funcyTag, funcyStyle, console*/
+/*globals window, funcyTag, funcyStyle, console, alert*/
 
 function no_propagate(evt)
 {
@@ -90,6 +90,15 @@ function build_example_html()
 
           clear()
         );
+
+    function testy()
+    {
+        var fs = funcyStyle( '.goober', { fontSize_pct:10, color:'green' } );
+
+        alert(funcyStyle.getString(fs));
+    }
+    testy();
+
     return String(t);
 }
 
