@@ -73,7 +73,7 @@ creates this html
 <a name="3"></a>
 ### LESSON 3: cssCamelStyles
 
-It becomes tedious to create those "style=" strings in javascript. "style=" can usually be simplified in FuncyScript by setting tag properties that start with "css" and use "CamelCase" to represent the "blah-blah" types usually used in CSS. When funcyTag sees a property "cssFooBar" is becomes a Styles property "foo-bar". So the previous example can be rewritten as
+It becomes tedious to create those "style=" strings in javascript. "style=" can usually be simplified in FuncyScript by setting tag properties that start with "css" and use "CamelCase" to represent the "blah-blah" types usually used in CSS. When funcyTag sees a property "cssFooBar" is becomes a style property "foo-bar". So the previous example can be rewritten as
 
     div=funcyTag('div'), p=funcyTag('P');
 
