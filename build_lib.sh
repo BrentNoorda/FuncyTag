@@ -8,10 +8,8 @@ COMBINED_JS="lib/funcytag_and_style.$VERSION.js"
 DEBUG="true"
 
 echo
-echo $FUNCYTAG_JS
+echo building $FUNCYTAG_JS, $FUNCYSTYLE_JS, and $COMBINED_JS
 echo
-echo $OJIOJ
-
 
 echo "/*jslint white:false plusplus:false browser:true nomen:false */" > $FUNCYTAG_JS
 echo "/*globals window, console, funcyStyle, alert*/" >> $FUNCYTAG_JS
