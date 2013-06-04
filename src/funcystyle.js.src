@@ -151,7 +151,7 @@
                     }
                     value += units;
 
-                    cssText += ' ' + camel_to_dash(prop) + ':' + value + ';\r\n';
+                    cssText += '  ' + camel_to_dash(prop) + ':' + value + ';\r\n';
                 }
             } /* for ( prop in this ) */
             /*jslint forin:false */
