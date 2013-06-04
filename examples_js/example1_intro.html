@@ -33,6 +33,19 @@
     </div>
 
     <hr/>
+    <b>To Notice</b>: instead of writing HTML via XML tag syntax, as in:
+    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+&lt;P id="outty" style="font-size:200%;color:red;"&gt;
+  I'm a little teacup, short and stout.
+&lt;/P&gt;</pre></code>
+    we're treating HTML as if it's a set of javascript calls, with the first argument
+    being the attribute object, and additional objects being the content:
+    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+p( { id:'outty', style:'font-size:200%;color:red;' },
+   "I'm a little teacup, short and stout."
+);</pre></code>
+
+    <hr/>
     next: <a href="example2_children.html">example2_children</a></br>
     <a href="../examples_js.html">all js examples</a>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>

@@ -32,6 +32,30 @@
     </div>
 
     <hr/>
+    <b>To Notice</b>: Observe how nesting in the funcyTag javascript, e.g.
+    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+div( ...,
+     div( ...,
+          div( ... ),
+          ...
+     ),
+     ...
+)</pre></code>
+    leads to a comparable nesting of the resulting HTML code:
+    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+&lt;div ... &gt;
+    ...
+    &lt;div ... &gt;
+        ...
+        &lt;div ... &gt;
+            ...
+        &lt;/div&gt;
+        ...
+    &lt;/div&gt;
+    ...
+&lt;/div&gt;</pre></code>
+
+    <hr/>
     next: <a href="example3_css_properties.html">example3_css_properties</a></br>
     <a href="../examples_js.html">all js examples</a>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
