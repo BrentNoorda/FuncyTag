@@ -86,10 +86,11 @@
   height:80px;
   margin:0;
 }</pre></code>
-    Finally, the special oninit() method (which is called after a funcyTag has been rendered
+    Finally, the special oninit() method, which is unique to FuncyTag (as is onterm()), is called
+    after a funcyTag has been rendered
     to the page) then adds the "fullsize" class to the element, triggering the animations.
 
-    <br/>When the "remove" button is pressed, two things happen. First, the "fullsize" class
+    <br/><br/>When the "remove" button is pressed, two things happen. First, the "fullsize" class
     is removed, triggering the animation back to size 0, and then the dom element is removed
     from the page. Please notice that the animation time (which is done in css) and the remove-element
     time (which is done in javascript), are both tied to the javascript variable "boxAnimateTime"--
