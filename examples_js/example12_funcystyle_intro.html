@@ -46,35 +46,37 @@
     <b>To Notice</b>: FuncyStyle is being used to create a ".box" class style so that every instance
     of box can now look something like:<br/>
     <code><pre style="background-color:#d8d8d8;margin-left:2em;width:80%;">
- &lt;div class="box" id="a-ft-unq"&gt;</pre></code>
+ &lt;div class="box" id="...</pre></code>
     instead of the previous<br/>
     <code><pre style="background-color:#d8d8d8;margin-left:2em;width:80%;">
- &lt;div style="border-style:solid;width:80px;height:80px;float:left;padding:0.3em;cursor:pointer;" id="a-ft-unq"&gt;</pre></code>
+ &lt;div style="border-style:solid;width:80px;height:80px;text-align:center;float:left;padding:0.3em;cursor:pointer;" id="...</pre></code>
     because this call to funcyStyle()<br/>
     <code><pre style="background-color:#d8d8d8;margin-left:2em;width:80%;">
  funcyStyle( '.box',
              { borderStyle:'solid',
-               width_px:80,
-               height_px:80,
+               width_px:boxSize,
+               height_px:boxSize,
+               textAlign:'center',
                float:'left',
                padding_em: 0.3,
                cursor: 'pointer' } );</pre></code>
     has added this CSS to the stylesheet section of the page
     <code><pre style="background-color:#d8d8d8;margin-left:2em;width:80%;">
  .box {
-  border-style:solid;
-  width:80px;
-  height:80px;
-  float:left;
-  padding:0.3em;
-  cursor:pointer;
+   border-style:solid;
+   width:80px;
+   height:80px;
+   text-align:center;
+   float:left;
+   padding:0.3em;
+   cursor:pointer;
  }</pre></code>
 
     <hr/>
-    next: <a href="example13_fade.html">example13_fade</a></br>
+    next: <a href="example13_animate_inout.html">example13_animate_inout</a></br>
     <a href="../examples_js.html">all js examples</a>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script type="text/javascript" src="../lib/funcytag.0.0.4.js"></script>
+    <script type="text/javascript" src="../lib/funcytag_and_style.0.0.4.js"></script>
     <script type="text/javascript" src="example12_funcystyle_intro.js"></script>
   </body>
 </html>
