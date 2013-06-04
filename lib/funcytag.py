@@ -1,4 +1,4 @@
-# FuncyTag version 0.0.3 - see more at https://github.com/BrentNoorda/FuncyTag
+# FuncyTag version 0.0.4 - see more at https://github.com/BrentNoorda/FuncyTag
 
 import re
 
@@ -34,7 +34,7 @@ class funcyTag(object):
 
         def _ft_render_(self,stringPadding):
 
-            # start tag and add all attributes, including decoding of styles
+            # start tag and add all attributes, including decoding of css properties
             style = u''
             html = u'<' + self._ft_name
             for attr,value in self._attributes.items():

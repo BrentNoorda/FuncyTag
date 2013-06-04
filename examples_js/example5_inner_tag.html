@@ -17,7 +17,7 @@
       <div id="show-html" style="display:none;">
         <p><b>Raw HTML output:</b></p>
         <pre>
-          <!-- HTML from running function will be displayer here -->
+          <!-- HTML from running function will be displayed here -->
         </pre>
       </div>
     </div>
@@ -32,10 +32,23 @@
     </div>
 
     <hr/>
+    <b>To Notice</b>: This primarily demonstrates, via this recursive function, that the contents
+    of a funcytag may themselves be inner functytags:
+    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+    function inner_tag(height) // embed inner tags until height reaches 0
+    {
+        return div( { cssFontSize_px:height, cssMarginLeft_px:2.5*height },
+                 'begin height ' + height,
+                 (height > 1) ? inner_tag(height-1) : undefined,
+                 'end height ' + height
+               );
+    }</pre></code>
+
+    <hr/>
     next: <a href="example6_array_contents.html">example6_array_contents</a></br>
     <a href="../examples_js.html">all js examples</a>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script type="text/javascript" src="../lib/funcytag.0.0.3.js"></script>
+    <script type="text/javascript" src="../lib/funcytag.0.0.4.js"></script>
     <script type="text/javascript" src="example5_inner_tag.js"></script>
   </body>
 </html>

@@ -15,7 +15,7 @@ Jump To:
 
 ------------------------------------------------------------------------------
 
-<a name="quick-example"/>
+<a name="quick-example"/></a>
 # quick example
 
 Suppose you need a javascript function to create HTML for each animal that looks something like this (with sizes and colors depending on input parameters):
@@ -74,7 +74,7 @@ By making HTML tags act like functions with their attributes set like script obj
 
 ------------------------------------------------------------------------------
 
-<a name="tutorials"/>
+<a name="tutorials"></a>
 # tutorials
 
 These step-by-step tutorials introduce FuncyTag features by example:
@@ -84,23 +84,24 @@ These step-by-step tutorials introduce FuncyTag features by example:
 
 ------------------------------------------------------------------------------
 
-<a name="project-status"/>
+<a name="project-status"></a>
 # project status
 
 * version 0.0.1 released Feb 22, 2013. This is a first stab in hopes of getting some feedback from someone... anyone...
 * version 0.0.2 released Feb 25, 2013. Add python version.
 * version 0.0.3 released Feb 26, 2013. When attribute values are undefined/None, do not set the attribute.
+* version 0.0.4 released ?????. Events????
 
 ------------------------------------------------------------------------------
 
-<a name="more-examples"/>
+<a name="more-examples"></a>
 # more examples
 
 * [a bunch of online javascript examples](http://dl.dropbox.com/u/41075/funcytagexamples/examples_js.html)
 
 ------------------------------------------------------------------------------
 
-<a name="recommendations"/>
+<a name="recommendations"></a>
 # recommendations on when to use FuncyTag
 
 In general you could create all of your HTML via FuncyTag, but just because you can doesn't mean you should. In my experience, FuncyTag makes the most sense when you want to create just a relatively small sections of html based on runtime parameters, and you want that to be algorithmically flexible and really really easy to read.
@@ -141,7 +142,7 @@ This replace version runs 100,000 times in about 0.45 seconds--about 17 times fa
 Final recommendation: Unless you're in a situation where every microsecond will be noticed, pick the tool that makes the best use of your development time.
 
 ------------------------------------------------------------------------------
-<a name="similar-tools"/>
+<a name="similar-tools"></a>
 # similar tools
 
 If you're not satisifed with FuncyTag, there are many similar tools, with different reasons for being:
@@ -161,7 +162,7 @@ or you might just be satisfied with jquery(html,attributes). For a discussion of
 
 ------------------------------------------------------------------------------
 
-<a name="theme-song"/>
+<a name="theme-song"></a>
 # theme song
 
 Towlie remembers the FuncyTag theme [here](http://www.youtube.com/watch?v=4OrVrrsjqwQ).
