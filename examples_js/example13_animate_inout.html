@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FuncyTag Example 13</title>
+  </head>
+  <body>
+    <p>example13_animate_inout - use "funcyStyle" and oninit()" for box grow-in and shrink-out effects
+</p>
+    <hr/>
+
+    <div id="container">
+      <!-- example13_animate_inout.js will put stuff here -->
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-html pre').text(gRawHTML);$('#show-html').show('fast');">show FuncyTag html string output</a>
+      <div id="show-html" style="display:none;">
+        <p><b>Raw HTML output:</b></p>
+        <pre>
+          <!-- HTML from running function will be displayed here -->
+        </pre>
+      </div>
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-css pre').text(funcyStyle.getText(gSaveFS1)+'\r\n'+funcyStyle.getText(gSaveFS2));$('#show-css').show('fast');">show FuncyStyle css string output</a>
+      <div id="show-css" style="display:none;">
+        <p><b>Raw CSS output:</b></p>
+        <pre>
+          <!-- CSS will be displayed here -->
+        </pre>
+      </div>
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-js iframe').attr('src','example13_animate_inout.js');$('#show-js').show('fast');">See Source Code</a>
+      <div id="show-js" style="display:none;">
+        <p><b>Javascript Source Code:</b></p>
+        <iframe style="width:98%;height:500px;"></iframe>
+      </div>
+    </div>
+
+    <hr/>
+    <b>To Notice</b>: css3 animations (on box "add" and box "remove") have been added to <a href="example12_funcystyle_intro.html">the previous example</a>. This
+    is done by first adding animation properties to the '.box' style in build_example_css(), like so:
+    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+ function build_example_css() {
+
+    function multibrowser_transitions(transitions)  // return css properties for many different browsers
+    {
+        return { '-webkit-transition': transitions,
+                    '-moz-transition': transitions,
+                     '-ms-transition': transitions,
+                      '-o-transition': transitions,
+                         'transition': transitions };
+    }
+
+    var specs = ' ' + boxAnimateTime + 'ms linear';
+    funcyStyle( '.box', multibrowser_transitions('height' + specs + ', width' + specs + ', margin' + specs),
+                { borderStyle:'solid',
+                  width_px:0,
+                  height_px:0,
+                  ...</pre></code>
+    which leads to these additional properties in the css:
+<code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+  -webkit-transition:height 333ms linear, width 333ms linear, margin 333ms linear;
+  -moz-transition:height 333ms linear, width 333ms linear, margin 333ms linear;
+  -ms-transition:height 333ms linear, width 333ms linear, margin 333ms linear;
+  -o-transition:height 333ms linear, width 333ms linear, margin 333ms linear;
+  transition:height 333ms linear, width 333ms linear, margin 333ms linear;
+  width:0px;
+  height:0px;</pre></code>
+    (note also the width and height are now zero) for ".box". Next, this new css is defined with funcyStyle:
+<code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+  funcyStyle( '.box.fullsize',
+              { width_px:boxSize,
+                height_px:boxSize,
+                margin:0 } );</pre></code>
+    creating this css:
+<code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+.box.fullsize {
+  width:80px;
+  height:80px;
+  margin:0;
+}</pre></code>
+    Finally, the special oninit() method (which is called after a funcyTag has been rendered
+    to the page) then adds the "fullsize" class to the element, triggering the animations.
+
+    <br/>When the "remove" button is pressed, two things happen. First, the "fullsize" class
+    is removed, triggering the animation back to size 0, and then the dom element is removed
+    from the page. Please notice that the animation time (which is done in css) and the remove-element
+    time (which is done in javascript), are both tied to the javascript variable "boxAnimateTime"--
+    solving the general problem of how to share variables between css and javascript.
+
+    <hr/>
+    next: <a href="example_end.html">example_end</a></br>
+    <a href="../examples_js.html">all js examples</a>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/funcytag_and_style.0.0.4.js"></script>
+    <script type="text/javascript" src="example13_animate_inout.js"></script>
+  </body>
+</html>

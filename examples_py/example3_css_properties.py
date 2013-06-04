@@ -1,5 +1,5 @@
-# example3_css_styles - fold css styles into the cssCamelCase attributes. e.g.
-#                       styles:"margin-left:2em;" becomes cssMarginLeft:"2em"
+# example3_css_properties - fold css properties into the cssCamelCase attributes. e.g.
+#                           style:"margin-left:2em;" becomes cssMarginLeft:"2em"
 
 import os, sys; sys.path.append(os.path.dirname(os.path.abspath(__file__))+os.sep+'..')
 

@@ -1,48 +1,3 @@
-/*jslint white:false plusplus:false browser:true nomen:false */
-/*globals window, console, funcyStyle, alert*/
-/* FuncyTag version 0.0.4 - see more at https://github.com/BrentNoorda/FuncyTag */
-
-(function(window) {
-    var gCamelToDashRegexp,
-        gNextUniqueId, gUniqueLen, gNextIdChar, gInitQueue, gElems,
-        gGCTimeout, gRenderTimeout, styles_not_injected,
-        DEBUG=true;
-
-    // new stuff
-    // _superAttr = null if no supertag
-    // are we correctly handling it when _superAttr things within an array, for instances if it has classes to meld in? and events
-
-    //can we add a help function funcyTag.find(id) to return the elem and its attributes? even creating object if we must? maybe? but how if it
-    // doesn't go into xElem? _findable? if has data?
-    // explain createElement
-    // explain funcyStyle
-
-    /*************** camel casing ***************/
-
-    gCamelToDashRegexp = new RegExp('([A-Z])','g');
-
-    function camel_to_dash(camel)
-    // turn upper characters to -c, for example, "cssBackgroundColor" becomes "css-background-color"
-    {
-        return camel.replace(gCamelToDashRegexp,function(match,c,offset,string){
-                //alert("arguments.length = " + arguments.length + ' match='+match + ' c='+c+' offset='+offset+' string='+string);
-                return '-' + c.toLowerCase();
-            });
-    }
-
-    /*************** utility functions ***************/
-
-    function is_array(o) {  // from http://web.archive.org/web/20100424091244/http://www.ajaxdr.com/code/javascript-version-of-phps-is_array-function/
-        if((o !== null) && (typeof o === 'object')) {
-            return (typeof o.push === 'undefined') ? false : true;
-        }else {
-            return false;
-        }
-    }
-
-    function isPlainObj(o) { // from http://stackoverflow.com/questions/5876332/how-can-i-differentiate-between-an-object-literal-other-javascript-objects
-        return (typeof o === 'object') && (o.constructor === Object)  && !('_ft_render_' in o);
-    }
     /*************** tool to create a unique ID, forever, if one is not suppliedglobal event trackers ***************/
 
     gNextUniqueId = "";  // each time an id isn't supplied, and we need one, supply it here
@@ -546,4 +501,3 @@
 
         return ret;
     };
-}(window));
