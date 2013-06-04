@@ -1,4 +1,4 @@
-    /*************** tool to create a unique ID, forever, if one is not suppliedglobal event trackers ***************/
+    /*************** tool to create a unique ID, forever, if one is not supplied, for global event trackers ***************/
 
     gNextUniqueId = "";  // each time an id isn't supplied, and we need one, supply it here
     gUniqueLen = 0;
