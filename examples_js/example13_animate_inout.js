@@ -10,7 +10,7 @@ function no_propagate(evt) {
 }
 
 var boxSize = 80; // how many pixels tall and wide is each box
-var boxAnimateTime = 500; // how long boxes take to animate
+var boxAnimateTime = 333; // how long boxes take to animate
 
 var div = funcyTag( 'div', { _noslfcls:true } );
 var p = funcyTag( 'p', { cssMargin_px:[5,0,5,0] } );
