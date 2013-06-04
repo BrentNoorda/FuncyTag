@@ -32,11 +32,13 @@
     </div>
 
     <hr/>
-    <b>To Notice</b>: Observe how nesting in the funcyTag javascript, e.g.
+    <b>To Notice</b>: Nesting in the funcyTag javascript, e.g.
     <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
-div( ...,
-     div( ...,
-          div( ... ),
+div( {...},
+     ...
+     div( {...},
+          ...
+          div( {...}, ... ),
           ...
      ),
      ...
