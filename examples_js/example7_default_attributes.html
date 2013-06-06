@@ -32,6 +32,15 @@
     </div>
 
     <hr/>
+    <b>To Notice</b>: You can create new tags, beyond standard html tags (e.g. &lt;p&gt, &lt;div&gt, &lt;li&gt, etc...)
+    by declaring attributes within their css descriptions.  For instance, in this example &lt;good_li&gt;
+    and a &lt;bad_li&gt; tags are created which act exactly like an html &lt;li&gt tag exact that one is
+    green and the other is red. Those two tags are created with this javascript:
+    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+good_li = funcyTag( 'li', {cssColor:'green'} )
+bad_li = funcyTag( 'li', {cssColor:'red'} );</pre></code>
+
+    <hr/>
     next: <a href="example8_behavior_modification.html">example8_behavior_modification</a></br>
     <a href="../examples_js.html">all js examples</a>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
