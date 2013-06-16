@@ -22,8 +22,9 @@ function build_example_css() {
                       fontWeight: 'bold'
                   },
                   p: { fontSize_px: 12,
-                     a: { textDecoration: 'none' },
-                     'a:hover': { borderWidth_px: 1 }
+                       a: { textDecoration: 'none',
+                         '&hover': { borderWidth_px: 1 }
+                       }
                   }
                 }
               );
