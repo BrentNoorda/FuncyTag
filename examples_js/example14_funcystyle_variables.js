@@ -9,6 +9,7 @@ var div = funcyTag( 'div' ), p = funcyTag( 'p' );
 
 function build_example_html()
 {
+    var t;
     t = div( {class_:'box'},
              p({id:'mytext'},'Hello, squirrels')
         );
