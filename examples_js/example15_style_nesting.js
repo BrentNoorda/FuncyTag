@@ -16,16 +16,17 @@ function build_example_html()
 }
 
 function build_example_css() {
-    window.gSaveFS1 =  // for "show FuncyStyle css string output"
-    funcyStyle( '.box',
-                { backgroundColor: boxBG,
-                  padding_px: boxPadding } );
-    window.gSaveFS2 =  // for "show FuncyStyle css string output"
-    funcyStyle( '#mytext',
-                { backgroundColor: boxFG,
-                  color: boxBG,
-                  margin: 0,
-                  padding_px: boxPadding / 2 } );
+    window.gSaveFS =  // for "show FuncyStyle css string output"
+    funcyStyle( '#header', {
+                  h1: { fontSize_px: 26,
+                      fontWeight: 'bold'
+                  },
+                  p: { fontSize_px: 12,
+                     a: { textDecoration: 'none' },
+                     'a:hover': { borderWidth_px: 1 }
+                  }
+                }
+              );
 }
 
 window.onload = function() {

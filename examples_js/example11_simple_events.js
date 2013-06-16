@@ -43,7 +43,7 @@ function build_example_html()
     }
 
     t = div(
-          lotsa_boxes(20),
+          lotsa_boxes(11),
           clear()
         );
     return String(t);

@@ -11,6 +11,35 @@
 
             funcyStyle('table.h1',{ margin_em:[2 0], 'td.ln': funcyStyle('td.ln',{textAlign:'right'}} })
 
+            borrowing from the less example,
+
+              funcyStyle( '#header', {
+                            h1: { fontSize_px: 26,
+                                  fontWeight: 'bold'
+                            },
+                            p: { fontSize_px: 12,
+                                 a: { textDecoration: none },
+                                 'a:hover': { borderWidth_px: 1 }
+                            }
+                          }
+                        )
+
+            leads to this css
+
+                #header h1 {
+                  font-size: 26px;
+                  font-weight: bold;
+                }
+                #header p {
+                  font-size: 12px;
+                }
+                #header p a {
+                  text-decoration: none;
+                }
+                #header p a:hover {
+                  border-width: 1px;
+                }
+
         mixins
 
             handled by calling functions that return array (or object) of attributes

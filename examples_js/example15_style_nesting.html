@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FuncyTag Example 15</title>
+    <link rel="stylesheet" type="text/css" href="example_js.css">
+  </head>
+  <body><div id="content">
+    <p class="title">example15_style_nesting - nest styles within other styles</p>
+    <hr/>
+
+    <div id="container">
+      <!-- example15_style_nesting.js will put stuff here -->
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-html pre').text(gRawHTML);$('#show-html').show('fast');">show FuncyTag html string output</a>
+      <div id="show-html" style="display:none;">
+        <p><b>Raw HTML output:</b></p>
+        <pre>
+          <!-- HTML from running function will be displayed here -->
+        </pre>
+      </div>
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-css pre').text(funcyStyle.getText(gSaveFS));$('#show-css').show('fast');">show FuncyStyle css string output</a>
+      <div id="show-css" style="display:none;">
+        <p><b>Raw CSS output:</b></p>
+        <pre>
+          <!-- CSS will be displayed here -->
+        </pre>
+      </div>
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-js iframe').attr('src','example15_style_nesting.js');$('#show-js').show('fast');">See Source Code</a>
+      <div id="show-js" style="display:none;">
+        <p><b>Javascript Source Code:</b></p>
+        <iframe style="width:98%;height:500px;"></iframe>
+      </div>
+    </div>
+
+    <hr/>
+    <b>To Notice</b>: This:
+    <code><pre class="notice-code">
+funcyStyle( '#header', {
+              h1: { fontSize_px: 26,
+                    fontWeight: 'bold'
+              },
+              p: { fontSize_px: 12,
+                   a: { textDecoration: none },
+                   'a:hover': { borderWidth_px: 1 }
+              }
+            }
+          );</pre></code>
+    generates this CSS:
+<code><pre class="notice-code">
+#header h1 {
+  font-size: 26px;
+  font-weight: bold;
+}
+#header p {
+  font-size: 12px;
+}
+#header p a {
+  text-decoration: none;
+}
+#header p a:hover {
+  border-width: 1px;
+}</pre></code>
+
+    <hr/>
+    next: <a href="example_end.html">example_end</a></br>
+    <a href="../examples_js.html">all js examples</a>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/funcytag_and_style.0.0.4.js"></script>
+    <script type="text/javascript" src="example15_style_nesting.js"></script>
+  </div></body>
+</html>

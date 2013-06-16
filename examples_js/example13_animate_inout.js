@@ -58,7 +58,7 @@ function build_example_html()
     }
 
     t = div(
-          lotsa_boxes(20),
+          lotsa_boxes(11),
 
           // add a box at the end to offer an add-new-box option
           box( { _render: function(elem) { }, cssLineHeight_px:boxSize },
@@ -95,7 +95,7 @@ function build_example_css() {
     }
 
     var specs = ' ' + boxAnimateTime + 'ms linear';
-    window.gSaveFS1 =  // this line just so our "show FuncyStyle css string output" will work for tutorial
+    window.gSaveFS1 =  // for "show FuncyStyle css string output"
     funcyStyle( '.box', multibrowser_transitions('height' + specs + ', width' + specs + ', margin' + specs),
                 { borderStyle:'solid',
                   width_px:0,
@@ -107,7 +107,7 @@ function build_example_css() {
                   padding_em: 0.3,
                   cursor: 'pointer',
                   overflow: 'hidden' } );
-    window.gSaveFS2 =  // this line just so our "show FuncyStyle css string output" will work for tutorial
+    window.gSaveFS2 =  // for "show FuncyStyle css string output"
     funcyStyle( '.box.fullsize',
                 { width_px:boxSize,
                   height_px:boxSize,

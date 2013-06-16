@@ -55,7 +55,7 @@ function build_example_html()
     }
 
     t = div(
-          lotsa_boxes(20),
+          lotsa_boxes(11),
 
           // add a box at the end to offer an add-new-box option
           box( { _render: function(elem) { }, cssLineHeight_px:boxSize },
@@ -81,7 +81,7 @@ function build_example_html()
 }
 
 function build_example_css() {
-    window.gSaveFS =  // this line just so our "show FuncyStyle css string output" will work for tutorial
+    window.gSaveFS =  // for "show FuncyStyle css string output"
     funcyStyle( '.box',
                 { borderStyle:'solid',
                   width_px:boxSize,
