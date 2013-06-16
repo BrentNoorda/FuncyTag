@@ -2,9 +2,10 @@
 <html lang="en">
   <head>
     <title>FuncyTag Example 5</title>
+    <link rel="stylesheet" type="text/css" href="example_js.css">
   </head>
-  <body>
-    <p>example5_inner_tag - contents of a tag may include another tag, here demonstrated by a recursive tag maker</p>
+  <body><div id="content">
+    <p class="title">example5_inner_tag - contents of a tag may include another tag, here demonstrated by a recursive tag maker</p>
     <hr/>
 
     <div id="container">
@@ -34,7 +35,7 @@
     <hr/>
     <b>To Notice</b>: This primarily demonstrates, via this recursive function, that the contents
     of a funcytag may themselves be inner functytags:
-    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+    <code><pre class="notice-code">
     function inner_tag(height) // embed inner tags until height reaches 0
     {
         return div( { cssFontSize_px:height, cssMarginLeft_px:2.5*height },
@@ -50,5 +51,5 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="../lib/funcytag.0.0.4.js"></script>
     <script type="text/javascript" src="example5_inner_tag.js"></script>
-  </body>
+  </div></body>
 </html>

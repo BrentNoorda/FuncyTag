@@ -2,9 +2,10 @@
 <html lang="en">
   <head>
     <title>FuncyTag Example 2</title>
+    <link rel="stylesheet" type="text/css" href="example_js.css">
   </head>
-  <body>
-    <p>example2_children - child elements are embedded parameters, encouraging html-like indentation</p>
+  <body><div id="content">
+    <p class="title">example2_children - child elements are embedded parameters, encouraging html-like indentation</p>
     <hr/>
 
     <div id="container">
@@ -33,7 +34,7 @@
 
     <hr/>
     <b>To Notice</b>: Nesting in the funcyTag javascript, e.g.
-    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+    <code><pre class="notice-code">
 div( {...},
      ...
      div( {...},
@@ -44,7 +45,7 @@ div( {...},
      ...
 )</pre></code>
     leads to a comparable nesting of the resulting HTML code:
-    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+    <code><pre class="notice-code">
 &lt;div ... &gt;
     ...
     &lt;div ... &gt;
@@ -63,5 +64,5 @@ div( {...},
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="../lib/funcytag.0.0.4.js"></script>
     <script type="text/javascript" src="example2_children.js"></script>
-  </body>
+  </div></body>
 </html>

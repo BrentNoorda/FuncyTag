@@ -2,9 +2,10 @@
 <html lang="en">
   <head>
     <title>FuncyTag Example 10</title>
+    <link rel="stylesheet" type="text/css" href="example_js.css">
   </head>
-  <body>
-    <p>example10_esc - escaping text strings - using funcyTag.esc() for strings that may contain html characters</p>
+  <body><div id="content">
+    <p class="title">example10_esc - escaping text strings - using funcyTag.esc() for strings that may contain html characters</p>
     <hr/>
 
     <div id="container">
@@ -38,7 +39,7 @@
     that those strings could contain problem characters.
 
     In the above example, funcyTag.esc() was used twice with these statements:
-    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+    <code><pre class="notice-code">
 funcyTag.esc(' a&lt;b&gt;c')
 funcyTag.esc('&quot;dog&quot; &amp; &quot;pony&quot;')</pre></code>
 
@@ -48,5 +49,5 @@ funcyTag.esc('&quot;dog&quot; &amp; &quot;pony&quot;')</pre></code>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="../lib/funcytag.0.0.4.js"></script>
     <script type="text/javascript" src="example10_esc.js"></script>
-  </body>
+  </div></body>
 </html>

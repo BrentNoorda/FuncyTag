@@ -2,9 +2,10 @@
 <html lang="en">
   <head>
     <title>FuncyTag Example 7</title>
+    <link rel="stylesheet" type="text/css" href="example_js.css">
   </head>
-  <body>
-    <p>example7_default_attributes - create new tags with default attributes (such as &lt;good_li&gt; and &lt;bad_li&gt;)</p>
+  <body><div id="content">
+    <p class="title">example7_default_attributes - create new tags with default attributes (such as &lt;good_li&gt; and &lt;bad_li&gt;)</p>
     <hr/>
 
     <div id="container">
@@ -36,7 +37,7 @@
     by declaring attributes within their css descriptions.  For instance, in this example &lt;good_li&gt;
     and a &lt;bad_li&gt; tags are created which act exactly like an html &lt;li&gt tag exact that one is
     green and the other is red. Those two tags are created with this javascript:
-    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+    <code><pre class="notice-code">
 good_li = funcyTag( 'li', {cssColor:'green'} )
 bad_li = funcyTag( 'li', {cssColor:'red'} );</pre></code>
 
@@ -46,5 +47,5 @@ bad_li = funcyTag( 'li', {cssColor:'red'} );</pre></code>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="../lib/funcytag.0.0.4.js"></script>
     <script type="text/javascript" src="example7_default_attributes.js"></script>
-  </body>
+  </div></body>
 </html>

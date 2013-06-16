@@ -2,9 +2,10 @@
 <html lang="en">
   <head>
     <title>FuncyTag Example 3</title>
+    <link rel="stylesheet" type="text/css" href="example_js.css">
   </head>
-  <body>
-    <p>example3_css_properties - fold css properties into the cssCamelCase attributes. e.g. <b><code>style:"margin-left:2em;"</code></b> becomes <b><code>cssMarginLeft:"2em"</code></b></p>
+  <body><div id="content">
+    <p class="title">example3_css_properties - fold css properties into the cssCamelCase attributes. e.g. <b><code>style:"margin-left:2em;"</code></b> becomes <b><code>cssMarginLeft:"2em"</code></b></p>
     <hr/>
 
     <div id="container">
@@ -33,11 +34,11 @@
 
     <hr/>
     <b>To Notice</b>: Building the "style" attribute as a long string such as this:
-    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+    <code><pre class="notice-code">
 div( { id:'middle', style:"font-size:16px;color:green;margin-left:12px;" },</pre></code>
     often in practice leads to a lot of javascript code concatenating complex strings. So with
     FuncyTag any attribute starting with "css" is treated as an element of the "style" attribute, e.g.:
-    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+    <code><pre class="notice-code">
 div( { id:'middle', cssFontSize:'16px', cssColor:'green', cssMarginLeft:'12px' },</pre></code>
 
     <hr/>
@@ -46,5 +47,5 @@ div( { id:'middle', cssFontSize:'16px', cssColor:'green', cssMarginLeft:'12px' }
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="../lib/funcytag.0.0.4.js"></script>
     <script type="text/javascript" src="example3_css_properties.js"></script>
-  </body>
+  </div></body>
 </html>

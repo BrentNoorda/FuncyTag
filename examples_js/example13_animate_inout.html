@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <title>FuncyTag Example 13</title>
+    <link rel="stylesheet" type="text/css" href="example_js.css">
   </head>
-  <body>
-    <p>example13_animate_inout - use "funcyStyle" and oninit()" for box grow-in and shrink-out effects
-</p>
+  <body><div id="content">
+    <p class="title">example13_animate_inout - use "funcyStyle" and oninit()" for box grow-in and shrink-out effects</p>
     <hr/>
 
     <div id="container">
@@ -46,7 +46,7 @@
     <hr/>
     <b>To Notice</b>: css3 animations (on box "add" and box "remove") have been added to <a href="example12_funcystyle_intro.html">the previous example</a>. This
     is done by first adding animation properties to the '.box' style in build_example_css(), like so:
-    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+    <code><pre class="notice-code">
  function build_example_css() {
 
     function multibrowser_transitions(transitions)  // return css properties for many different browsers
@@ -65,7 +65,7 @@
                   height_px:0,
                   ...</pre></code>
     which leads to these additional properties in the css:
-<code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+<code><pre class="notice-code">
   -webkit-transition:height 333ms linear, width 333ms linear, margin 333ms linear;
   -moz-transition:height 333ms linear, width 333ms linear, margin 333ms linear;
   -ms-transition:height 333ms linear, width 333ms linear, margin 333ms linear;
@@ -74,13 +74,13 @@
   width:0px;
   height:0px;</pre></code>
     (note also the width and height are now zero) for ".box". Next, this new css is defined with funcyStyle:
-<code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+<code><pre class="notice-code">
   funcyStyle( '.box.fullsize',
               { width_px:boxSize,
                 height_px:boxSize,
                 margin:0 } );</pre></code>
     creating this css:
-<code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+<code><pre class="notice-code">
 .box.fullsize {
   width:80px;
   height:80px;
@@ -103,5 +103,5 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="../lib/funcytag_and_style.0.0.4.js"></script>
     <script type="text/javascript" src="example13_animate_inout.js"></script>
-  </body>
+  </div></body>
 </html>

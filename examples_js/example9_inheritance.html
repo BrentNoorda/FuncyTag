@@ -2,9 +2,10 @@
 <html lang="en">
   <head>
     <title>FuncyTag Example 9</title>
+    <link rel="stylesheet" type="text/css" href="example_js.css">
   </head>
-  <body>
-    <p>example9_inheritance - funcyTags can inherit options from other funcy tags</p>
+  <body><div id="content">
+    <p class="title">example9_inheritance - funcyTags can inherit options from other funcy tags</p>
     <hr/>
 
     <div id="container">
@@ -34,13 +35,13 @@
     <hr/>
     <b>To Notice</b>: New FuncyTags can be built by inheriting from previously defined FuncyTags.
     As a simple example, if we have already created a &lt;span&gt; tag like this:
-    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+    <code><pre class="notice-code">
 span=funcyTag('span',{_nobrout:true,_nobrin:true});</pre></code>
 we can then create a &lt;big&gt; tag that inherits everything about <code>span</code> but also sets the font size to be 150%:
-    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+    <code><pre class="notice-code">
 big = funcyTag( span, {cssFontSize_pct:150} );</pre></code>
 and a &lt;bigred&gt; tag could inherit from that to be a span that's both 150% bigger and colored red:
-    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+    <code><pre class="notice-code">
 bigred = funcyTag( big, {cssColor:'red'} );</pre></code>
 
     <hr/>
@@ -49,5 +50,5 @@ bigred = funcyTag( big, {cssColor:'red'} );</pre></code>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="../lib/funcytag.0.0.4.js"></script>
     <script type="text/javascript" src="example9_inheritance.js"></script>
-  </body>
+  </div></body>
 </html>

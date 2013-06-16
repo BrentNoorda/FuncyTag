@@ -2,9 +2,10 @@
 <html lang="en">
   <head>
     <title>FuncyTag Example 4</title>
+    <link rel="stylesheet" type="text/css" href="example_js.css">
   </head>
-  <body>
-    <p>example4_css_units - avoid stringifying units in JS by adding the unit to the end of the cssCamelCase attribute. e.g. <b><code>style:"margin-left:2em;"</code></b> becomes <b><code>cssMarginLeft_em:2</code></b></p>
+  <body><div id="content">
+    <p class="title">example4_css_units - avoid stringifying units in JS by adding the unit to the end of the cssCamelCase attribute. e.g. <b><code>style:"margin-left:2em;"</code></b> becomes <b><code>cssMarginLeft_em:2</code></b></p>
     <hr/>
 
     <div id="container">
@@ -34,15 +35,15 @@
     <hr/>
     <b>To Notice</b>: Many css properties take a unit (e.g. "em,px,pico,pc,pt,etc....") which in javascript
     leads to extra string manipulation that is hard to read, such as:
-    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+    <code><pre class="notice-code">
 var fontSize = 8;
 div( { id:'middle', cssFontSize:fontSize*2+'px', ...</pre></code>
     FuncyTag css properties all the unit to be part of the name (preceded with '_') so such string math isn't needed, e.g.:
-    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+    <code><pre class="notice-code">
 var fontSize = 8;
 div( { id:'middle', cssFontSize_px:fontSize*2, ...</pre></code>
 Note that for the unit percent ("%"), FuncyTag allows the extension "_pct" as in:
-    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+    <code><pre class="notice-code">
 div( { id:'middle', cssFontSize_pct:75, ...</pre></code>
 
     <hr/>
@@ -51,5 +52,5 @@ div( { id:'middle', cssFontSize_pct:75, ...</pre></code>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="../lib/funcytag.0.0.4.js"></script>
     <script type="text/javascript" src="example4_css_units.js"></script>
-  </body>
+  </div></body>
 </html>

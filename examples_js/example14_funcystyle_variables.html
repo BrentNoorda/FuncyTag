@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <title>FuncyTag Example 14</title>
+    <link rel="stylesheet" type="text/css" href="example_js.css">
   </head>
-  <body>
-    <p>example14_funcystyle_variables - demonstrate use of variables in FuncyStyle
-</p>
+  <body><div id="content">
+    <p class="title">example14_funcystyle_variables - demonstrate use of variables in FuncyStyle</p>
     <hr/>
 
     <div id="container">
@@ -47,7 +47,7 @@
     <b>To Notice</b>: Similar to other CSS preprocessor languages (e.g. SASS or LESS), FuncyStyle
     allows for variable to be used in defined styles, and for math and operations to be performed
     on those variables. For example, this FuncyStyle code:
-    <code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+    <code><pre class="notice-code">
 var boxBG = 'red';
 var boxFG = 'green';
 var boxPadding = 16;
@@ -61,7 +61,7 @@ funcyStyle( '#mytext',
               margin: 0,
               padding_px: boxPadding / 2 } );</pre></code>
     generates this CSS:
-<code><pre style="background-color:#eee;margin-left:2em;width:80%;">
+<code><pre class="notice-code">
 .box {
   background-color:red;
   padding:16px;
@@ -79,5 +79,5 @@ funcyStyle( '#mytext',
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="../lib/funcytag_and_style.0.0.4.js"></script>
     <script type="text/javascript" src="example14_funcystyle_variables.js"></script>
-  </body>
+  </div></body>
 </html>
