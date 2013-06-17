@@ -47,18 +47,22 @@
     <b>To Notice</b>: This:
     <code><pre class="notice-code">
 funcyStyle( '#header', {
+              textAlign: 'center',
               h1: { fontSize_px: 26,
                     fontWeight: 'bold'
               },
               p: { fontSize_px: 12,
                    a: { textDecoration: 'none',
-                     '&amp;hover': { borderWidth_px: 1 }
+                     '&amp;:hover': { borderWidth_px: 1 }
                    }
               }
             }
           );</pre></code>
     generates this CSS:
 <code><pre class="notice-code">
+#header h1 {
+  text-align: center;
+}
 #header h1 {
   font-size: 26px;
   font-weight: bold;

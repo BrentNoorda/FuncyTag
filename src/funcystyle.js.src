@@ -67,10 +67,11 @@
 
 
     */
+    recursive = 0; // if non-zero then calling recursively from within _fs_render_
 
     function funcyStyle(selector,args)
     {
-        var style, prop, argsIdx, nestIdx, propsIdx, propsObj, arg, properties, propsarray, val, nestedObj, inherProp;
+        var style, prop, argsIdx, nestIdx, propsIdx, propsObj, arg, properties, propsarray, val, inherProp, nestedFS;
 
         // based on inherited and properties, build a big object of the properties for this css selector
         properties = { _nested:[] };
@@ -86,6 +87,7 @@
             for ( propsIdx = 0; propsIdx < propsarray.length; propsIdx++ )
             {
                 propsObj = propsarray[propsIdx];
+                console.log("propsObj = " + propsObj);
                 if ( propsObj !== undefined )  // ignore undefined
                 {
                     if ( '_fs_selector' in propsObj )
@@ -107,16 +109,13 @@
                             val = propsObj[prop];
                             if ( val !== undefined )
                             {
-                                try {
-                                    if ( '_fs_selector' in val )
-                                    {
-                                        // this is a nested funcyStyle
-                                        nestedObj = { };
-                                        nestedObj[prop] = val;
-                                        properties._nested.push( nestedObj );
-                                    }
-                                } catch( e2 ) {
-                                    // plain old object, so just copy properties
+                                if ( isPlainObj(val) )
+                                {
+                                    // this is a nested funcyStyle
+                                    properties._nested.push( [ prop, val ] );
+                                }
+                                else
+                                {
                                     properties[prop] = val;
                                 }
                             }
@@ -131,7 +130,8 @@
         properties._fs_selector = selector;
 
         properties._fs_render_ = function(nested_parent_selector) {
-            var selector, cssText, prop, idx, jdx, content, inside, value, units, style, innerHTML, first_, innerPadding, skipNextPadding;
+            var selector, cssText, prop, idx, jdx, value, units,
+                first_, nextSelector;
 
             // start style and add all properties, including decoding of camel stuff
             selector = ( nested_parent_selector ? (nested_parent_selector + ' ') : '' ) + properties._fs_selector;
@@ -181,20 +181,43 @@
                     }
                     value += units;
 
-                    cssText += '  ' + camel_to_dash(prop) + ':' + value + ';\r\n';
+                    cssText += '  ' + camel_to_dash(prop) + ': ' + value + ';\r\n';
                 }
             } /* for ( prop in this ) */
             /*jslint forin:false */
 
-            // put the _nested stuff here !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            cssText += '}';
 
-            return cssText + '}';
+            // put the _nested stuff here
+            recursive++;
+            for ( idx = 0; idx < this._nested.length; idx++ )
+            {
+                prop = this._nested[idx][0];
+                val = this._nested[idx][1];
+                if ( prop.lastIndexOf('&',0) === 0 )
+                {
+                    nextSelector = prop.substring(1);
+                }
+                else
+                {
+                    nextSelector = ' ' + prop;
+                }
+                nestedFS = funcyStyle(selector+nextSelector,val);
+                cssText += '\r\n' + nestedFS._fs_render_(null);
+            }
+            recursive--;
+
+            return cssText;
+
         }; /* properties._fs_render_ = function() */
 
-        try
+        if ( recursive === 0 )
         {
-            window.funcyTag._styles_not_injected.push(properties);
-        } catch( e3 ) { /* if funcyTag doesn't exist, that's OK */ }
+            try
+            {
+                window.funcyTag._styles_not_injected.push(properties);
+            } catch( e3 ) { /* if funcyTag doesn't exist, that's OK */ }
+        }
 
         return properties;
     } /* function funcyStyle() */

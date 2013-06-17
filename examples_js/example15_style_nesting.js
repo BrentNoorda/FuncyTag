@@ -19,12 +19,13 @@ function build_example_html()
 function build_example_css() {
     window.gSaveFS =  // for "show FuncyStyle css string output"
     funcyStyle( '#header', {
+                  textAlign: 'center',
                   h1: { fontSize_px: 26,
                       fontWeight: 'bold'
                   },
                   p: { fontSize_px: 12,
                        a: { textDecoration: 'none',
-                         '&hover': { borderWidth_px: 1 }
+                         '&:hover': { borderWidth_px: 1 }
                        }
                   }
                 }

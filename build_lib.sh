@@ -40,6 +40,9 @@ echo "        gNextUniqueId, gUniqueLen, gNextIdChar, gInitQueue, gElems," >> $C
 echo "        gGCTimeout, gRenderTimeout, styles_not_injected," >> $FUNCYTAG_JS
 echo "        gGCTimeout, gRenderTimeout, styles_not_injected," >> $COMBINED_JS
 
+echo "        recursive," >> $FUNCYSTYLE_JS
+echo "        recursive," >> $COMBINED_JS
+
 echo "        DEBUG=$DEBUG;" >> $FUNCYTAG_JS
 echo "        DEBUG=$DEBUG;" >> $FUNCYSTYLE_JS
 echo "        DEBUG=$DEBUG;" >> $COMBINED_JS
