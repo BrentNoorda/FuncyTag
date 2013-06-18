@@ -460,6 +460,8 @@
 
     funcyTag._styles_not_injected = styles_not_injected; // so funcyStyle.js can find it
 
+    funcyTag.color = color;
+
     funcyTag.esc = function( str )
     {
         return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");

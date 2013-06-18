@@ -228,6 +228,8 @@
 
     /*************** helper functions ***************/
 
+    funcyStyle.color = color;
+
     funcyStyle.getText = function(fs)
     {
         return fs._fs_render_(null);
