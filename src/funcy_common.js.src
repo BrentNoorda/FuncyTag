@@ -78,22 +78,27 @@
                 b = (rawrgb & 0xFF);
                 /*jslint bitwise:true */
             }
-            if ( r < 0 ) { r = 0; }
-            if ( g < 0 ) { g = 0; }
-            if ( b < 0 ) { b = 0; }
-            if ( 255 < r ) { r = 255; }
-            if ( 255 < g ) { g = 255; }
-            if ( 255 < b ) { b = 255; }
         }
+        if ( r < 0 ) { r = 0; }
+        if ( g < 0 ) { g = 0; }
+        if ( b < 0 ) { b = 0; }
+        if ( 255 < r ) { r = 255; }
+        if ( 255 < g ) { g = 255; }
+        if ( 255 < b ) { b = 255; }
+        if ( a < 0.0 ) { a = 0.0; }
+        if ( 1.0 < a ) { a = 1.0; }
         clr = { _fclr_: [r,g,b,a] };
 
         clr.mix = function(color2,ratio) { // ratio of color1/result - 0.75 meanst 75% color1
         };
         clr.add = function(color2) {
-            return clr;
+            return color( [this._fclr_[0]+color2._fclr_[0],this._fclr_[1]+color2._fclr_[1],
+                           this._fclr_[2]+color2._fclr_[2],(this._fclr_[3]+color2._fclr_[3])/2] );
         };
         clr.sub = function(color2) {
-            return clr;
+            alert(this._fclr_[2] + " " + color2._fclr_[2] + " " + (this._fclr_[2]-color2._fclr_[2]));
+            return color( [this._fclr_[0]-color2._fclr_[0],this._fclr_[1]-color2._fclr_[1],
+                           this._fclr_[2]-color2._fclr_[2],(this._fclr_[3]+color2._fclr_[3])/2] );
         };
         clr.toString = function() {
             var a = this._fclr_[3];
@@ -104,7 +109,7 @@
                 else { return c.toString(16); }
             }
 
-            if ( 1 <= a )
+            if ( 1.0 <= a )
             {
                 return '#' + hex(this._fclr_[0]) + hex(this._fclr_[1]) + hex(this._fclr_[2]);
             }
