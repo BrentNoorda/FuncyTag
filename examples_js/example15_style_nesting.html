@@ -6,6 +6,7 @@
   </head>
   <body><div id="content">
     <p class="title">example15_style_nesting - nest styles within other styles</p>
+    <p>nest selectors within selectors to represent css style inheritance</p>
     <hr/>
 
     <div id="container">
@@ -36,7 +37,7 @@
 
     <hr/>
     <div>
-      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-js iframe').attr('src','example15_style_nesting.js');$('#show-js').show('fast');">See Source Code</a>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-js iframe').attr('src','example15_style_nesting.js');$('#show-js').show('fast');">show Javascript source code</a>
       <div id="show-js" style="display:none;">
         <p><b>Javascript Source Code:</b></p>
         <iframe style="width:98%;height:500px;"></iframe>
@@ -44,7 +45,7 @@
     </div>
 
     <hr/>
-    <b>To Notice</b>: This:
+    <b>To Notice</b>: This javascript code:
     <code><pre class="notice-code">
 funcyStyle( '#header', {
               textAlign: 'center',
@@ -58,7 +59,7 @@ funcyStyle( '#header', {
               }
             }
           );</pre></code>
-    generates this CSS:
+    generates this css:
 <code><pre class="notice-code">
 #header {
   text-align: center;
@@ -77,6 +78,7 @@ funcyStyle( '#header', {
 #header p a:hover {
   background-color: green;
 }</pre></code>
+(yes, this looks similar to <a href="http://lesscss.org/" target="_blank">LESS</a> or <a href="http://sass-lang.com/" target="_blank">Sass</a>).
 
     <hr/>
     next: <a href="example_end.html" style="margin-right:4em;">example_end</a>
