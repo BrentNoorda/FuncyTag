@@ -48,33 +48,34 @@
     <code><pre class="notice-code">
 funcyStyle( '#header', {
               textAlign: 'center',
-              h1: { fontSize_px: 26,
+              h1: { fontSize_px: 20,
                     fontWeight: 'bold'
               },
-              p: { fontSize_px: 12,
-                   a: { textDecoration: 'none',
-                     '&amp;:hover': { borderWidth_px: 1 }
+              p: { fontSize_px: 16,
+                   a: { color: 'red', textDecoration: 'none',
+                     '&amp;:hover': { backgroundColor:'green' }
                    }
               }
             }
           );</pre></code>
     generates this CSS:
 <code><pre class="notice-code">
-#header h1 {
+#header {
   text-align: center;
 }
 #header h1 {
-  font-size: 26px;
+  font-size: 20px;
   font-weight: bold;
 }
 #header p {
-  font-size: 12px;
+  font-size: 16px;
 }
 #header p a {
+  color: red;
   text-decoration: none;
 }
 #header p a:hover {
-  border-width: 1px;
+  background-color: green;
 }</pre></code>
 
     <hr/>
