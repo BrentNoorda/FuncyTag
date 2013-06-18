@@ -90,13 +90,17 @@
         clr = { _fclr_: [r,g,b,a] };
 
         clr.mix = function(color2,ratio) { // ratio of color1/result - 0.75 meanst 75% color1
+            var ratio2 = 1.0 - ratio;
+            return color( [Math.round(this._fclr_[0]*ratio+color2._fclr_[0]*ratio2),
+                           Math.round(this._fclr_[1]*ratio+color2._fclr_[1]*ratio2),
+                           Math.round(this._fclr_[2]*ratio+color2._fclr_[2]*ratio2),
+                           Math.round(this._fclr_[3]*ratio+color2._fclr_[3]*ratio2)] );
         };
         clr.add = function(color2) {
             return color( [this._fclr_[0]+color2._fclr_[0],this._fclr_[1]+color2._fclr_[1],
                            this._fclr_[2]+color2._fclr_[2],(this._fclr_[3]+color2._fclr_[3])/2] );
         };
         clr.sub = function(color2) {
-            alert(this._fclr_[2] + " " + color2._fclr_[2] + " " + (this._fclr_[2]-color2._fclr_[2]));
             return color( [this._fclr_[0]-color2._fclr_[0],this._fclr_[1]-color2._fclr_[1],
                            this._fclr_[2]-color2._fclr_[2],(this._fclr_[3]+color2._fclr_[3])/2] );
         };
