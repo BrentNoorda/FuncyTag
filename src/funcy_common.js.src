@@ -36,26 +36,28 @@
 
     /*************** color helpers ***************/
 
-    // internally we know something is a color if it is an object with a _fclr_ property [r,g,b,a]
-    function color(arg) { /* arg is color, or '#color', or [color], or [color, opacity] or [r,g,b] or [r,g,b,a] */
-        var clr, rawrgb, r, g, b, a = 1.0;
+    function InternalColor(rgba) {
+        this._rgba_ = rgba;
+    }
 
-        if ( !is_array(arg) ) { arg = [arg]; }
+    // internally we know something is a color if it is an object with a _rgba_ property [r,g,b,a]
+    function color(args) { /* (clr), or ('#clr'), or (clr, opacity) or (r,g,b) or (r,g,b,a) */
+        var rawrgb, r, g, b, a = 1.0;
 
-        if ( 3 <= arg.length )
+        if ( 3 <= arguments.length )
         {
-            r = arg[0];
-            g = arg[1];
-            b = arg[2];
-            if ( 4 <= arg.length ) { a = arg[3]; }
+            r = arguments[0];
+            g = arguments[1];
+            b = arguments[2];
+            if ( 4 <= arguments.length ) { a = arguments[3]; }
         }
         else
         {
-            if ( 2 === arg.length )
+            if ( 2 === arguments.length )
             {
-                a = arg[1];
+                a = arguments[1];
             }
-            rawrgb = arg[0];
+            rawrgb = arguments[0];
             if (((typeof rawrgb) === 'string') || (rawrgb instanceof String))
             {
                 // the only types we understand are #hhh and #hhhhhh
@@ -87,41 +89,67 @@
         if ( 255 < b ) { b = 255; }
         if ( a < 0.0 ) { a = 0.0; }
         if ( 1.0 < a ) { a = 1.0; }
-        clr = { _fclr_: [r,g,b,a] };
-
-        clr.mix = function(color2,ratio) { // ratio of color1/result - 0.75 meanst 75% color1
-            var ratio2 = 1.0 - ratio;
-            return color( [Math.round(this._fclr_[0]*ratio+color2._fclr_[0]*ratio2),
-                           Math.round(this._fclr_[1]*ratio+color2._fclr_[1]*ratio2),
-                           Math.round(this._fclr_[2]*ratio+color2._fclr_[2]*ratio2),
-                           Math.round(this._fclr_[3]*ratio+color2._fclr_[3]*ratio2)] );
-        };
-        clr.add = function(color2) {
-            return color( [this._fclr_[0]+color2._fclr_[0],this._fclr_[1]+color2._fclr_[1],
-                           this._fclr_[2]+color2._fclr_[2],(this._fclr_[3]+color2._fclr_[3])/2] );
-        };
-        clr.sub = function(color2) {
-            return color( [this._fclr_[0]-color2._fclr_[0],this._fclr_[1]-color2._fclr_[1],
-                           this._fclr_[2]-color2._fclr_[2],(this._fclr_[3]+color2._fclr_[3])/2] );
-        };
-        clr.toString = function() {
-            var a = this._fclr_[3];
-
-            function hex(c)
-            {
-                if ( c < 16 ) { return '0' + c.toString(16); }
-                else { return c.toString(16); }
-            }
-
-            if ( 1.0 <= a )
-            {
-                return '#' + hex(this._fclr_[0]) + hex(this._fclr_[1]) + hex(this._fclr_[2]);
-            }
-            else
-            {
-                return 'rgba(' + this._fclr_.join(',') + ')';
-            }
-        };
-
-        return clr;
+        return new InternalColor( [r,g,b,a] );
     }
+
+    InternalColor.prototype.mix = function(color2,ratio) { // ratio of color1/result - 0.75 meanst 75% color1
+        var ratio2 = 1.0 - ratio;
+        return color( Math.round(this._rgba_[0]*ratio+color2._rgba_[0]*ratio2),
+                      Math.round(this._rgba_[1]*ratio+color2._rgba_[1]*ratio2),
+                      Math.round(this._rgba_[2]*ratio+color2._rgba_[2]*ratio2),
+                      Math.round(this._rgba_[3]*ratio+color2._rgba_[3]*ratio2) );
+    };
+    InternalColor.prototype.add = function(color2) {
+        return color( this._rgba_[0]+color2._rgba_[0],this._rgba_[1]+color2._rgba_[1],
+                      this._rgba_[2]+color2._rgba_[2],(this._rgba_[3]+color2._rgba_[3])/2 );
+    };
+    InternalColor.prototype.sub = function(color2) {
+        return color( this._rgba_[0]-color2._rgba_[0],this._rgba_[1]-color2._rgba_[1],
+                      this._rgba_[2]-color2._rgba_[2],(this._rgba_[3]+color2._rgba_[3])/2 );
+    };
+    InternalColor.prototype.toString = function() {
+        var a = this._rgba_[3];
+
+        function hex(c)
+        {
+            if ( c < 16 ) { return '0' + c.toString(16); }
+            else { return c.toString(16); }
+        }
+
+        if ( 1.0 <= a )
+        {
+            return '#' + hex(this._rgba_[0]) + hex(this._rgba_[1]) + hex(this._rgba_[2]);
+        }
+        else
+        {
+            return 'rgba(' + this._rgba_.join(',') + ')';
+        }
+    };
+    InternalColor.prototype.r = function(setClr) {
+        if ( arguments.length )
+        {
+            return color(setClr,this._rgba_[1],this._rgba_[2],this._rgba_[3]);
+        }
+        return this._rgba_[0];
+    };
+    InternalColor.prototype.g = function(setClr) {
+        if ( arguments.length )
+        {
+            return color(this._rgba_[0],setClr,this._rgba_[2],this._rgba_[3]);
+        }
+        return this._rgba_[1];
+    };
+    InternalColor.prototype.b = function(setClr) {
+        if ( arguments.length )
+        {
+            return color(this._rgba_[0],this._rgba_[1],setClr,this._rgba_[3]);
+        }
+        return this._rgba_[2];
+    };
+    InternalColor.prototype.a = function(setClr) {
+        if ( arguments.length )
+        {
+            return color(this._rgba_[0],this._rgba_[1],this._rgba_[2],setClr);
+        }
+        return this._rgba_[3];
+    };
