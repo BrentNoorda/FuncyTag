@@ -379,4 +379,4 @@ That completes this FuncyScript Python Tutorial. For more reading see:
 * [FuncyTag README](README.md)
 * [FuncyTag Javascript Tutorial](JAVASCRIPT_TUTORIAL.md)
 * [FuncyTag on GitHub](https://github.com/BrentNoorda/FuncyTag)
-* [a bunch of online javascript examples](http://dl.dropbox.com/u/41075/funcytagexamples/examples_js.html)
+* [a bunch of online javascript examples](http://brentnoorda.github.io/FuncyTag/examples_js.html)
