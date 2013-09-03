@@ -1,4 +1,4 @@
-# example1_intro - demonstrate very basic use of Tags as Functions
+# example1_funcytag_intro - demonstrate very basic use of Tags as Functions
 #
 # FuncyTag replaces html with a python-like syntax
 

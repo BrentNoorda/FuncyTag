@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FuncyTag Example 14</title>
+    <link rel="stylesheet" type="text/css" href="example_js.css">
+  </head>
+  <body><div id="content">
+    <p class="title">example14_funcystyle_variables - demonstrate use of variables in FuncyStyle</p>
+    <hr/>
+
+    <div id="container">
+      <!-- example14_funcystyle_variables.js will put stuff here -->
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-html pre').text(gRawHTML);$('#show-html').show('fast');">show FuncyTag html string output</a>
+      <div id="show-html" style="display:none;">
+        <p><b>Raw HTML output:</b></p>
+        <pre>
+          <!-- HTML from running function will be displayed here -->
+        </pre>
+      </div>
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-css pre').text(funcyStyle.getText(gSaveFS1)+'\r\n'+funcyStyle.getText(gSaveFS2));$('#show-css').show('fast');">show FuncyStyle css string output</a>
+      <div id="show-css" style="display:none;">
+        <p><b>Raw CSS output:</b></p>
+        <pre>
+          <!-- CSS will be displayed here -->
+        </pre>
+      </div>
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-js iframe').attr('src','example14_funcystyle_variables.js');$('#show-js').show('fast');">show Javascript source code</a>
+      <div id="show-js" style="display:none;">
+        <p><b>Javascript Source Code:</b></p>
+        <iframe style="width:98%;height:500px;"></iframe>
+      </div>
+    </div>
+
+    <hr/>
+    <b>To Notice</b>: Similar to other CSS preprocessor languages (e.g. SASS or LESS), FuncyStyle
+    allows for variable to be used in defined styles, and for math and operations to be performed
+    on those variables. For example, this FuncyStyle code:
+    <code><pre class="notice-code">
+var boxBG = 'red';
+var boxFG = 'green';
+var boxPadding = 16;
+
+funcyStyle( '.box',
+            { backgroundColor: boxBG,
+              padding_px: boxPadding } );
+funcyStyle( '#mytext',
+            { backgroundColor: boxFG,
+              color: boxBG,
+              margin: 0,
+              padding_px: boxPadding / 2 } );</pre></code>
+    generates this CSS:
+<code><pre class="notice-code">
+.box {
+  background-color:red;
+  padding:16px;
+}
+#mytext {
+  background-color:green;
+  color:red;
+  margin:0;
+  padding:8px;
+}</pre></code>
+
+    <hr/>
+    next: <a href="example15_style_nesting.html" style="margin-right:4em;">example15_style_nesting</a>
+    top: <a href="../examples_js.html">all js examples</a>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/funcytag_and_style.0.0.4.js"></script>
+    <script type="text/javascript" src="example14_funcystyle_variables.js"></script>
+  </div></body>
+</html>

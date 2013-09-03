@@ -1,0 +1,22 @@
+.title {
+    font-weight: bold;
+    font-size: 110%;
+    margin: 0;
+}
+
+.notice-code {
+    background-color: #dcdcdc;
+    margin: 8px 0 8px 18px;
+    xxmax-width: 530px;
+    padding: 3px 4px 3px 4px;
+}
+
+body {
+    text-align: center;
+}
+
+#content {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: left;
+}

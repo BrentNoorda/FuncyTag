@@ -1,0 +1,279 @@
+    /*************** build style ***************/
+
+    /*
+        many ways to use funcyStyle
+
+        variables
+
+            no brainer (that's what scripting language does best)
+
+        nesting
+
+            funcyStyle('table.h1',{ margin_em:[2 0], 'td.ln': funcyStyle('td.ln',{textAlign:'right'}} })
+
+            borrowing from the less example,
+
+              funcyStyle( '#header', {
+                            h1: { fontSize_px: 26,
+                                  fontWeight: 'bold'
+                            },
+                            p: { fontSize_px: 12,
+                                 a: { textDecoration: 'none',
+                                   '&hover': { borderWidth_px: 1 }
+                                 }
+                            }
+                          }
+                        )
+
+            leads to this css
+
+                #header h1 {
+                  font-size: 26px;
+                  font-weight: bold;
+                }
+                #header p {
+                  font-size: 12px;
+                }
+                #header p a {
+                  text-decoration: none;
+                }
+                #header p a:hover {
+                  border-width: 1px;
+                }
+
+        mixins
+
+            handled by calling functions that return array (or object) of attributes
+
+        selector inheritance
+
+            I think maybe if first items are themselves funcystyles?
+
+            I think if any of the items are themselves funcystyles, then they get inherited
+
+            errorCss = funcyStyle( '.error', { border:'1px #f00' } );
+            funcyStyle( '.error', errorCss, { borderWidth_px: 3 } )
+
+
+        I think maybe should allow a plain raw string????? maybe????
+
+            how to do ????:
+
+                @media (max-width: 600px) {
+                  .facet_sidebar {
+                    display: none;
+                  }
+                }
+
+
+    */
+    recursive = 0; // if non-zero then calling recursively from within _fs_render_
+
+    function funcyStyle(selector,args)
+    {
+        var style, prop, argsIdx, nestIdx, propsIdx, propsObj, arg, properties, propsarray, val, inherProp, nestedFS;
+
+        // based on inherited and properties, build a big object of the properties for this css selector
+        properties = { _nested:[] };
+
+        // for all other arguments, get the properties directly
+        for ( argsIdx = 1; argsIdx < arguments.length; argsIdx++ )
+        {
+            propsarray = arguments[argsIdx];
+            if ( !is_array(propsarray) )
+            {
+                propsarray = [ propsarray ];
+            }
+            for ( propsIdx = 0; propsIdx < propsarray.length; propsIdx++ )
+            {
+                propsObj = propsarray[propsIdx];
+                console.log("propsObj = " + propsObj);
+                if ( propsObj !== undefined )  // ignore undefined
+                {
+                    if ( '_fs_selector' in propsObj )
+                    {
+                        // this is itself a funcyStyle, so inherit all the properties of that style
+                        /*jslint forin:true */
+                        for ( inherProp in propsObj )
+                        {
+                            properties[inherProp] = propsObj.properties[inherProp];
+                        }
+                        /*jslint forin:false */
+                    }
+                    else
+                    {
+                        // copy all properties of this object
+                        /*jslint forin:true */
+                        for ( prop in propsObj )
+                        {
+                            val = propsObj[prop];
+                            if ( val !== undefined )
+                            {
+                                if ( isPlainObj(val) )
+                                {
+                                    // this is a nested funcyStyle
+                                    properties._nested.push( [ prop, val ] );
+                                }
+                                else
+                                {
+                                    properties[prop] = val;
+                                }
+                            }
+                        }
+                        /*jslint forin:false */
+                    }
+                }
+            }
+        }
+
+        // finally, save (and possibly overwrite) "_fs_selector" for these properties
+        properties._fs_selector = selector;
+
+        properties._fs_render_ = function(nested_parent_selector) {
+            var selector, cssText, prop, idx, jdx, value, units,
+                first_, nextSelector;
+
+            // start style and add all properties, including decoding of camel stuff
+            selector = ( nested_parent_selector ? (nested_parent_selector + ' ') : '' ) + properties._fs_selector;
+            cssText = selector + ' {\r\n';
+            /*jslint forin:true */
+            for ( prop in this )
+            {
+                first_ = prop.indexOf('_'); // skip properties that start with underscore
+                if ( first_ !== 0 )
+                {
+                    value = this[prop];
+
+                    // sometimes there is a unit as part of the prop name
+                    if ( -1 === first_ )
+                    {
+                        units = '';
+                    }
+                    else
+                    {
+                        jdx = prop.lastIndexOf('_');
+                        units = prop.substring(jdx+1);
+                        prop = prop.substring(0,jdx);
+                        if ( units === 'pct') // because cannot have % be part of a name
+                        {
+                            units = '%';
+                        }
+                    }
+
+                    if ( is_array(value) )
+                    {
+                        // do not count any undefined values, so remove those from the array
+                        for ( jdx = 0; jdx < value.length; jdx++ )
+                        {
+                            if ( value[jdx] === undefined )
+                            {
+                                value.splice(jdx,1);
+                                jdx--;
+                            }
+                        }
+                        if ( value.length === 0 )
+                        {
+                            // no values in the array, so don't output this property
+                            continue;
+                        }
+                        // if value is an array, turn it into a space-delimited string
+                        value = value.join(units + ' ');
+                    }
+                    value += units;
+
+                    cssText += '  ' + camel_to_dash(prop) + ': ' + value + ';\r\n';
+                }
+            } /* for ( prop in this ) */
+            /*jslint forin:false */
+
+            cssText += '}';
+
+            // put the _nested stuff here
+            recursive++;
+            for ( idx = 0; idx < this._nested.length; idx++ )
+            {
+                prop = this._nested[idx][0];
+                val = this._nested[idx][1];
+                if ( prop.lastIndexOf('&',0) === 0 )
+                {
+                    nextSelector = prop.substring(1);
+                }
+                else
+                {
+                    nextSelector = ' ' + prop;
+                }
+                nestedFS = funcyStyle(selector+nextSelector,val);
+                cssText += '\r\n' + nestedFS._fs_render_(null);
+            }
+            recursive--;
+
+            return cssText;
+
+        }; /* properties._fs_render_ = function() */
+
+        if ( recursive === 0 )
+        {
+            try
+            {
+                window.funcyTag._styles_not_injected.push(properties);
+            } catch( e3 ) { /* if funcyTag doesn't exist, that's OK */ }
+        }
+
+        return properties;
+    } /* function funcyStyle() */
+
+    /*************** initialize ***************/
+
+    window.funcyStyle = funcyStyle;
+
+    /*************** helper functions ***************/
+
+    funcyStyle.color = color;
+
+    funcyStyle.getText = function(fs)
+    {
+        return fs._fs_render_(null);
+    };
+
+    funcyStyle.injectStyle = function(fs_or_string)
+    {
+        var cssText, sElem, id = null, not_injected_idx;
+        try {
+            cssText = fs_or_string._fs_render_(null);
+            // make up an id for this, if it looks standard, so we can remove old one if it's already there
+            id = '-fs-' + fs_or_string._fs_selector;
+            sElem = document.getElementById(id);
+            if ( sElem )
+            {
+                sElem.parentNode.removeChild(sElem);
+            }
+
+            // if this style is in the funcytTags styles_not_inject list, then remove it from that list now
+            try {
+                not_injected_idx = window.funcyTag._styles_not_injected.indexOf(fs_or_string);
+                window.funcyTag._styles_not_injected.splice(not_injected_idx,1);
+            } catch(e7) { /* if no funcyTag then that's OK */ }
+
+        } catch(e) {
+            cssText = String(fs_or_string);
+        }
+
+        if ( DEBUG )
+        {
+            try { console.log("INJECT CSS:\r\n" + cssText); } catch(e4) { }
+        }
+
+        // from http://stackoverflow.com/questions/3922139/add-css-to-head-with-javascript
+        sElem = document.createElement('style');
+        sElem.setAttribute('type', 'text/css');
+        if ( id !== null )
+        {
+            sElem.setAttribute('id', id);
+        }
+        if (sElem.styleSheet) {   // IE
+            sElem.styleSheet.cssText = cssText;
+        } else {                // the world
+            sElem.appendChild(document.createTextNode(cssText));
+        }
+        document.getElementsByTagName('head')[0].appendChild(sElem);
+    };

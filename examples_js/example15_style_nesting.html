@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FuncyTag Example 15</title>
+    <link rel="stylesheet" type="text/css" href="example_js.css">
+  </head>
+  <body><div id="content">
+    <p class="title">example15_style_nesting - nest styles within other styles</p>
+    <p>nest selectors within selectors to represent css style inheritance</p>
+    <hr/>
+
+    <div id="container">
+      <!-- example15_style_nesting.js will put stuff here -->
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-html pre').text(gRawHTML);$('#show-html').show('fast');">show FuncyTag html string output</a>
+      <div id="show-html" style="display:none;">
+        <p><b>Raw HTML output:</b></p>
+        <pre>
+          <!-- HTML from running function will be displayed here -->
+        </pre>
+      </div>
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-css pre').text(funcyStyle.getText(gSaveFS));$('#show-css').show('fast');">show FuncyStyle css string output</a>
+      <div id="show-css" style="display:none;">
+        <p><b>Raw CSS output:</b></p>
+        <pre>
+          <!-- CSS will be displayed here -->
+        </pre>
+      </div>
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-js iframe').attr('src','example15_style_nesting.js');$('#show-js').show('fast');">show Javascript source code</a>
+      <div id="show-js" style="display:none;">
+        <p><b>Javascript Source Code:</b></p>
+        <iframe style="width:98%;height:500px;"></iframe>
+      </div>
+    </div>
+
+    <hr/>
+    <b>To Notice</b>: This javascript code:
+    <code><pre class="notice-code">
+funcyStyle( '#header', {
+              textAlign: 'center',
+              h1: { fontSize_px: 20,
+                    fontWeight: 'bold'
+              },
+              p: { fontSize_px: 16,
+                   a: { color: 'red', textDecoration: 'none',
+                     '&amp;:hover': { backgroundColor:'green' }
+                   }
+              }
+            }
+          );</pre></code>
+    generates this css:
+<code><pre class="notice-code">
+#header {
+  text-align: center;
+}
+#header h1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+#header p {
+  font-size: 16px;
+}
+#header p a {
+  color: red;
+  text-decoration: none;
+}
+#header p a:hover {
+  background-color: green;
+}</pre></code>
+(yes, this looks similar to <a href="http://lesscss.org/" target="_blank">LESS</a> or <a href="http://sass-lang.com/" target="_blank">Sass</a>).
+
+    <hr/>
+    next: <a href="example_end.html" style="margin-right:4em;">example_end</a>
+    top: <a href="../examples_js.html">all js examples</a>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/funcytag_and_style.0.0.4.js"></script>
+    <script type="text/javascript" src="example15_style_nesting.js"></script>
+  </div></body>
+</html>

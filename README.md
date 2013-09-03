@@ -1,21 +1,23 @@
-FuncyTag
+FuncyTag &amp; FuncyStyle
 =========
 
-FuncyTag is an HTML generator in pure javascript or python, primarily useful for programmaticly creating snippets of HTML to be embedded in a page at server-side or client-side. FuncyTag makes creating HTML look like function calls, so it looks familiar to a functional programmer (nesting, parameters, etc...). Optimized only for easy reading/writing by humans. Not quite an html template language, but kinda. Available in javascript and python.
+<p style="color:red">THIS PROJECT IS IN TRANSITION. GO AWAY (but come back soon).</p>
+
+FuncyTag is an HTML generator in pure javascript or python, primarily useful for programmaticly creating snippets of HTML to be embedded in a page at server-side or client-side. FuncyTag makes creating HTML look like function calls, so it looks familiar to a functional programmer (nesting, parameters, etc...). Optimized only for easy reading/writing by humans. Not quite an html template language, but kinda.
 
 Jump To:
 
+* [project page](http://brentnoorda.github.io/FuncyTag/)
 * [quick example](#quick-example)
 * [tutorials](#tutorials)
 * [project status](#project-status)
 * [more examples](#more-examples)
 * [recommendations on when to use FuncyTag](#recommendations)
-* [similar tools](#similar-tools)
 * [theme song](#theme-song)
 
 ------------------------------------------------------------------------------
 
-<a name="quick-example"/>
+<a name="quick-example"/></a>
 # quick example
 
 Suppose you need a javascript function to create HTML for each animal that looks something like this (with sizes and colors depending on input parameters):
@@ -74,7 +76,7 @@ By making HTML tags act like functions with their attributes set like script obj
 
 ------------------------------------------------------------------------------
 
-<a name="tutorials"/>
+<a name="tutorials"></a>
 # tutorials
 
 These step-by-step tutorials introduce FuncyTag features by example:
@@ -84,28 +86,29 @@ These step-by-step tutorials introduce FuncyTag features by example:
 
 ------------------------------------------------------------------------------
 
-<a name="project-status"/>
+<a name="project-status"></a>
 # project status
 
 * version 0.0.1 released Feb 22, 2013. This is a first stab in hopes of getting some feedback from someone... anyone...
 * version 0.0.2 released Feb 25, 2013. Add python version.
 * version 0.0.3 released Feb 26, 2013. When attribute values are undefined/None, do not set the attribute.
+* version 0.0.4 released ?????. Events????
 
 ------------------------------------------------------------------------------
 
-<a name="more-examples"/>
+<a name="more-examples"></a>
 # more examples
 
 * [a bunch of online javascript examples](http://brentnoorda.github.io/FuncyTag/examples_js.html)
 
 ------------------------------------------------------------------------------
 
-<a name="recommendations"/>
+<a name="recommendations"></a>
 # recommendations on when to use FuncyTag
 
 In general you could create all of your HTML via FuncyTag, but just because you can doesn't mean you should. In my experience, FuncyTag makes the most sense when you want to create just a relatively small sections of html based on runtime parameters, and you want that to be algorithmically flexible and really really easy to read.
 
-One place where FuncyScript may not be appropriate is when you are concerned with performance above all else, because FuncyScript is not fast (compared to most other methods). Even so, the instances are probably rare when this performance would matter.
+One place where FuncyTag/Style may not be appropriate is when you are concerned with performance above all else, because FuncyTag/Style is not fast (compared to most other methods). Even so, the instances are probably rare when this performance would matter.
 
 For instance, consider this javascript example that would build a row in a table of books, representing the author, title, and a user rating (color-coded based on a rating threshold). The function to build that row might look like this:
 
@@ -141,27 +144,8 @@ This replace version runs 100,000 times in about 0.45 seconds--about 17 times fa
 Final recommendation: Unless you're in a situation where every microsecond will be noticed, pick the tool that makes the best use of your development time.
 
 ------------------------------------------------------------------------------
-<a name="similar-tools"/>
-# similar tools
 
-If you're not satisifed with FuncyTag, there are many similar tools, with different reasons for being:
-
-* [Farof/jhtml](https://github.com/Farof/jhtml) - very similar
-* [edspencer/jaml](https://github.com/edspencer/jaml) - very similar
-* [tekrat/eSugar](https://github.com/tekrat/eSugar)
-* [mrak/js2dom](https://github.com/mrak/js2dom)
-* [nrn/flates](https://github.com/nrn/flates)
-* [markrendle/moist.js](https://github.com/markrendle/moist.js)
-* [reissbaker/html-sourcery](https://github.com/reissbaker/html-sourcery)
-* [richjddavis/elephactory](https://github.com/richjddavis/elephactory)
-* [robrobbins/RML](https://github.com/robrobbins/RML)
-* [webmat/sugar_dom](https://github.com/webmat/sugar_dom)
-
-or you might just be satisfied with jquery(html,attributes). For a discussion of the topic see [Building HTML in jQuery and JavaScript](http://marcgrabanski.com/articles/building-html-in-jquery-and-javascript).
-
-------------------------------------------------------------------------------
-
-<a name="theme-song"/>
+<a name="theme-song"></a>
 # theme song
 
 Towlie remembers the FuncyTag theme [here](http://www.youtube.com/watch?v=4OrVrrsjqwQ).

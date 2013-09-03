@@ -2,9 +2,10 @@
 <html lang="en">
   <head>
     <title>FuncyTag Example 7</title>
+    <link rel="stylesheet" type="text/css" href="example_js.css">
   </head>
-  <body>
-    <p>example7_default_attributes - create new tags with default attributes (such as &lt;good_li&gt; and &lt;bad_li&gt;)</p>
+  <body><div id="content">
+    <p class="title">example7_default_attributes - create new tags with default attributes (such as &lt;good_li&gt; and &lt;bad_li&gt;)</p>
     <hr/>
 
     <div id="container">
@@ -17,14 +18,14 @@
       <div id="show-html" style="display:none;">
         <p><b>Raw HTML output:</b></p>
         <pre>
-          <!-- HTML from running function will be displayer here -->
+          <!-- HTML from running function will be displayed here -->
         </pre>
       </div>
     </div>
 
     <hr/>
     <div>
-      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-js iframe').attr('src','example7_default_attributes.js');$('#show-js').show('fast');">See Source Code</a>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-js iframe').attr('src','example7_default_attributes.js');$('#show-js').show('fast');">show Javascript source code</a>
       <div id="show-js" style="display:none;">
         <p><b>Javascript Source Code:</b></p>
         <iframe style="width:98%;height:500px;"></iframe>
@@ -32,10 +33,19 @@
     </div>
 
     <hr/>
-    next: <a href="example8_behavior_modification.html">example8_behavior_modification</a></br>
-    <a href="../examples_js.html">all js examples</a>
+    <b>To Notice</b>: You can create new tags, beyond standard html tags (e.g. &lt;p&gt, &lt;div&gt, &lt;li&gt, etc...)
+    by declaring attributes within their css descriptions.  For instance, in this example &lt;good_li&gt;
+    and a &lt;bad_li&gt; tags are created which act exactly like an html &lt;li&gt tag exact that one is
+    green and the other is red. Those two tags are created with this javascript:
+    <code><pre class="notice-code">
+good_li = funcyTag( 'li', {cssColor:'green'} )
+bad_li = funcyTag( 'li', {cssColor:'red'} );</pre></code>
+
+    <hr/>
+    next: <a href="example8_behavior_modification.html" style="margin-right:4em;">example8_behavior_modification</a>
+    top: <a href="../examples_js.html">all js examples</a>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script type="text/javascript" src="../lib/funcytag.0.0.3.js"></script>
+    <script type="text/javascript" src="../lib/funcytag.0.0.4.js"></script>
     <script type="text/javascript" src="example7_default_attributes.js"></script>
-  </body>
+  </div></body>
 </html>

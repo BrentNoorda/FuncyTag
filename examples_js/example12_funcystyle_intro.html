@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FuncyTag Example 12</title>
+    <link rel="stylesheet" type="text/css" href="example_js.css">
+  </head>
+  <body><div id="content">
+    <p class="title">example12_funcystyle_intro - introducing "FuncyStyle" for creating css stylesheets in javascript</p>
+    <hr/>
+
+    <div id="container">
+      <!-- example12_funcystyle_intro.js will put stuff here -->
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-html pre').text(gRawHTML);$('#show-html').show('fast');">show FuncyTag html string output</a>
+      <div id="show-html" style="display:none;">
+        <p><b>Raw HTML output:</b></p>
+        <pre>
+          <!-- HTML from running function will be displayed here -->
+        </pre>
+      </div>
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-css pre').text(funcyStyle.getText(gSaveFS));$('#show-css').show('fast');">show FuncyStyle css string output</a>
+      <div id="show-css" style="display:none;">
+        <p><b>Raw CSS output:</b></p>
+        <pre>
+          <!-- CSS will be displayed here -->
+        </pre>
+      </div>
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-js iframe').attr('src','example12_funcystyle_intro.js');$('#show-js').show('fast');">show Javascript source code</a>
+      <div id="show-js" style="display:none;">
+        <p><b>Javascript Source Code:</b></p>
+        <iframe style="width:98%;height:500px;"></iframe>
+      </div>
+    </div>
+
+    <hr/>
+    <b>To Notice</b>: FuncyStyle is being used to create a ".box" class style so that every instance
+    of box can now look something like:<br/>
+    <code><pre class="notice-code">
+ &lt;div class="box" id="...</pre></code>
+    instead of the previous<br/>
+    <code><pre class="notice-code">
+ &lt;div style="border-style:solid;width:80px;height:80px;text-align:center;float:left;padding:0.3em;cursor:pointer;" id="...</pre></code>
+    because this call to funcyStyle()<br/>
+    <code><pre class="notice-code">
+ funcyStyle( '.box',
+             { borderStyle:'solid',
+               width_px:boxSize,
+               height_px:boxSize,
+               textAlign:'center',
+               float:'left',
+               padding_em: 0.3,
+               cursor: 'pointer' } );</pre></code>
+    has added this CSS to the stylesheet section of the page
+    <code><pre class="notice-code">
+ .box {
+   border-style:solid;
+   width:80px;
+   height:80px;
+   text-align:center;
+   float:left;
+   padding:0.3em;
+   cursor:pointer;
+ }</pre></code>
+
+    <hr/>
+    next: <a href="example13_animate_inout.html" style="margin-right:4em;">example13_animate_inout</a>
+    top: <a href="../examples_js.html">all js examples</a>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/funcytag_and_style.0.0.4.js"></script>
+    <script type="text/javascript" src="example12_funcystyle_intro.js"></script>
+  </div></body>
+</html>
