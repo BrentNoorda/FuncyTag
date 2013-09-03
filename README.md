@@ -97,7 +97,7 @@ These step-by-step tutorials introduce FuncyTag features by example:
 <a name="more-examples"></a>
 # more examples
 
-* [a bunch of online javascript examples](http://dl.dropbox.com/u/41075/funcytagexamples/examples_js.html)
+* [a bunch of online javascript examples](http://brentnoorda.github.io/FuncyTag/examples_js.html)
 
 ------------------------------------------------------------------------------
 
