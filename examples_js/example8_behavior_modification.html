@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FuncyTag Example 8</title>
+  </head>
+  <body>
+    <p>example8_behavior_modification - special options to modify tag behavior (_nobrout, _nobrin , _noslfcls, <i>no options</i>)</p>
+    <ul>
+      <li><code>_nobrout:true</code> - Turn off newlines (and all whitespace) around this tag; default <code>false</code></li>
+      <li><code>_nobrin:true</code> - Turn off newlines (and all whitespace) inside this tag; default <code>false</code></li>
+      <li><code>_noslfcls:true</code> - Do not allow tag to be self-closing (forces <code>&lt;tag&gt;&lt;/tag&gt;</code> instead of <code>&lt;tag/&gt;</code>); default <code>false</code></li>
+      <li><i>no options</i> - if no options are given (i.e., the first paramer is not a plain object) then <code>{}</code> is assumed</li>
+    </ul>
+    <hr/>
+
+    <div id="container">
+      <!-- example8_behavior_modification.js will put stuff here -->
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-html pre').text(build_example_html());$('#show-html').show('fast');">show FuncyTag html string output</a>
+      <div id="show-html" style="display:none;">
+        <p><b>Raw HTML output:</b></p>
+        <pre>
+          <!-- HTML from running function will be displayer here -->
+        </pre>
+      </div>
+    </div>
+
+    <hr/>
+    <div>
+      <a href="javascript:void(0)" onclick="$(this).hide();$('#show-js iframe').attr('src','example8_behavior_modification.js');$('#show-js').show('fast');">See Source Code</a>
+      <div id="show-js" style="display:none;">
+        <p><b>Javascript Source Code:</b></p>
+        <iframe style="width:98%;height:500px;"></iframe>
+      </div>
+    </div>
+
+    <hr/>
+    next: <a href="example9_inheritance.html">example9_inheritance</a></br>
+    <a href="../examples_js.html">all js examples</a>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/funcytag.0.0.3.js"></script>
+    <script type="text/javascript" src="example8_behavior_modification.js"></script>
+  </body>
+</html>
