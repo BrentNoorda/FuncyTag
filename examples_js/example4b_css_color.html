@@ -28,23 +28,30 @@
       <a href="javascript:void(0)" onclick="$(this).hide();$('#show-js iframe').attr('src','example4b_css_color.js');$('#show-js').show('fast');">show Javascript source code</a>
       <div id="show-js" style="display:none;">
         <p><b>Javascript Source Code:</b></p>
-        <iframe style="width:98%;height:500px;"></iframe>
+        <iframe scrolling="yes" style="width:98%;height:500px;"></iframe>
       </div>
     </div>
 
     <hr/>
-    <b>To Notice</b>: Many css properties take a unit (e.g. "em,px,pico,pc,pt,etc....") which in javascript
-    leads to extra string manipulation that is hard to read, such as:
+    <b>To Notice</b>: A simple <code>color</code> class allows HTML colors to be defined with
+    simple syntax, with a few math operations. Some example ways to define colors::
     <code><pre class="notice-code">
-var fontSize = 8;
-div( { id:'middle', cssFontSize:fontSize*2+'px', ...</pre></code>
-    FuncyTag css properties all the unit to be part of the name (preceded with '_') so such string math isn't needed, e.g.:
+color(hex_rgb)      // example: color(0xFF0000)
+color(html_string)  // example: color('#0F0') or color('#00FF00')
+color(rgb_a)        // example: color('#0F0',0.5) or color(0x0000FF,0.25)
+color(r,g,b)        // example: color(255,0,255)</pre></code>
+    <code>add</code>, <code>sub</code>, and <code>mix</code> methods allow colors to be modified:
     <code><pre class="notice-code">
-var fontSize = 8;
-div( { id:'middle', cssFontSize_px:fontSize*2, ...</pre></code>
-Note that for the unit percent ("%"), FuncyTag allows the extension "_pct" as in:
+c.add(0xFF0000)      // add red to existing color
+c.sub(0xFF0000)      // subtract red from existing color
+c.mix(0xFF0000,0.75) // mix existing color with red (ration 25% to 75%)
+</pre></code>
+    methods <code>r()</code>, <code>g()</code>, <code>b()</code>, &amp; <code>a()</code> can be used to get or set these components:
     <code><pre class="notice-code">
-div( { id:'middle', cssFontSize_pct:75, ...</pre></code>
+c.r()       // return the red value of color
+c.g(255)    // set the green component to 255 (maximum value)
+c.a(0.75)  // set alpha value (opposite of opacity) to 75%
+</pre></code>
 
     <hr/>
     next: <a href="example5_inner_tag.html" style="margin-right:4em;">example5_inner_tag</a>
