@@ -20,7 +20,7 @@ This is a step-by-step introduction to the features of FuncyTag in Javascript. T
 <a name="1"></a>
 ### LESSON 1: basic use
 
-A minimal use of funcyScript create HTML will look something like this simple example:
+A minimal use of funcyTag-created HTML will look something like this simple example:
 
     function make_html_snippet()
     {
@@ -73,7 +73,7 @@ creates this html
 <a name="3"></a>
 ### LESSON 3: cssCamelStyles
 
-It becomes tedious to create those "style=" strings in javascript. "style=" can usually be simplified in FuncyScript by setting tag properties that start with "css" and use "CamelCase" to represent the "blah-blah" types usually used in CSS. When funcyTag sees a property "cssFooBar" is becomes a style property "foo-bar". So the previous example can be rewritten as
+It becomes tedious to create those "style=" strings in javascript. "style=" can usually be simplified in FuncyTag by setting tag properties that start with "css" and use "CamelCase" to represent the "blah-blah" types usually used in CSS. When funcyTag sees a property "cssFooBar" is becomes a style property "foo-bar". So the previous example can be rewritten as
 
     div=funcyTag('div'), p=funcyTag('P');
 
@@ -92,7 +92,7 @@ to create the exact same html as the previous example:
 <a name="4"></a>
 ### LESSON 4: unit suffixes
 
-Another tedious javascript process, of appending units to attribute and css values, is achieved in FuncyScript by adding a "_unitSuffix" to the attribute property name.  For example, instead of 'cssMarginLeft:"2em"' you could use 'cssMarginLeft_em:2'.  This is a direct translation for most units (e.g. 'em', 'px', 'pc'...) but for '%' you must use the suffix '_pct'.
+Another tedious javascript process, of appending units to attribute and css values, is achieved in FuncyTag by adding a "_unitSuffix" to the attribute property name.  For example, instead of 'cssMarginLeft:"2em"' you could use 'cssMarginLeft_em:2'.  This is a direct translation for most units (e.g. 'em', 'px', 'pc'...) but for '%' you must use the suffix '_pct'.
 
 So, again, the previous example can now be written as:
 
@@ -115,7 +115,7 @@ Note: An empty unit suffix can be a convenient way to allow a keyword to be used
 <a name="5"></a>
 ### LESSON 5: attribute array and undefined values
 
-Some common HTML and CSS values are represented as space-delimited strings. For example, in an HTML tag it is common to specify multiple CSS class (e.g. class="btn giant") and within CSS values such as "margin: 0 10px 0 12px" are common. In FuncyScript, if an attribute value is an array then the values are concatenated with spaces (and include the unit suffixes described in lesson 4).
+Some common HTML and CSS values are represented as space-delimited strings. For example, in an HTML tag it is common to specify multiple CSS class (e.g. class="btn giant") and within CSS values such as "margin: 0 10px 0 12px" are common. In FuncyTag, if an attribute value is an array then the values are concatenated with spaces (and include the unit suffixes described in lesson 4).
 
 Sometimes you may also not know until runtime if an attribute is needed at all (for example, only the "danger" class is needed if the danger flag is set). I an attribute value is <code>undefined</code> then that attribute will not be set.
 
@@ -363,7 +363,8 @@ which generates this safe html:
 <a name="more"></a>
 ### more reading
 
-That completes this FuncyScript Javascript Tutorial. For more reading see:
+That completes this FuncyTag &amp; FuncyScript Javascript Tutorial. For more reading see:
+
 * [FuncyTag README](README.md)
 * [FuncyTag Python Tutorial](PYTHON_TUTORIAL.md)
 * [FuncyTag on GitHub](https://github.com/BrentNoorda/FuncyTag)

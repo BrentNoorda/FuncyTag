@@ -1,16 +1,18 @@
-FuncyTag
+FuncyTag &amp; FuncyStyle
 =========
 
-FuncyTag is an HTML generator in pure javascript or python, primarily useful for programmaticly creating snippets of HTML to be embedded in a page at server-side or client-side. FuncyTag makes creating HTML look like function calls, so it looks familiar to a functional programmer (nesting, parameters, etc...). Optimized only for easy reading/writing by humans. Not quite an html template language, but kinda. Available in javascript and python.
+<p style="color:red">THIS PROJECT IS IN TRANSITION. GO AWAY (but come back soon).</p>
+
+FuncyTag is an HTML generator in pure javascript or python, primarily useful for programmaticly creating snippets of HTML to be embedded in a page at server-side or client-side. FuncyTag makes creating HTML look like function calls, so it looks familiar to a functional programmer (nesting, parameters, etc...). Optimized only for easy reading/writing by humans. Not quite an html template language, but kinda.
 
 Jump To:
 
+* [project page](http://brentnoorda.github.io/FuncyTag/)
 * [quick example](#quick-example)
 * [tutorials](#tutorials)
 * [project status](#project-status)
 * [more examples](#more-examples)
 * [recommendations on when to use FuncyTag](#recommendations)
-* [similar tools](#similar-tools)
 * [theme song](#theme-song)
 
 ------------------------------------------------------------------------------
@@ -106,7 +108,7 @@ These step-by-step tutorials introduce FuncyTag features by example:
 
 In general you could create all of your HTML via FuncyTag, but just because you can doesn't mean you should. In my experience, FuncyTag makes the most sense when you want to create just a relatively small sections of html based on runtime parameters, and you want that to be algorithmically flexible and really really easy to read.
 
-One place where FuncyScript may not be appropriate is when you are concerned with performance above all else, because FuncyScript is not fast (compared to most other methods). Even so, the instances are probably rare when this performance would matter.
+One place where FuncyTag/Style may not be appropriate is when you are concerned with performance above all else, because FuncyTag/Style is not fast (compared to most other methods). Even so, the instances are probably rare when this performance would matter.
 
 For instance, consider this javascript example that would build a row in a table of books, representing the author, title, and a user rating (color-coded based on a rating threshold). The function to build that row might look like this:
 
@@ -140,25 +142,6 @@ Now consider this alternative, which only builds the template once, and then use
 This replace version runs 100,000 times in about 0.45 seconds--about 17 times faster. That would be a big difference if you were making this call 100,000 times, but in a scenario that made this call only 10 times (for example, filling out a page of books in a web page in a browser) the performance difference between these methods, and even faster methods, would be difficult to measure (less than a millisecond, and imperceptible to any user).
 
 Final recommendation: Unless you're in a situation where every microsecond will be noticed, pick the tool that makes the best use of your development time.
-
-------------------------------------------------------------------------------
-<a name="similar-tools"></a>
-# similar tools
-
-If you're not satisifed with FuncyTag, there are many similar tools, with different reasons for being:
-
-* [Farof/jhtml](https://github.com/Farof/jhtml) - very similar
-* [edspencer/jaml](https://github.com/edspencer/jaml) - very similar
-* [tekrat/eSugar](https://github.com/tekrat/eSugar)
-* [mrak/js2dom](https://github.com/mrak/js2dom)
-* [nrn/flates](https://github.com/nrn/flates)
-* [markrendle/moist.js](https://github.com/markrendle/moist.js)
-* [reissbaker/html-sourcery](https://github.com/reissbaker/html-sourcery)
-* [richjddavis/elephactory](https://github.com/richjddavis/elephactory)
-* [robrobbins/RML](https://github.com/robrobbins/RML)
-* [webmat/sugar_dom](https://github.com/webmat/sugar_dom)
-
-or you might just be satisfied with jquery(html,attributes). For a discussion of the topic see [Building HTML in jQuery and JavaScript](http://marcgrabanski.com/articles/building-html-in-jquery-and-javascript).
 
 ------------------------------------------------------------------------------
 
