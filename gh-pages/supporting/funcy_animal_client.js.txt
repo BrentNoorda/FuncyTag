@@ -1,0 +1,14 @@
+/* FuncyTag client-side version to generate animal HTML */
+var imgSize = 80;
+
+function animal_html(genus,species,endangered,id)
+{
+    var t;
+    t = div( { id:'animal-'+id, class:genus },
+             p( { cssColor: endangered?'red':'green', cssFontSize_pct: endangered?120:null },
+                'The', b('species'), 'is a', genus, 'and looks like this:',
+                img( { width:imgSize, height:imgSize, src:'/pix/' + id + '.jpg' } )
+             )
+        );
+    return String(t);
+}

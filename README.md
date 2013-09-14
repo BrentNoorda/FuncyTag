@@ -25,7 +25,7 @@ Suppose you need a javascript function to create HTML for each animal that looks
     <div id="animal-3987" class="mammal">
       <p style="color:red;font-size:120%;">
         The <b>skulley lamprey</b> is a mammal and looks like this:
-        <img width="80" height="80" src="/pix/mammal/3987.jpg">
+        <img width="80" height="80" src="/pix/3987.jpg">
       </p>
     </div>
 
@@ -51,10 +51,10 @@ Here is the same function using FuncyTag, which makes HTML tags look and act lik
     {
         var t;
         t = div( { id:'animal-'+id, class:genus },
-              p( { cssColor: endangered?'red':'green', cssFontSize_pct: endangered?120:undefined },
-                'The', b('species'), 'is a', genus, 'and looks like this:',
-                img( { width:imgSize, height:imgSize, src:'/pix/' + id + '.jpg' } )
-              )
+                 p( { cssColor: endangered?'red':'green', cssFontSize_pct: endangered?120:undefined },
+                    'The', b('species'), 'is a', genus, 'and looks like this:',
+                    img( { width:imgSize, height:imgSize, src:'/pix/' + id + '.jpg' } )
+                 )
             );
         return String(t);
     }
@@ -65,10 +65,10 @@ And the same function in python (using FuncyTag's dict() form):
 
     def animal_html(genus,species,endangered,id):
         t = div( dict( id='animal-%d'%id, class_=genus ),
-              p( dict( cssColor='red' if endangered else 'green', cssFontSize_pct=120 if endangered else None ),
-                'The', b('species'), 'is a', genus, 'and looks like this:',
-                img( dict( width=imgSize, height=imgSize, src='/pix/%d.jpg'%id ) )
-              )
+                 p( dict( cssColor='red' if endangered else 'green', cssFontSize_pct=120 if endangered else None ),
+                    'The', b('species'), 'is a', genus, 'and looks like this:',
+                    img( dict( width=imgSize, height=imgSize, src='/pix/%d.jpg'%id ) )
+                 )
             );
         return unicode(t);
 

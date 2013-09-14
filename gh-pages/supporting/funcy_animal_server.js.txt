@@ -1,0 +1,7 @@
+/* FuncyTag server-side version to generate animal HTML */
+div( { id:"animal-3987", class:"mammal" },
+  p( { cssColor:"red", cssFontSize_pct:120 },
+    'The', b('species'), 'is a mammal and looks like this:',
+    img( { width:80, height:80, src:'/pix/3987.jpg' } )
+  )
+)

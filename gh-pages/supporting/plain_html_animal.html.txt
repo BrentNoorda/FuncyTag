@@ -2,6 +2,6 @@
 <div id="animal-3987" class="mammal">
   <p style="color:red;font-size:120%;">
     The <b>skulley lamprey</b> is a mammal and looks like this:
-    <img width="80" height="80" src="/pix/mammal/3987.jpg">
+    <img width="80" height="80" src="/pix/3987.jpg">
   </p>
 </div>
