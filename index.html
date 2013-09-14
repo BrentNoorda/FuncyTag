@@ -5,10 +5,13 @@
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="description" content="Funcytag : HTML generator in pure javascript or python, primarily useful for programmaticly creating snippets of HTML to be embedded in a page at server-side or client-side. FuncyTag makes creating HTML look like function calls, so it looks familiar to a functional programmer (nesting, parameters, etc...). Optimized only for easy reading/writing by humans. Not quite an html template language, but kinda. Available in javascript and python." />
+    <meta name="viewport" content="initial-scale=1,width=device-width"/>
+    <meta name="format-detection" content="telephone=no"/>
 
     <link rel="stylesheet" type="text/css" media="screen" href="gh-pages/stylesheets/stylesheet.css">
 
     <title>FuncyTag &amp; FuncyStyle</title>
+    <script type="text/javascript" src="gh-pages/javascripts/adjust_iframes.js"></script>
   </head>
 
   <body>
@@ -40,12 +43,24 @@
         <h3>
 <a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>What's wrong with traditional HTML+CSS+JS?</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>
+    This automatic page generator is the easiest way to create beautiful pages for all of your projects.
+    Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer,
+    and publish. After your page is generated, you can check out the new branch:
+</p>
 
 <pre><code>$ cd your_repo_root/repo_name
 $ git fetchx origin wf <b>wfw</b> ef wf wef wef wef qw fgqw egfqewfg wqef qw gq wg qwe gqw g qwg qw gqew g qewg qwe gq weg qew gqe g ewrg ew gewrg we gew g ewg ewg we gew g ewg ewg ew gqe g qwe gqwe g qeg qer
 $ git checkout gh-pages
 </code></pre>
+
+some javascript:
+<iframe src="biglongjavascript.js" onload="growIframe(this)"></iframe>
+some css:
+<iframe src="gh-pages/stylesheets/stylesheet.css" onload="growIframe(this)"></iframe>
+some html:
+<iframe src="samplehtml.html.txt" onload="growIframe(this)"></iframe>
+
 
 <p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
 
@@ -76,7 +91,6 @@ $ git checkout gh-pages
         <p class="copyright">FuncyTag &amp; FuncyStyle maintained by <a href="https://github.com/BrentNoorda">BrentNoorda</a></p>
       </footer>
     </div>
-
 
 
   </body>

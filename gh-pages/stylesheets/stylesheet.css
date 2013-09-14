@@ -9,7 +9,20 @@ by Jason Costello, @jsncostello
 MeyerWeb Reset
 *******************************************************************************/
 
-html, body, div, span, applet, object, iframe,
+iframe {
+  margin: 0;
+  padding: 0;
+  margin-left: 0.5em;
+  border: 1;
+  font: inherit;
+  vertical-align: baseline;
+  width: 98%;
+  overflow: auto;
+  background-color: #ddd;
+  white-space: nowrap;
+}
+
+html, body, div, span, applet, object,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
