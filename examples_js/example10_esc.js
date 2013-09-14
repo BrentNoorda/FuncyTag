@@ -1,5 +1,5 @@
 /*jslint white:false plusplus:false browser:true nomen:false */
-/*globals window, funcyTag */
+/*globals window, funcyTag*/
 
 var div=funcyTag('div'), p=funcyTag('p'), input=funcyTag('input'), br=funcyTag('br');
 var esc = funcyTag.esc;

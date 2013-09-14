@@ -1,5 +1,5 @@
 /*jslint white:false plusplus:false browser:true nomen:false */
-/*globals window, funcyTag */
+/*globals window, funcyTag*/
 
 var div=funcyTag('div'), p=funcyTag('p');
 var color = funcyTag.color;

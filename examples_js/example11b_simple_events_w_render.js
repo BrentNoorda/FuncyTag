@@ -1,5 +1,5 @@
 /*jslint white:false plusplus:false browser:true nomen:false */
-/*globals window, funcyTag, alert */
+/*globals window, funcyTag*/
 
 var div = funcyTag( 'div', { _noslfcls:true } );
 var p = funcyTag( 'p' );

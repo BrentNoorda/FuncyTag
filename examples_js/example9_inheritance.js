@@ -1,5 +1,5 @@
 /*jslint white:false plusplus:false browser:true nomen:false */
-/*globals window, funcyTag */
+/*globals window, funcyTag*/
 
 var div=funcyTag('div'), ul=funcyTag('ul'), li=funcyTag('li',{_nobrin:true}),
     span=funcyTag('span',{_nobrout:true,_nobrin:true});
