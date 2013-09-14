@@ -24,7 +24,7 @@
           <h1 id="project_title">FuncyTag &amp; FuncyStyle</h1>
           <h2 id="project_tagline">Generate HTML/JS/CSS into nested Javascript functions.<br/>
           <span style="font-size:72%;font-style:italic;">FuncyTag &amp; FuncyStyle allow all components of a web
-          page (HTML, CSS, and Javascript) to be generated as purely functional source that still looks pretty
+          page (HTML, CSS, and Javascript) to be generated from purely functional source that still looks pretty
           much like standard HTML/CSS/JS. Easy to read, easy to write, easy to reuse.
           Source-code locality.</span></h2>
 
@@ -40,14 +40,36 @@
       <section id="main_content" class="inner">
         <h2 style="color:red;font-style:bold;">THIS WORK IS NOT READY TO SHOW YET. GO AWAY (but come back soon).</h2>
 
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>What's wrong with traditional HTML+CSS+JS?</h3>
+        <h3>What do FuncyTag &amp; FuncyStyle do?</h3>
+        <p>FuncyTag &amp; FuncyStyle generate HTML and CSS and Javascript event handlers
+           directly from nested, functional javascript.<p>
 
-<p>
-    This automatic page generator is the easiest way to create beautiful pages for all of your projects.
-    Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer,
-    and publish. After your page is generated, you can check out the new branch:
-</p>
+        <h3>Why? What's wrong with traditional HTML+CSS+JS?</h3>
+        <p>HTML+CSS+JS are great and are the go-to solution for most circumstances.
+           But there are times when thinking in three different languages,
+           and juggling three different source files gets really annoying. At those times, it
+           can be really convenient to combine all of those components into a single
+           Javascript function call that acts like a tag with it's own styling and event
+           behaviors.</p>
+
+        <h3>Example1: Building HTML in the client at runtime:</h3>
+        <p>Suppose you're building a web page that will dynamically create html for a collection
+           of animals retrieved via AJAX. You want each animal to be represented by HTML such
+           as this:</p>
+           <iframe src="gh-pages/supporting/plain_html_animal.html.txt" onload="growIframe(this)"></iframe>
+
+        <p>A typical Javascript implementation to create his HTML string would look something like this:</p>
+           <iframe src="gh-pages/supporting/typical_javascript_animal.js.txt" onload="growIframe(this)"></iframe>
+
+        <p>A basic FuncyTag implementation to create the same HTML could look something like this:</p>
+           <iframe src="gh-pages/supporting/funcy_animal.js.txt" onload="growIframe(this)"></iframe>
+
+        <p>
+
+            This automatic page generator is the easiest way to create beautiful pages for all of your projects.
+            Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer,
+            and publish. After your page is generated, you can check out the new branch:
+        </p>
 
 <pre><code>$ cd your_repo_root/repo_name
 $ git fetchx origin wf <b>wfw</b> ef wf wef wef wef qw fgqw egfqewfg wqef qw gq wg qwe gqw g qwg qw gqew g qewg qwe gq weg qew gqe g ewrg ew gewrg we gew g ewg ewg we gew g ewg ewg ew gqe g qwe gqwe g qeg qer
