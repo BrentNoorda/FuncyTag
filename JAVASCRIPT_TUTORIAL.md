@@ -363,7 +363,7 @@ which generates this safe html:
 <a name="more"></a>
 ### more reading
 
-That completes this FuncyTag &amp; FuncyScript Javascript Tutorial. For more reading see:
+That completes this FuncyTag &amp; FuncyStyle Javascript Tutorial. For more reading see:
 
 * [FuncyTag README](README.md)
 * [FuncyTag Python Tutorial](PYTHON_TUTORIAL.md)
