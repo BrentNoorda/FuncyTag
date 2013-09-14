@@ -18,7 +18,7 @@ iframe {
   vertical-align: baseline;
   width: 98%;
   overflow: auto;
-  background-color: #ddd;
+  background-color: #dcdcdc;
   white-space: nowrap;
 }
 
@@ -40,6 +40,10 @@ time, mark, audio, video {
   border: 0;
   font: inherit;
   vertical-align: baseline;
+}
+
+p, h1, h2, h3 {
+  max-width: 680px;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -281,9 +285,9 @@ Full-Width Styles
 
 .inner {
   position: relative;
-  max-width: 640px;
+  xxxxmax-width: 720px; /*640px;*/
   padding: 20px 10px;
-  margin: 0 auto;
+  xxxxmargin: 0 auto;
 }
 
 #forkme_banner {
@@ -400,6 +404,10 @@ Small Device Styles
 
   .inner {
     min-width: 320px;
+    max-width: 480px;
+  }
+
+  p, h1, h2, h3 {
     max-width: 480px;
   }
 

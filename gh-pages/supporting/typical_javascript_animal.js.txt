@@ -1,0 +1,12 @@
+/* typical javascript generation of animal HTML */
+var imgSize = 80;
+
+function animal_html(genus,species,endangered,id)
+{
+    return '<div id="animal-' + id + '" class="' + genus + '">\r\n' +
+           '  <p style="color:' + (endangered?'red':'green') + ';' + (endangered?'font-size:120%;':'') + '">\r\n' +
+           '    The <b>' + species + '</b> is a ' + genus + ' and looks like this:\r\n' +
+           '    <img width="' + imgSize + '" height="' + imgSize + '" src="/pix/' + id + '.jpg">\r\n' +
+           '  </p>\r\n' +
+           '</div>';
+}

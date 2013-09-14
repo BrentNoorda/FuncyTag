@@ -1,5 +1,5 @@
 /*jslint white:false plusplus:false browser:true nomen:false */
-/*globals $, funcyTag, alert */
+/*globals $, funcyTag, alert*/
 
 // this sample is used to get timing of various ways using funcyTag, to test the suspicion
 // that it's not particularly fast.  You can change the following parameters to test
