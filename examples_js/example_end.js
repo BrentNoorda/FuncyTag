@@ -17,7 +17,7 @@ function build_example_html()
 {
     function inner_tag(message)
     {
-        if ( message.length === 0 ) { return undefined; }
+        if ( message.length === 0 ) { return null; }
         return div( { cssColor: getRandomColor(), cssMargin_em:[-0.6,0,0,0.75] },
                  message.charAt(0),
                  inner_tag(message.substring(1))

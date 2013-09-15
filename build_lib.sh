@@ -3,12 +3,15 @@
 
 VERSION="0.0.4"
 FUNCYTAG_JS="lib/funcytag.$VERSION.js"
+FUNCYTAG_MIN_JS="lib/funcytag.$VERSION.min.js"
 FUNCYSTYLE_JS="lib/funcystyle.$VERSION.js"
+FUNCYSTYLE_MIN_JS="lib/funcystyle.$VERSION.min.js"
 COMBINED_JS="lib/funcytag_and_style.$VERSION.js"
+COMBINED_MIN_JS="lib/funcytag_and_style.$VERSION.min.js"
 DEBUG="true"
 
 echo
-echo building $FUNCYTAG_JS, $FUNCYSTYLE_JS, and $COMBINED_JS
+echo building $FUNCYTAG_JS, $FUNCYTAG_MIN_JS, $FUNCYSTYLE_JS, $FUNCYSTYLE_MIN_JS, $COMBINED_JS, and $COMBINED_MIN_JS
 echo
 
 echo "/*jslint white:false plusplus:false browser:true nomen:false */" > $FUNCYTAG_JS
@@ -66,3 +69,7 @@ echo "" >> $COMBINED_JS
 echo "}(window));" >> $FUNCYTAG_JS
 echo "}(window));" >> $FUNCYSTYLE_JS
 echo "}(window));" >> $COMBINED_JS
+
+cp $FUNCYTAG_JS $FUNCYTAG_MIN_JS
+cp $FUNCYSTYLE_JS $FUNCYSTYLE_MIN_JS
+cp $COMBINED_JS $COMBINED_MIN_JS

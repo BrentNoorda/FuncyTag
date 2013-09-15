@@ -88,7 +88,7 @@
             {
                 propsObj = propsarray[propsIdx];
                 console.log("propsObj = " + propsObj);
-                if ( propsObj !== undefined )  // ignore undefined
+                if ( propsObj != null )  // ignore null or undefined - ignore-this-jslint-error
                 {
                     if ( '_fs_selector' in propsObj )
                     {
@@ -107,7 +107,7 @@
                         for ( prop in propsObj )
                         {
                             val = propsObj[prop];
-                            if ( val !== undefined )
+                            if ( val != null ) // ignore null or undefined - ignore-this-jslint-error
                             {
                                 if ( isPlainObj(val) )
                                 {
@@ -162,10 +162,10 @@
 
                     if ( is_array(value) )
                     {
-                        // do not count any undefined values, so remove those from the array
+                        // do not count any null or undefined values, so remove those from the array
                         for ( jdx = 0; jdx < value.length; jdx++ )
                         {
-                            if ( value[jdx] === undefined )
+                            if ( value[jdx] == null )   // ignore-this-jslint-error
                             {
                                 value.splice(jdx,1);
                                 jdx--;

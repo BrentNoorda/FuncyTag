@@ -9,7 +9,7 @@ function build_example_html()
     {
         return div( { cssFontSize_px:height, cssMarginLeft_px:2.5*height },
                  'begin height ' + height,
-                 (height > 1) ? inner_tag(height-1) : undefined,
+                 (height > 1) ? inner_tag(height-1) : null,
                  'end height ' + height
                );
     }

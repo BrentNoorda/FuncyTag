@@ -51,7 +51,7 @@ Here is the same function using FuncyTag, which makes HTML tags look and act lik
     {
         var t;
         t = div( { id:'animal-'+id, class:genus },
-                 p( { cssColor: endangered?'red':'green', cssFontSize_pct: endangered?120:undefined },
+                 p( { cssColor: endangered?'red':'green', cssFontSize_pct: endangered?120:null },
                     'The', b('species'), 'is a', genus, 'and looks like this:',
                     img( { width:imgSize, height:imgSize, src:'/pix/' + id + '.jpg' } )
                  )
@@ -72,7 +72,7 @@ And the same function in python (using FuncyTag's dict() form):
             );
         return unicode(t);
 
-By making HTML tags act like functions with their attributes set like script objects, allowing css <code>style</code> elements to bet set like any other attribute, and throwing in a few other bells and whistles (array, undefined/None, inheritance...), FuncyTag simplifies the creation of HTML strings in javascript and python.
+By making HTML tags act like functions with their attributes set like script objects, allowing css <code>style</code> elements to bet set like any other attribute, and throwing in a few other bells and whistles (array, null/undefined/None, inheritance...), FuncyTag simplifies the creation of HTML strings in javascript and python.
 
 ------------------------------------------------------------------------------
 

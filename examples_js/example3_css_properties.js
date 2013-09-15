@@ -6,7 +6,7 @@ var div=funcyTag('div');
 function build_example_html()
 {
     var t;
-    t = div( { id:'outer', cssFontSize:'20px', cssColor:'red', cssMarginLeft:undefined },
+    t = div( { id:'outer', cssFontSize:'20px', cssColor:'red', cssMarginLeft:null },
           'begin outer div',
           div( { id:'middle', cssFontSize:'16px', cssColor:'green', cssMarginLeft:'12px' },
             'begin middle div',

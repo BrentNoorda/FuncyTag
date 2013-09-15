@@ -7,13 +7,13 @@ This is a step-by-step introduction to the features of FuncyTag in Javascript. T
 * [2: setting attributes: funcyTag option object == html attributes](#2)
 * [3: cssCamelStyles](#3)
 * [4: unit suffixes](#4)
-* [5: attribute array and undefined values](#5)
+* [5: attribute array and null/undefined values](#5)
 * [6: default attributes](#6)
 * [7: inheritance](#7)
 * [8: no attributes options](#8)
 * [9: multiple inner arguments for multiple inner tags](#9)
 * [10: behavior-modifying options "\_nobrin" and "\_nobrout"](#10)
-* [11: other types of inner elements, undefined, arrays, and functions](#11)
+* [11: other types of inner elements, null, undefined, arrays, and functions](#11)
 * [12: escaping strings](#12)
 * [more reading](#more)
 
@@ -113,19 +113,19 @@ creating the exact same html as the previous two examples:
 Note: An empty unit suffix can be a convenient way to allow a keyword to be used as a property. e.g. { class_:'foo' }.
 
 <a name="5"></a>
-### LESSON 5: attribute array and undefined values
+### LESSON 5: attribute array and null/undefined values
 
 Some common HTML and CSS values are represented as space-delimited strings. For example, in an HTML tag it is common to specify multiple CSS class (e.g. class="btn giant") and within CSS values such as "margin: 0 10px 0 12px" are common. In FuncyTag, if an attribute value is an array then the values are concatenated with spaces (and include the unit suffixes described in lesson 4).
 
-Sometimes you may also not know until runtime if an attribute is needed at all (for example, only the "danger" class is needed if the danger flag is set). I an attribute value is <code>undefined</code> then that attribute will not be set.
+Sometimes you may also not know until runtime if an attribute is needed at all (for example, only the "danger" class is needed if the danger flag is set). I an attribute value is <code>null</code> or <code>undefined</code> then that attribute will not be set.
 
-The previous example, modified with such arrays and undefined:
+The previous example, modified with such arrays and null:
 
     danger = false
     div=funcyTag('div'), p=funcyTag('P');
 
-    div( { align:'right', cssMargin_px:[12,0,4,0], scoobydoo:undefined },
-         p( {class:['big','red',danger?'danger':undefined]}, 'hello world' )
+    div( { align:'right', cssMargin_px:[12,0,4,0], scoobydoo:null },
+         p( {class:['big','red',danger?'danger':null]}, 'hello world' )
     )
 
 creates this HTML:
@@ -286,13 +286,13 @@ or
     li( 'joe' + ' ' + i('who?') )
 
 <a name="11"></a>
-### LESSON 11: other types of inner elements, undefined, arrays, and functions
+### LESSON 11: other types of inner elements, null, undefined, arrays, and functions
 
 There can be many types of elements passed among the multiple arguments to a FuncyTag. We have seen examples of those arguments being a string or another funcy tag. Other argument types of special interst are:
 
-* undefined: if an argument is undefined (or evaluates to undefined) then no inner element will be added there
+* null or undefined: if an argument is null or undefined (or evaluates to null or undefined) then no inner element will be added there
 
-* array: if an argument is an array, then every element of that array will be added in place (or not placed if it is undefined)
+* array: if an argument is an array, then every element of that array will be added in place (or not placed if it is null or undefined)
 
 * function: in an argument is a function, then it will be called and should return an argument of the types defined above:
 
@@ -307,7 +307,7 @@ Let's change the stooges code to use some of these rules:
 
     div(
          'the best known stooges were',
-         ul( [ li('larry'), li('moe'), undefined, li('curly') ] ),
+         ul( [ li('larry'), li('moe'), null, li('curly') ] ),
          'while the lesser-known stooges were',
          ul( { cssFontStyle:'italic' }, lesser_knowns() )
     )
