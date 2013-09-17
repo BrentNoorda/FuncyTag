@@ -384,7 +384,7 @@
                     {
                         if ( id in gInitQueue )
                         {
-                            alert('FuncyTags adding id "' + id + '" when previous "' + id + '" has not initialized yet.');
+                            try { console.warning('FuncyTags adding id "' + id + '" when previous "' + id + '" has not initialized yet.'); } catch(e6) { }
                         }
                     }
                     if ( id in gElems )

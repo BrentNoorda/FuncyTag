@@ -1,0 +1,3 @@
+var p = funcyTag("P");
+p( { cssFontSize_pct: 140, cssColor: "red" },
+   "Hello world I am",5,"years old." );

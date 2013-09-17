@@ -87,7 +87,6 @@
             for ( propsIdx = 0; propsIdx < propsarray.length; propsIdx++ )
             {
                 propsObj = propsarray[propsIdx];
-                console.log("propsObj = " + propsObj);
                 if ( propsObj != null )  // ignore null or undefined - ignore-this-jslint-error
                 {
                     if ( '_fs_selector' in propsObj )

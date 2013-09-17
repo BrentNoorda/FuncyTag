@@ -15,7 +15,6 @@
     // turn upper characters to -c, for example, "cssBackgroundColor" becomes "css-background-color"
     {
         return camel.replace(gCamelToDashRegexp,function(match,c,offset,string){
-                //alert("arguments.length = " + arguments.length + ' match='+match + ' c='+c+' offset='+offset+' string='+string);
                 return '-' + c.toLowerCase();
             });
     }

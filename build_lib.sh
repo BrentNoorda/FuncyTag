@@ -15,17 +15,17 @@ echo building $FUNCYTAG_JS, $FUNCYTAG_MIN_JS, $FUNCYSTYLE_JS, $FUNCYSTYLE_MIN_JS
 echo
 
 echo "/*jslint white:false plusplus:false browser:true nomen:false */" > $FUNCYTAG_JS
-echo "/*globals window, console, funcyStyle, alert*/" >> $FUNCYTAG_JS
+echo "/*globals window, console, funcyStyle*/" >> $FUNCYTAG_JS
 echo "/* FuncyTag version $VERSION - see more at https://github.com/BrentNoorda/FuncyTag */" >> $FUNCYTAG_JS
 echo "" >> $FUNCYTAG_JS
 
 echo "/*jslint white:false plusplus:false browser:true nomen:false */" > $FUNCYSTYLE_JS
-echo "/*globals window, console, alert*/" >> $FUNCYSTYLE_JS
+echo "/*globals window, console*/" >> $FUNCYSTYLE_JS
 echo "/* FuncyStyle version $VERSION - see more at https://github.com/BrentNoorda/FuncyTag */" >> $FUNCYSTYLE_JS
 echo "" >> $FUNCYSTYLE_JS
 
 echo "/*jslint white:false plusplus:false browser:true nomen:false */" > $COMBINED_JS
-echo "/*globals window, console, alert*/" >> $COMBINED_JS
+echo "/*globals window, console*/" >> $COMBINED_JS
 echo "/* FuncyTag and FuncyStyle (combined) version $VERSION - see more at https://github.com/BrentNoorda/FuncyTag */" >> $COMBINED_JS
 echo "" >> $COMBINED_JS
 

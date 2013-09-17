@@ -1,0 +1,2 @@
+var yikes = funcyTag( "P", class="yikes" );
+yikes( "Hello world I've been sick for",6,"days!" );
