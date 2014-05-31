@@ -1,0 +1,7 @@
+p( span( {cssColor:'red'}, 'Red peeps' ),
+   'are',
+   span( {cssFontSize_em:1.5},
+         'bigger and',
+         span( {cssColor:'red'}, 'redder' ) ),
+   'than',
+   span( {cssColor:'blue'}, 'blue peeps.' ) );

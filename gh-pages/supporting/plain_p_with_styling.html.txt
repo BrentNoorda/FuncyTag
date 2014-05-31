@@ -1,5 +1,0 @@
-<P style="font-size:140%;color:red;">
-  Hello World I am
-  5
-  years old.
-</P>

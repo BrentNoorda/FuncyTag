@@ -1,5 +1,0 @@
-<P style="font-size:140%;color:red;">
-  Hello World I've been sick for
-  6
-  days!
-</P>

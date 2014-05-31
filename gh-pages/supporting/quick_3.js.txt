@@ -1,0 +1,22 @@
+var fluffy = funcyTag( span,
+                       { onclick: function(elem,evt) {
+                            alert("you clicked me");
+                         },
+                         oninit: function(elem) {
+                           var scale = 100, direction = 1;
+                           setInterval( function() {
+                             scale += direction;
+                             if ( scale <= 100  ||  150 <= scale ) {
+                                direction *= -1;
+                             }
+                             elem.style.fontSize = scale + '%';
+                           }, 10 );
+                         }
+                       } );
+
+p( red( 'Red peeps' ),
+   'are',
+   fluffy( 'fluffier and',
+           red( 'redder' ) ),
+   'than',
+   blue( 'blue peeps.') );

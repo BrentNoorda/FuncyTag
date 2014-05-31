@@ -1,4 +1,4 @@
-FuncyTag &amp; FuncyStyle
+FuncyTag &amp; FuncyStyle (aka FuncyTown)
 =========
 
 <p style="color:red">THIS PROJECT IS IN TRANSITION. GO AWAY (but come back soon).</p>
@@ -13,7 +13,6 @@ Jump To:
 * [project status](#project-status)
 * [more examples](#more-examples)
 * [recommendations on when to use FuncyTag](#recommendations)
-* [theme song](#theme-song)
 
 ------------------------------------------------------------------------------
 
@@ -142,10 +141,3 @@ Now consider this alternative, which only builds the template once, and then use
 This replace version runs 100,000 times in about 0.45 seconds--about 17 times faster. That would be a big difference if you were making this call 100,000 times, but in a scenario that made this call only 10 times (for example, filling out a page of books in a web page in a browser) the performance difference between these methods, and even faster methods, would be difficult to measure (less than a millisecond, and imperceptible to any user).
 
 Final recommendation: Unless you're in a situation where every microsecond will be noticed, pick the tool that makes the best use of your development time.
-
-------------------------------------------------------------------------------
-
-<a name="theme-song"></a>
-# theme song
-
-Towlie remembers the FuncyTag theme [here](http://www.youtube.com/watch?v=4OrVrrsjqwQ).

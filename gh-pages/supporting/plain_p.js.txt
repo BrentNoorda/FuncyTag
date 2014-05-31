@@ -1,2 +1,0 @@
-var p = funcyTag("P");
-p("Hello world I am",4,"years old.");

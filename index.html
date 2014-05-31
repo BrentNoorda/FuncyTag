@@ -10,18 +10,23 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="gh-pages/stylesheets/stylesheet.css">
 
-    <title>FuncyTag &amp; FuncyStyle</title>
+    <title>FuncyTag + FuncyStyle = FuncyTown</title>
     <script type="text/javascript" src="gh-pages/javascripts/adjust_iframes.js"></script>
     <script type="text/javascript">
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-1754630-10']);
-_gaq.push(['_trackPageview']);
-(function() {
-var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-</script>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-1754630-10']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <style media="screen" type="text/css">
+     h1, h2, h3, h4, h5, p {
+       line-height:1.25;
+     }
+  </style>
   </head>
 
   <body>
@@ -31,11 +36,8 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/BrentNoorda/FuncyTag">View on GitHub</a>
 
-          <h1 id="project_title">FuncyTag &amp; FuncyStyle</h1>
-          <h2 id="project_tagline">Generate HTML/JS/CSS from nested Javascript functions--that's all.<br/>
-          <span style="font-size:72%;font-style:italic;">FuncyTag &amp; FuncyStyle allow all components of a web
-          page (HTML, CSS, and Javascript) to be generated from purely functional source that still looks pretty
-          much like standard HTML/CSS/JS. Easy to read, easy to write, easy to bundle, easy to reuse.</span></h2>
+          <h1 id="project_title">FuncyTag &amp; FuncyStyle<br/>(aka &#8220;FuncyTown&#8221;)</h1>
+          <h2 id="project_tagline">Generate HTML, JS, &amp; CSS from single-source-file nested Javascript functions.</h2>
 
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/BrentNoorda/FuncyTag/zipball/master">Download this project as a .zip file</a>
@@ -47,47 +49,125 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h2 style="color:red;font-style:bold;">THIS WORK IS NOT READY TO SHOW YET. GO AWAY (but come back soon).</h2>
 
-        <h3>What is this?</h3>
+        <h1>Welcome to FuncyTown</h1>
 
-            <p>This is an experiment to answer the questions:
-               What if web pages could be developed purely in JavaScript?
-               Under what circumstances does that make development easier?<p>
+        <p style="font-style:italic;xmargin-left:2em;xmargin-right:2em;padding:4px;background-color:#e0e0e0;">
+            I've been thinking...<br/>To generate one web page or one web component, why must I use (at least) three
+            distinct files (HTML, CSS, &amp; JAVASCRIPT) and use (at least) three distinct
+            languages (HTML, CSS, &amp; JAVASCRIPT)?
+            That's too much context switching for my simple little mind!
+        </p>
 
-        <h3>What do FuncyTag &amp; FuncyStyle do?</h3>
+        <p>
+            FuncyTag &amp; FuncyStyle allow all components of a web page (HTML, CSS, and Javascript) to
+            be generated from one purely functional Javascript source. HTML and CSS are mapped
+            clearly to Javascript, but without losing their flavor.
+            The result is easy to read, easy to write, easy to bundle, easy to reuse, and (hopefully) kind of boring.
+        </p>
 
-            <p>FuncyTag &amp; FuncyStyle generate HTML and CSS and Javascript event handlers and everything
-               else a browser for presentation, directly from nested, functional javascript.<p>
+        Contents:
+        <ul>
+          <li><a href="#vqoverview">Very quick overview</a></li>
+          <li><a href="#simpleexample">A simple example</a></li>
+          <li><a href="#whatnext">What's coming next to FuncyTown?</a></li>
+          <li><a href="#theme-song">Theme song</a></li>
+          <li><a href="#moreinfo">More information</a></li>
+        </ul>
 
-        <h3>Why? What's wrong with traditional HTML+CSS+JS?</h3>
+        <h1><a name="vqoverview"></a>Very quick overview</h1>
 
-            <p>HTML+CSS+JS are great and are the go-to solution for most circumstances.
-               But there are times when thinking in three different languages,
-               and juggling three different source files gets really annoying. At those times, it
-               can be really convenient to combine all of those components into a single
-               Javascript function call that acts like a tag with it's own styling and event
-               behaviors.</p>
+        <p>The <b>4</b> components of FuncyTown (leaving out a lot of details) are:</p>
+        <div style="margin-left:1em;">
 
-        <h3>Show me a simple example.</h3>
+            <h3>1) HTML source code as Function calls (think &#8220;functions instead of tags&#8221; or &#8220;rounded brackets, not angle brackets&#8221;)</h3>
+
+            <p>Assuming that you have defined FuncyTags "p" and "span" to represent their
+            plain HTML equivalents (more on that later), you might generate this sentence:</p>
+
+            <div style="margin-left:4em;">
+            <p>
+              <span style="color:red;">
+                Red peeps
+              </span>
+              are
+              <span style="font-size:1.5em;">
+                bigger and
+                <span style="color:red;">
+                  redder
+                </span>
+              </span>
+              than
+              <span style="color:blue;">
+                blue peeps.
+              </span>
+            </p>
+            </div>
+
+            <p>with the following javascript:</p>
+            <iframe src="gh-pages/supporting/quick_1.js.txt" onload="growIframe(this)"></iframe>
+
+            <p>for comparison, here is the generated HTML:</p>
+            <iframe src="gh-pages/supporting/quick_1.html.txt" onload="growIframe(this)"></iframe>
+
+            <h3>2) Creating Custom &#8220;funcy&#8221; tags</h3>
+
+            <p>New FuncyTags can be defined inheriting and extending the charateristics of other tags.</p>
+
+            <p>The following creates new tags &#8220;red&#8221; and &#8220;big&#8221; to
+            generate exactly the same output as the previous example:</p>
+            <iframe src="gh-pages/supporting/quick_2.js.txt" onload="growIframe(this)"></iframe>
+
+            <h3>3) Inline event handlers (e.g. onclick, onblur, etc… and adding oninit and onterm)</h3>
+
+            <p>Event handlers can be coded directly within the FuncyTag definition. This applies to all
+            of the standard DOM element methods beginning with &#8220;on&#8221; (for example, onblur, onclick, onfocus, etc...)
+            and adds the extra options &#8220;oninit&#8221; and &#8220;onterm&#8221;.</p>
+
+            <p>In the following example, the &#8220;big&#8221; tag is replaced by a &#8220;fluffy&#8221; tag
+            that reacts to &#8220;onclick&#8221;, but also initializes animation at &#8220;oninit&#8221; time.</p>
+            <iframe src="gh-pages/supporting/quick_3.js.txt" onload="growIframe(this)"></iframe>
+
+            <p>resulting in the following:</p>
+            <div style="position:relative;height:1.5em;margin-left:4em;margin-bottom:1.5em;">
+              <div id="fluffy-demo" style="position:absolute;bottom:0;left:0;">
+
+              </div>
+            </div>
+
+            <h3>4) CSS stylesheets as Javascript function calls (i.e. &#8220;FuncyStyles&#8221;).</h3>
+
+            <p>like less or sass or whatevs</p>
+            <iframe src="gh-pages/supporting/quick_4.js.txt" onload="growIframe(this)"></iframe>
+
+            <p style="font-style:italic;">Disclaimer: FuncyStyle is in a state of flux. Originally it was more
+            SASS-like, then I thought &#8220;why not just let people use LESS directly, since it's already JS&#8221;
+            but then I realized LESS is easy enough to reproduce so it works better with FuncyStyle, and then I
+            thought a little bit of SASSiness I liked should be added, and now I'm not sure what to think. So the
+            current documentation and samples really peter out for FuncyStyl because I'm far from done with those.</p>
+
+        </div>
+
+
+        <h1><a name="simpleexample"></a>A simple example</h1>
 
             <p>Suppose you're building a web page that will dynamically create html for a collection
                of animals retrieved via AJAX. You want each animal to be represented by HTML such
                as this:</p>
                <iframe src="gh-pages/supporting/plain_html_animal.html.txt" onload="growIframe(this)"></iframe>
 
-            <p>Just to get a feel for how Javascript "funcy tags" map to a HTML tags, here is to render
+            <p>Just to get a feel for how Javascript "funcy tags" map to a HTML tags, here is how to render
                the same output from server-side FuncyTag:</p>
                <iframe src="gh-pages/supporting/funcy_animal_server.js.txt" onload="growIframe(this)"></iframe>
 
-            <p>A typical client-side Javascript function to create his HTML, based on some parameters that
+            <p>A traditional client-side Javascript function to create his HTML, based on some parameters that
                probably came from AJAX would look something like this:</p>
                <iframe src="gh-pages/supporting/typical_javascript_animal.js.txt" onload="growIframe(this)"></iframe>
 
             <p>A FuncyTag implementation to create the same HTML from within client-side Javascript could look something like this:</p>
                <iframe src="gh-pages/supporting/funcy_animal_client.js.txt" onload="growIframe(this)"></iframe>
 
-        <h3>So what? Should I be impressed?</h3>
+        <p><b>So what? Should I be impressed?</b></h3>
 
             <p>Not really. This is pretty simple stuff, and that's kind of the point: making stuff as simple and boring for
                the javascript writer as possible.<p>
@@ -98,68 +178,10 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
                <code>style="font-size:14px"</code> as <code>cssFontSize_px=14</code> because doing so has saved me a lot
                of tedious string concatenation code</i>.</p>
 
-            <p>But let's take it further. Can we create more complex web code, and still continue to remain
-               in pure javascript, and continue to make FuncyTag look boring and unimpressive?</p>
-
-        <h3>How do I do "boring javascript" stuff with FuncyTag?</h3>
-
-            <p>First, <b>a simple way to define a FuncyTag</b>. We'll start with this plain <code>p</code> that will
-               represents the HTML "P" tag:</p>
-               <iframe src="gh-pages/supporting/plain_p.js.txt" onload="growIframe(this)"></iframe>
-               <p>making this output:</p>
-               <iframe src="gh-pages/supporting/plain_p.html.txt" onload="growIframe(this)"></iframe>
-
-            <br/><br/>
-            <p>Next, <b>add styling to the FuncyTag</b>. We'll make this paragraph big and red:</p>
-               <iframe src="gh-pages/supporting/plain_p_with_styling.js.txt" onload="growIframe(this)"></iframe>
-               <p>making this output:</p>
-               <iframe src="gh-pages/supporting/plain_p_with_styling.html.txt" onload="growIframe(this)"></iframe>
-
-            <br/><br/>
-            <p>If this is a style you're going to use a lot, you can <b>create a custom tag</b>.
-               We'll make a new tag <code>yikes</code>:</p>
-               <iframe src="gh-pages/supporting/plain_p_with_custom_tag.js.txt" onload="growIframe(this)"></iframe>
-               <p>making this output:</p>
-               <iframe src="gh-pages/supporting/plain_p_with_custom_tag.html.txt" onload="growIframe(this)"></iframe>
-
-        <h3>Wait. CSS vs. HTML is supposed to be a way to separate content from presentation. Why are you combining them?</h3>
-            <p>FuncyTag breaks no concept of separation of concerns.
-               Creating new funcytags is really no different than the traditional method of
-               creating a style in this separate CSS file:</p>
-               <iframe src="gh-pages/supporting/yikes.css.txt" onload="growIframe(this)"></iframe>
-            <p>and using that class in this html file:</p>
-               <iframe src="gh-pages/supporting/yikes.html.txt" onload="growIframe(this)"></iframe>
-            <p>except that the FuncyTag version:</p>
-               <iframe src="gh-pages/supporting/plain_p_with_custom_tag.js.txt" onload="growIframe(this)"></iframe>
-            <p>does not encourage me to always keep two files open, think in two different languages, and bounce
-               between two locations that refer to the same object.</p>
-
-        <h3>Won't multiply-used custom funcytags, each with many style settings, expand
-            into too much HTML?</h3>
-            <p>You're right. If multiple objects share a big common set of style settings, it
-                makes sense to define a class in CSS and refer to that from the class attribute
-                in HTML.</p>
-            <p>If you already have included this CSS file shown earlier:</p>
-               <iframe src="gh-pages/supporting/yikes.css.txt" onload="growIframe(this)"></iframe>
-            <p>then you could easily redo the FuncyTag <code>yikes</code> example like this:</p>
-               <iframe src="gh-pages/supporting/plain_p_with_custom_tag_and_css.js.txt" onload="growIframe(this)"></iframe>
-            <p>to generate this html:</p>
-               <iframe src="gh-pages/supporting/plain_p_with_custom_tag_and_css.html.txt" onload="growIframe(this)"></iframe>
-
-            <p>TBD: stylesheets can be generated any way... but can be done with FuncyStyle</p>
-
-        <h3>What's that about FuncyStyle?</h3>
-
-            <p>TBD: less-like, sass-like, independent of FuncyTags but similar and play well together</p>
-
-        <h3>So static. Show me something more dynamic and exciting.</h3>
-
-            <p>TBD: show off the events stuff, including special "oninit()" and "onterm()" methods...</p>
-
-        <h3>What's next? FuncyTown?</h3>
+        <h1><a name="whatnext" class="anchor" href="#whatnext"></a>What's coming next to FuncyTown?</h1>
           <ul>
             <li>lots more documentation (tutorials and NOTE THATS) and many more examples (real-time stylesheet changing,
-                FuncyStyle mixin and inheritence, my favotir img-tag onerror reoloader)</li>
+                FuncyStyle mixin and inheritence, my favorite img-tag onerror reoloader)</li>
             <li>get feedback to see if this project is worth pursuing</li>
             <li>compare/contrast with similar projects, determine if it's better to switch to or collaborate with them
                 (e.g, <a href="https://github.com/Farof/jhtml">jhtml</a>,
@@ -171,23 +193,32 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
                 <a href="https://github.com/robrobbins/RML">RML</a>,
                 <a href="https://github.com/webmat/sugar_dom">sugar_dom</a>,
                 and especially the new <a href="http://ojjs.org/">ojjs</a>)</li>
-            <li>explorer new color() to decide if it's useful or just silly</li>
+            <li>explore new color() to decide if it's useful or just silly</li>
             <li>determine if the python version should catch up to the javasript version, or be abandoned</li>
             <li>demonstrate some PAJAX pages where entire pages are results of loading funcytag/funcystyle</li>
             <li>figure out how mediaqueries should tie into FuncyStyle</li>
             <li>add server-side tools to the github project, including node package for
                 easy nodejs integration -- and then some nodejs examples</li>
+            <li>release tool to convert existing HTML+JS+CSS files into single, readable JS file</li>
+            <li>compare FuncyTag elements with HTML5 custom elements (including x-tag) and Web Components</li>
             <li>show how to tie into reactive MVC frameworks (e.g. AngularJS)</li>
+            <li>provide helper function to populate global space with all standard tags</li>
+            <li>in debug mode, validate against improper html use (e.g. including a &lt;p&gt; inside a &lt;b&gt;)</li>
             <li>complete the "big picture" by showing how server can be totally abandoned
                 by relying on just a JS-delivery/storage DB (e.g. Firebase)</li>
           </ul>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Next steps:</h3>
+
+<h1><a name="theme-song" class="anchor" href="#theme-song"></a>Theme Song</h1>
+
+<iframe width="560" height="315" style="width:560px;height:315px;margin-left:1em;" src="http://www.youtube.com/embed/6EPURKWo2vU" frameborder="0" allowfullscreen></iframe>
+
+
+<h1><a name="moreinfo" class="anchor" href="#moreinfo"></a>More Information</h1>
 
   <ul>
     <li><a href="https://github.com/BrentNoorda/FuncyTag/blob/master/README.md">Documentation &amp; Tutorials</a></li>
-    <li><a href="http://brentnoorda.github.io/FuncyTag/examples_js.html">Many many examples</a></li>
+    <li><a href="examples_js.html">Many many examples</a></li>
     <li><a href="https://github.com/BrentNoorda/FuncyTag">github project</a></li>
   </ul>
 
@@ -197,10 +228,47 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">FuncyTag &amp; FuncyStyle maintained by <a href="https://github.com/BrentNoorda">BrentNoorda</a></p>
+        <p class="copyright">FuncyTag &amp; FuncyStyle maintained by <a href="https://github.com/BrentNoorda">Brent Noorda</a></p>
       </footer>
     </div>
 
+    <script type="text/javascript" src="lib/funcytag.0.0.4.min.js"></script>
+    <script type="text/javascript">
+        function fluffy_demo() {
+            var p=funcyTag('p'), span=funcyTag('span');
+            var red = funcyTag( span, { 'cssColor':'red' } );
+            var blue = funcyTag( span, { 'cssColor':'blue' } );
+            var fluffy = funcyTag( span,
+                                   { onclick: function(elem,evt) {
+                                       alert("you clicked me");
+                                     },
+                                     oninit: function(elem) {
+                                       var scale = 100, direction = 1;
+                                       setInterval( function() {
+                                         scale += direction;
+                                         if ( scale <= 100  ||  150 <= scale ) {
+                                            direction *= -1;
+                                         }
+                                         elem.style.fontSize = scale + '%';
+                                       }, 10 );
+                                     }
+                                   } );
+
+            var t;
+            t = p( {cssMargin:0},
+                   red( 'Red peeps' ),
+                   'are',
+                   fluffy( 'fluffier and',
+                           red( 'redder' ) ),
+                   'than',
+                    blue( 'blue peeps.') );
+            return String(t);
+        }
+
+        window.onload = function() {
+            document.getElementById('fluffy-demo').innerHTML = fluffy_demo();
+        };
+    </script>
 
   </body>
 </html>

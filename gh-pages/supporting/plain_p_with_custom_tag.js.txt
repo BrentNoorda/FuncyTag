@@ -1,2 +1,0 @@
-var yikes = funcyTag( "P", { cssFontSize_pct: 140, cssColor: "red" } );
-yikes( "Hello world I've been sick for",6,"days!" );

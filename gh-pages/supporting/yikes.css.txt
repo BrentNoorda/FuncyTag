@@ -1,5 +1,0 @@
-/* css file */
-.yikes {
-    font-size: 140%;
-    color: red;
-}
