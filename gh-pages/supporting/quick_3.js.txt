@@ -6,9 +6,8 @@ var fluffy = funcyTag( span,
                            var scale = 100, direction = 1;
                            setInterval( function() {
                              scale += direction;
-                             if ( scale <= 100  ||  150 <= scale ) {
+                             if ( scale <= 100  ||  150 <= scale )
                                 direction *= -1;
-                             }
                              elem.style.fontSize = scale + '%';
                            }, 10 );
                          }

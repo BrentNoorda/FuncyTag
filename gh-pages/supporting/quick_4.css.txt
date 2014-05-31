@@ -1,0 +1,10 @@
+#css-demo .red {
+  color: red;
+}
+#css-demo #blue {
+  color: blue;
+}
+#css-demo i {
+  font-size: 1.5em;
+  font-style: normal;
+}

@@ -26,6 +26,9 @@
      h1, h2, h3, h4, h5, p {
        line-height:1.25;
      }
+     ul {
+        margin-bottom: 0;
+     }
   </style>
   </head>
 
@@ -68,64 +71,54 @@
 
         Contents:
         <ul>
-          <li><a href="#vqoverview">Very quick overview</a></li>
+          <li><a href="#vqoverview">The four components of FuncyTown</a>
+            <ul>
+              <li><a href="#overview-1">1) HTML source code as Function calls</a></li>
+              <li><a href="#overview-2">2) Creating Custom &#8220;funcy&#8221; tags</a></li>
+              <li><a href="#overview-3">3) Inline event handlers</a></li>
+              <li><a href="#overview-4">4) CSS stylesheets defined as Javascript function</a></li>
+            </ul>
+          </li>
           <li><a href="#simpleexample">A simple example</a></li>
           <li><a href="#whatnext">What's coming next to FuncyTown?</a></li>
           <li><a href="#theme-song">Theme song</a></li>
           <li><a href="#moreinfo">More information</a></li>
         </ul>
 
-        <h1><a name="vqoverview"></a>Very quick overview</h1>
+        <h1><a name="vqoverview"></a>The four components of FuncyTown</h1>
 
-        <p>The <b>4</b> components of FuncyTown (leaving out a lot of details) are:</p>
+        <p>The <b>four</b> components of FuncyTown (leaving out a lot of details) are:</p>
         <div style="margin-left:1em;">
 
-            <h3>1) HTML source code as Function calls (think &#8220;functions instead of tags&#8221; or &#8220;rounded brackets, not angle brackets&#8221;)</h3>
+            <h3><a name="overview-1"></a>1) HTML source code as Function calls (think &#8220;functions instead of tags&#8221; or &#8220;rounded brackets, not angle brackets&#8221;)</h3>
 
             <p>Assuming that you have defined FuncyTags "p" and "span" to represent their
-            plain HTML equivalents (more on that later), you might generate this sentence:</p>
+            plain HTML equivalents (more on that later), this sentence:</p>
 
-            <div style="margin-left:4em;">
-            <p>
-              <span style="color:red;">
-                Red peeps
-              </span>
-              are
-              <span style="font-size:1.5em;">
-                bigger and
-                <span style="color:red;">
-                  redder
-                </span>
-              </span>
-              than
-              <span style="color:blue;">
-                blue peeps.
-              </span>
-            </p>
-            </div>
+            <div style="margin-left:4em;" id="first-example"></div>
 
-            <p>with the following javascript:</p>
+            <p>could be defined by this FuncyTag-using javascript:</p>
             <iframe src="gh-pages/supporting/quick_1.js.txt" onload="growIframe(this)"></iframe>
 
-            <p>for comparison, here is the generated HTML:</p>
+            <p>For comparison, here is the generated HTML:</p>
             <iframe src="gh-pages/supporting/quick_1.html.txt" onload="growIframe(this)"></iframe>
 
-            <h3>2) Creating Custom &#8220;funcy&#8221; tags</h3>
+            <h3><a name="overview-2"></a>2) Creating Custom &#8220;funcy&#8221; tags</h3>
 
-            <p>New FuncyTags can be defined inheriting and extending the charateristics of other tags.</p>
+            <p>New FuncyTags can be defined by inheriting and extending the charateristics of other tags.</p>
 
             <p>The following creates new tags &#8220;red&#8221; and &#8220;big&#8221; to
-            generate exactly the same output as the previous example:</p>
+            generate <i>exactly</i> the same HTML output as the previous example:</p>
             <iframe src="gh-pages/supporting/quick_2.js.txt" onload="growIframe(this)"></iframe>
 
-            <h3>3) Inline event handlers (e.g. onclick, onblur, etc… and adding oninit and onterm)</h3>
+            <h3><a name="overview-3"></a>3) Inline event handlers (e.g. onclick, onblur, etc… and adding oninit and onterm)</h3>
 
             <p>Event handlers can be coded directly within the FuncyTag definition. This applies to all
             of the standard DOM element methods beginning with &#8220;on&#8221; (for example, onblur, onclick, onfocus, etc...)
             and adds the extra options &#8220;oninit&#8221; and &#8220;onterm&#8221;.</p>
 
             <p>In the following example, the &#8220;big&#8221; tag is replaced by a &#8220;fluffy&#8221; tag
-            that reacts to &#8220;onclick&#8221;, but also initializes animation at &#8220;oninit&#8221; time.</p>
+            that reacts to &#8220;onclick&#8221;, and also initializes animation at &#8220;oninit&#8221; time.</p>
             <iframe src="gh-pages/supporting/quick_3.js.txt" onload="growIframe(this)"></iframe>
 
             <p>resulting in the following:</p>
@@ -135,16 +128,32 @@
               </div>
             </div>
 
-            <h3>4) CSS stylesheets as Javascript function calls (i.e. &#8220;FuncyStyles&#8221;).</h3>
+            <h3><a name="overview-4"></a>4) CSS stylesheets defined as Javascript function (i.e. &#8220;FuncyStyles&#8221;).</h3>
 
-            <p>like less or sass or whatevs</p>
+            <p>The previous examples embedded the CSS information within the attributes of a
+            FuncyTag. For CSS information shared across multiple elements it is much more common
+            to use stylesheets. FuncyStyle allows these stylesheets to be defined directly in
+            Javascript, so stylesheets fit right in with the other JavaScript and and FuncyTag code.</p>
+
+            <p>For example, the old &#8220;peeps&#8221; line could be generated with this source code
+            that uses FuncyStyle:</p>
             <iframe src="gh-pages/supporting/quick_4.js.txt" onload="growIframe(this)"></iframe>
+
+            <p>resulting in the old familiar, colorful statement:</p>
+            <div style="margin-left:4em;" id="funcystyle-example"></div>
+
+            <p>because the &#8220;funcyStyle&#8221; call generated and injected this CSS stylesheet:</p>
+            <iframe src="gh-pages/supporting/quick_4.css.txt" onload="growIframe(this)"></iframe>
+
+            <p>and the &#8220;p&#8221;, &#8220;span&#8221;, and &#8220;i&#8221; FuncyTag methods generated this HTML:</p>
+            <iframe src="gh-pages/supporting/quick_4.html.txt" onload="growIframe(this)"></iframe>
+
 
             <p style="font-style:italic;">Disclaimer: FuncyStyle is in a state of flux. Originally it was more
             SASS-like, then I thought &#8220;why not just let people use LESS directly, since it's already JS&#8221;
             but then I realized LESS is easy enough to reproduce so it works better with FuncyStyle, and then I
             thought a little bit of SASSiness I liked should be added, and now I'm not sure what to think. So the
-            current documentation and samples really peter out for FuncyStyl because I'm far from done with those.</p>
+            current documentation and samples really peter out for FuncyStyle because I'm far from done with those.</p>
 
         </div>
 
@@ -156,12 +165,12 @@
                as this:</p>
                <iframe src="gh-pages/supporting/plain_html_animal.html.txt" onload="growIframe(this)"></iframe>
 
-            <p>Just to get a feel for how Javascript "funcy tags" map to a HTML tags, here is how to render
+            <p>Just to get a feel for how Javascript &#8220;funcy tags&#8221; map to a HTML tags, here is how to render
                the same output from server-side FuncyTag:</p>
                <iframe src="gh-pages/supporting/funcy_animal_server.js.txt" onload="growIframe(this)"></iframe>
 
             <p>A traditional client-side Javascript function to create his HTML, based on some parameters that
-               probably came from AJAX would look something like this:</p>
+               probably came from AJAX, would look something like this:</p>
                <iframe src="gh-pages/supporting/typical_javascript_animal.js.txt" onload="growIframe(this)"></iframe>
 
             <p>A FuncyTag implementation to create the same HTML from within client-side Javascript could look something like this:</p>
@@ -172,8 +181,8 @@
             <p>Not really. This is pretty simple stuff, and that's kind of the point: making stuff as simple and boring for
                the javascript writer as possible.<p>
 
-            <p>There's nothing super novel about noticing the similarities between closing tags
-               and the ending parenthesis on a function call, or similarities between html tag attributes and properties
+            <p>There's nothing super novel about noticing the similarities between begin/end tags
+               and the open/end parenthesis on a function call (i.e. <code>&lt;div&gt;...stuff...&lt;/div&gt;</code> versus <code>div(...stuff...)</code>, or similarities between html tag attributes and properties
                of a javascript object. That's been done a lot of times. <i>Although I think it's kind of keen to represent
                <code>style="font-size:14px"</code> as <code>cssFontSize_px=14</code> because doing so has saved me a lot
                of tedious string concatenation code</i>.</p>
@@ -232,29 +241,42 @@
       </footer>
     </div>
 
-    <script type="text/javascript" src="lib/funcytag.0.0.4.min.js"></script>
+    <script type="text/javascript" src="lib/funcytag_and_style.0.0.4.min.js"></script>
     <script type="text/javascript">
-        function fluffy_demo() {
-            var p=funcyTag('p'), span=funcyTag('span');
-            var red = funcyTag( span, { 'cssColor':'red' } );
-            var blue = funcyTag( span, { 'cssColor':'blue' } );
-            var fluffy = funcyTag( span,
-                                   { onclick: function(elem,evt) {
-                                       alert("you clicked me");
-                                     },
-                                     oninit: function(elem) {
-                                       var scale = 100, direction = 1;
-                                       setInterval( function() {
-                                         scale += direction;
-                                         if ( scale <= 100  ||  150 <= scale ) {
-                                            direction *= -1;
-                                         }
-                                         elem.style.fontSize = scale + '%';
-                                       }, 10 );
-                                     }
-                                   } );
 
-            var t;
+        function first_example() {
+            var t, p=funcyTag('p'), span=funcyTag('span');
+            t = p( span( {cssColor:'red'}, 'Red peeps' ),
+                   'are',
+                   span( {cssFontSize_em:1.5},
+                         'bigger and',
+                         span( {cssColor:'red'}, 'redder' ) ),
+                   'than',
+                   span( {cssColor:'blue'}, 'blue peeps.' ) );
+            return String(t);
+        }
+
+        function fluffy_demo() {
+            var p, red, blue, fluffy, t;
+            p=funcyTag('p'), span=funcyTag('span');
+            red = funcyTag( span, { cssColor:'red' } );
+            blue = funcyTag( span, { cssColor:'blue' } );
+            fluffy = funcyTag( span,
+                               { onclick: function(elem,evt) {
+                                   alert("you clicked me");
+                                 },
+                                 oninit: function(elem) {
+                                   var scale = 100, direction = 1;
+                                   setInterval( function() {
+                                     scale += direction;
+                                     if ( scale <= 100  ||  150 <= scale ) {
+                                        direction *= -1;
+                                     }
+                                     elem.style.fontSize = scale + '%';
+                                   }, 10 );
+                                 }
+                               } );
+
             t = p( {cssMargin:0},
                    red( 'Red peeps' ),
                    'are',
@@ -265,8 +287,31 @@
             return String(t);
         }
 
+        function funcystyle_example() {
+            var t, p=funcyTag('p'), i=funcyTag('i'), span=funcyTag('span');
+
+            var bigSize = 1.5;
+            funcyStyle( '#css-demo', {
+                            '.red': { color:'red' },
+                            '#blue': { color:'blue' },
+                            i: { fontSize_em: bigSize, fontStyle:'normal' }
+                        }
+                      );
+
+            t = p( { id:'css-demo' },
+                   span( {class_:'red'}, 'Red peeps' ),
+                   'are',
+                   i( 'bigger and',
+                      span( {class_:'red'}, 'redder' ) ),
+                   'than',
+                    span( {id:'blue'}, 'blue peeps.') );
+            return String(t);
+        }
+
         window.onload = function() {
+            document.getElementById('first-example').innerHTML = first_example();
             document.getElementById('fluffy-demo').innerHTML = fluffy_demo();
+            document.getElementById('funcystyle-example').innerHTML = funcystyle_example();
         };
     </script>
 

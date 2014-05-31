@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>FuncyTag Example 11b</title>
+    <title>FuncyTown Example 11b</title>
     <link rel="stylesheet" type="text/css" href="example_js.css">
   </head>
   <body><div id="content">
@@ -31,6 +31,29 @@
         <iframe scrolling="yes" style="width:98%;height:500px;"></iframe>
       </div>
     </div>
+
+    <hr/>
+    <b>To Notice</b>: You may find there is common variables or code to use among the events you
+    add to an "on...". Any funcyTag propert that begins with an underscore (_) will not be treated
+    as an attribute or an event, so you can put your own data and methods there.<br/></br>
+
+    In this example there are two methods that will re-render the code for an element, and so a "_render"
+    method is added that those other two event handlers may call:
+    <code><pre class="notice-code">
+oninit: function(elem) {
+  this._render(elem);
+},
+onclick: function(elem,evt) {
+  this._clicked++;
+  this._render(elem);
+},
+_render: function(elem) {
+  elem.innerHTML = p('box ' + this._idx) + p(this._clicked + ' clicks');
+}</pre></code>
+
+    Note, especially, this first example that uses the "oninit" method, which is not a
+    standard DOM event callback. You can use "oninit" for code to be executed once the first
+    time this instance of a funcyTag is rendered.
 
     <hr/>
     next: <a href="example12_funcystyle_intro.html" style="margin-right:4em;">example12_funcystyle_intro</a>

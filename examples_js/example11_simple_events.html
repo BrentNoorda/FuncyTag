@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>FuncyTag Example 11</title>
+    <title>FuncyTown Example 11</title>
     <link rel="stylesheet" type="text/css" href="example_js.css">
   </head>
   <body><div id="content">
@@ -32,6 +32,18 @@
         <iframe scrolling="yes" style="width:98%;height:500px;"></iframe>
       </div>
     </div>
+
+    <hr/>
+    <b>To Notice</b>: If funcyTag property is an "on" method (e.g. onblur, onmouseover, etc...) then it
+    will be an event callback on that object.<br/><br/>
+
+    For example, the behavior when you move your mouse over any of these boxes, is controlled by
+    this property which was added to the funcyTag:
+    <code><pre class="notice-code">
+onmouseover: function(elem,evt) {
+  elem.style.backgroundColor = 'black';
+  elem.style.color = 'white';
+}</pre></code>
 
     <hr/>
     next: <a href="example11b_simple_events_w_render.html" style="margin-right:4em;">example11b_simple_events_w_render</a>

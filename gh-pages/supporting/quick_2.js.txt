@@ -1,4 +1,4 @@
-var red = funcyTag(span,{'cssColor':'red'}), blue = funcyTag(span,{'cssColor':'blue'});
+var red = funcyTag(span,{cssColor:'red'}), blue = funcyTag(span,{cssColor:'blue'});
 var big = funcyTag( span, { cssFontSize_em:1.5 } );
 
 p( red('Red peeps'),

@@ -1,39 +1,26 @@
 /*jslint white:false plusplus:false browser:true nomen:false */
-/*globals window, funcyTag, alert*/
+/*globals window, funcyTag*/
 
-var div = funcyTag('div');
-var p=funcyTag('p'), span=funcyTag('span');
-var red = funcyTag( span, { 'cssColor':'red' } );
-var blue = funcyTag( span, { 'cssColor':'blue' } );
-var fluffy = funcyTag( span,
-                       { oninit: function(elem) {
-                           var scale = 100, direction = 1;
-                           setInterval( function() {
-                             scale += direction;
-                             if ( scale <= 100  ||  150 <= scale ) {
-                                direction *= -1;
-                             }
-                             elem.style.fontSize = scale + '%';
-                           }, 10 );
-                         },
-                         onclick: function(elem,evt) {
-                            alert("you clicked me");
-                         }
-                       } );
+var p=funcyTag('p'), i=funcyTag('i'), span=funcyTag('span');
+
+var bigSize = 1.5;
+funcyStyle( '#css-demo', {
+                '.red': { color:'red' },
+                '#blue': { color:'blue' },
+                i: { fontSize_em: bigSize, fontStyle:'normal' }
+            }
+          );
 
 function build_example_html()
 {
     var t;
-    t = div( {cssPosition:'relative',cssHeight_em:3},
-        div( {cssPosition:'absolute', cssBottom:0, cssLeft:0 },
-        p( red( 'Red peeps' ),
+    t = p( { id:'css-demo' },
+           span( {class_:'red'}, 'Red peeps' ),
            'are',
-           fluffy( 'fluffier and',
-                   red( 'redder' ) ),
+           i( 'bigger and',
+              span( {class_:'red'}, 'redder' ) ),
            'than',
-            blue( 'blue peeps.') )
-        )
-        );
+            span( {id:'blue'}, 'blue peeps.') );
     return String(t);
 }
 

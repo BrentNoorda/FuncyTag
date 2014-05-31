@@ -1,0 +1,15 @@
+var bigSize = 1.5; // variable now available to CSS, as well as HTML and JS
+funcyStyle( '#css-demo', {
+                '.red': { color:'red' },
+                '#blue': { color:'blue' },
+                i: { fontSize_em: bigSize, fontStyle:'normal' }
+            }
+          );
+
+p( { id:'css-demo' },
+   span( {class_:'red'}, 'Red peeps' ),
+   'are',
+   i( 'bigger and',
+      span( {class_:'red'}, 'redder' ) ),
+   'than',
+    span( {id:'blue'}, 'blue peeps.') );
