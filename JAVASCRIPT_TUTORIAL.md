@@ -3,6 +3,8 @@
 
 This is a step-by-step introduction to the features of FuncyTag in Javascript. This tutorial is also available as a [FuncyTag Python Tutorial](PYTHON_TUTORIAL.md).
 
+*NOTE: This tutorial covers only FuncyTag. FuncyStyle does not yet have a tutorial.*
+
 * [1: basic use](#1)
 * [2: setting attributes: funcyTag option object == html attributes](#2)
 * [3: cssCamelStyles](#3)
@@ -365,6 +367,7 @@ which generates this safe html:
 
 That completes this FuncyTag &amp; FuncyStyle Javascript Tutorial. For more reading see:
 
+* [FuncyTown project page](http://brentnoorda.github.io/FuncyTag)
 * [FuncyTag README](README.md)
 * [FuncyTag Python Tutorial](PYTHON_TUTORIAL.md)
 * [FuncyTag on GitHub](https://github.com/BrentNoorda/FuncyTag)

@@ -1,18 +1,20 @@
 FuncyTag &amp; FuncyStyle (aka FuncyTown)
 =========
 
-<p style="color:red">THIS PROJECT IS IN TRANSITION. GO AWAY (but come back soon).</p>
+### Generate HTML, JS, & CSS from single-source-file nested Javascript functions.
 
-FuncyTag is an HTML generator in pure javascript or python, primarily useful for programmaticly creating snippets of HTML to be embedded in a page at server-side or client-side. FuncyTag makes creating HTML look like function calls, so it looks familiar to a functional programmer (nesting, parameters, etc...). Optimized only for easy reading/writing by humans. Not quite an html template language, but kinda.
+FuncyTag & FuncyStyle allow all components of a web page (HTML, CSS, and Javascript) to be generated from one purely functional Javascript source. HTML and CSS are mapped clearly to Javascript, but without losing their flavor. The result is easy to read, easy to write, easy to bundle, easy to reuse, and (hopefully) kind of boring.
+
+For an overview, see the [FuncyTown Project Page](http://brentnoorda.github.io/FuncyTag/) and walk through the [step-by-step tutorial examples](http://brentnoorda.github.io/FuncyTag/examples_js.html)
 
 Jump To:
 
-* [project page](http://brentnoorda.github.io/FuncyTag/)
 * [quick example](#quick-example)
 * [tutorials](#tutorials)
+* [step-by-step tutorial examples](#more-examples)
+* [a word about performance](#recommendations)
 * [project status](#project-status)
-* [more examples](#more-examples)
-* [recommendations on when to use FuncyTag](#recommendations)
+* [more information](#more-information)
 
 ------------------------------------------------------------------------------
 
@@ -81,29 +83,20 @@ By making HTML tags act like functions with their attributes set like script obj
 These step-by-step tutorials introduce FuncyTag features by example:
 
 * [FuncyTag Javascript Tutorial](JAVASCRIPT_TUTORIAL.md)
-* [FuncyTag Python Tutorial](PYTHON_TUTORIAL.md)
-
-------------------------------------------------------------------------------
-
-<a name="project-status"></a>
-# project status
-
-* version 0.0.1 released Feb 22, 2013. This is a first stab in hopes of getting some feedback from someone... anyone...
-* version 0.0.2 released Feb 25, 2013. Add python version.
-* version 0.0.3 released Feb 26, 2013. When attribute values are undefined/None, do not set the attribute.
-* version 0.0.4 released ?????. Events????
+* [FuncyTag Python Tutorial](PYTHON_TUTORIAL.md) - note that the python version has not kept up with the javascript version, and is in danger of being abandoned
+* FuncyStyle Tutorial does not yet exist
 
 ------------------------------------------------------------------------------
 
 <a name="more-examples"></a>
-# more examples
+# step-by-step tutorial examples
 
-* [a bunch of online javascript examples](http://brentnoorda.github.io/FuncyTag/examples_js.html)
+* [a bunch of online educational, javascript examples](http://brentnoorda.github.io/FuncyTag/examples_js.html)
 
 ------------------------------------------------------------------------------
 
 <a name="recommendations"></a>
-# recommendations on when to use FuncyTag
+# a word about performance
 
 In general you could create all of your HTML via FuncyTag, but just because you can doesn't mean you should. In my experience, FuncyTag makes the most sense when you want to create just a relatively small sections of html based on runtime parameters, and you want that to be algorithmically flexible and really really easy to read.
 
@@ -141,3 +134,21 @@ Now consider this alternative, which only builds the template once, and then use
 This replace version runs 100,000 times in about 0.45 seconds--about 17 times faster. That would be a big difference if you were making this call 100,000 times, but in a scenario that made this call only 10 times (for example, filling out a page of books in a web page in a browser) the performance difference between these methods, and even faster methods, would be difficult to measure (less than a millisecond, and imperceptible to any user).
 
 Final recommendation: Unless you're in a situation where every microsecond will be noticed, pick the tool that makes the best use of your development time.
+
+------------------------------------------------------------------------------
+
+<a name="project-status"></a>
+# project status
+
+* version 0.0.1 released Feb 22, 2013. This is a first stab in hopes of getting some feedback from someone... anyone...
+* version 0.0.2 released Feb 25, 2013. Add python version.
+* version 0.0.3 released Feb 26, 2013. When attribute values are undefined/None, do not set the attribute.
+* version 0.0.4 released Jun 01, 2014. Add FuncyStyle, update documentation, and create project page at [http://brentnoorda.github.io/FuncyTag](http://brentnoorda.github.io/FuncyTag)
+
+------------------------------------------------------------------------------
+
+<a name="more-information"></a>
+# more information
+
+* [FuncyTown Project Page](http://brentnoorda.github.io/FuncyTag/) - project introduction and overview
+* [step-by-step tutorial examples](http://brentnoorda.github.io/FuncyTag/examples_js.html) - see FuncyTown in action on live web pages

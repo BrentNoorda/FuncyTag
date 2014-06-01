@@ -3,6 +3,8 @@
 
 This is a step-by-step introduction to the features of FuncyTag in Python. This tutorial is also available as a [FuncyTag Javascript Tutorial](JAVASCRIPT_TUTORIAL.md).
 
+*NOTE: The Python version has not kept up with the Javascript version, and is in danger of being abandoned.*
+
 * [1: basic use](#1)
 * [2a: setting attributes: funcyTag dictionary == html attributes](#2a)
 * [2b: setting attributes with dict()](#2b)
@@ -377,6 +379,7 @@ which generates this safe html:
 
 That completes this FuncyTag Python Tutorial. For more reading see:
 
+* [FuncyTown project page](http://brentnoorda.github.io/FuncyTag)
 * [FuncyTag README](README.md)
 * [FuncyTag Javascript Tutorial](JAVASCRIPT_TUTORIAL.md)
 * [FuncyTag on GitHub](https://github.com/BrentNoorda/FuncyTag)
