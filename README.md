@@ -13,6 +13,7 @@ Jump To:
 * [tutorials](#tutorials)
 * [step-by-step tutorial examples](#more-examples)
 * [a word about performance](#recommendations)
+* [similar tools](#similar-tools)
 * [project status](#project-status)
 * [more information](#more-information)
 
@@ -134,6 +135,26 @@ Now consider this alternative, which only builds the template once, and then use
 This replace version runs 100,000 times in about 0.45 seconds--about 17 times faster. That would be a big difference if you were making this call 100,000 times, but in a scenario that made this call only 10 times (for example, filling out a page of books in a web page in a browser) the performance difference between these methods, and even faster methods, would be difficult to measure (less than a millisecond, and imperceptible to any user).
 
 Final recommendation: Unless you're in a situation where every microsecond will be noticed, pick the tool that makes the best use of your development time.
+
+------------------------------------------------------------------------------
+<a name="similar-tools"></a>
+# similar tools
+
+If you're not satisifed with FuncyTag/FuncyStyle, there are many similar tools, with different reasons for being:
+
+* [oj.js](http://ojjs.org/) - unifies templating of HTML, CSS and JS, and does a lot of other stuff too
+* [Farof/jhtml](https://github.com/Farof/jhtml) - very similar
+* [edspencer/jaml](https://github.com/edspencer/jaml) - very similar
+* [tekrat/eSugar](https://github.com/tekrat/eSugar)
+* [mrak/js2dom](https://github.com/mrak/js2dom)
+* [nrn/flates](https://github.com/nrn/flates)
+* [markrendle/moist.js](https://github.com/markrendle/moist.js)
+* [reissbaker/html-sourcery](https://github.com/reissbaker/html-sourcery)
+* [richjddavis/elephactory](https://github.com/richjddavis/elephactory)
+* [robrobbins/RML](https://github.com/robrobbins/RML)
+* [webmat/sugar_dom](https://github.com/webmat/sugar_dom)
+
+or you might just be satisfied with jquery(html,attributes). For a discussion of the topic see [Building HTML in jQuery and JavaScript](http://marcgrabanski.com/articles/building-html-in-jquery-and-javascript).
 
 ------------------------------------------------------------------------------
 
