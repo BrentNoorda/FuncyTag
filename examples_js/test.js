@@ -1,5 +1,5 @@
 /*jslint white:false plusplus:false browser:true nomen:false */
-/*globals window, funcyTag*/
+/*globals window, funcyTag, funcyStyle*/
 
 var p=funcyTag('p'), i=funcyTag('i'), span=funcyTag('span');
 
